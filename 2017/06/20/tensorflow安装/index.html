@@ -9,7 +9,7 @@
     
     <meta name="author" content="wiyee">
     
-    <meta name="description" content="ubuntuTake the following steps to install TensorFlow with Virtualenv:1. Install pip and virtualenv by issuing the following command:$ sudo apt-get ins">
+    <meta name="description" content="ubuntuTake the following steps to install TensorFlow with Virtualenv:Install pip and virtualenv by issuing the following command:$ sudo apt-get instal">
     
     
     
@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:34.064Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:31:14.341Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:23:50.225Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -86,22 +86,22 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu"><span class="toc-number">1.</span> <span class="toc-text">ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><span class="toc-number">2.</span> <span class="toc-text">Take the following steps to install TensorFlow with Virtualenv:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-Install-pip-and-virtualenv-by-issuing-the-following-command"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1. Install pip and virtualenv by issuing the following command:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Create-a-virtualenv-environment-by-issuing-the-following-command"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">2. Create a virtualenv environment by issuing the following command:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">3. Activate the virtualenv environment by issuing one of the following commands:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">4. Issue one of the following commands to install TensorFlow in the active virtualenv environment:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">5. (Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</span></a></li></ol></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu"><span class="toc-number">1.</span> <span class="toc-text">ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><span class="toc-number">2.</span> <span class="toc-text">Take the following steps to install TensorFlow with Virtualenv:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install-pip-and-virtualenv-by-issuing-the-following-command"><span class="toc-number">2.1.</span> <span class="toc-text">Install pip and virtualenv by issuing the following command:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-virtualenv-environment-by-issuing-the-following-command"><span class="toc-number">2.2.</span> <span class="toc-text">Create a virtualenv environment by issuing the following command:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><span class="toc-number">2.3.</span> <span class="toc-text">Activate the virtualenv environment by issuing one of the following commands:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><span class="toc-number">2.4.</span> <span class="toc-text">Issue one of the following commands to install TensorFlow in the active virtualenv environment:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><span class="toc-number">2.5.</span> <span class="toc-text">(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</span></a></li></ol></li></ol>
 		</div>
 		
-		<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><h3 id="Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><a href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv" class="headerlink" title="Take the following steps to install TensorFlow with Virtualenv:"></a>Take the following steps to install TensorFlow with Virtualenv:</h3><h6 id="1-Install-pip-and-virtualenv-by-issuing-the-following-command"><a href="#1-Install-pip-and-virtualenv-by-issuing-the-following-command" class="headerlink" title="1. Install pip and virtualenv by issuing the following command:"></a>1. Install pip and virtualenv by issuing the following command:</h6><pre><code>$ sudo apt-get install python-pip python-dev python-virtualenv 
-</code></pre><h6 id="2-Create-a-virtualenv-environment-by-issuing-the-following-command"><a href="#2-Create-a-virtualenv-environment-by-issuing-the-following-command" class="headerlink" title="2. Create a virtualenv environment by issuing the following command:"></a>2. Create a virtualenv environment by issuing the following command:</h6><pre><code>$ virtualenv --system-site-packages targetDirectory 
+		<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><h3 id="Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><a href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv" class="headerlink" title="Take the following steps to install TensorFlow with Virtualenv:"></a>Take the following steps to install TensorFlow with Virtualenv:</h3><h4 id="Install-pip-and-virtualenv-by-issuing-the-following-command"><a href="#Install-pip-and-virtualenv-by-issuing-the-following-command" class="headerlink" title="Install pip and virtualenv by issuing the following command:"></a>Install pip and virtualenv by issuing the following command:</h4><pre><code>$ sudo apt-get install python-pip python-dev python-virtualenv 
+</code></pre><h4 id="Create-a-virtualenv-environment-by-issuing-the-following-command"><a href="#Create-a-virtualenv-environment-by-issuing-the-following-command" class="headerlink" title="Create a virtualenv environment by issuing the following command:"></a>Create a virtualenv environment by issuing the following command:</h4><pre><code>$ virtualenv --system-site-packages targetDirectory 
 </code></pre><p>The targetDirectory specifies the top of the virtualenv tree. Our instructions assume that targetDirectory is ~/tensorflow, but you may choose any directory.</p>
-<h6 id="3-Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><a href="#3-Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands" class="headerlink" title="3. Activate the virtualenv environment by issuing one of the following commands:"></a>3. Activate the virtualenv environment by issuing one of the following commands:</h6><pre><code>$ source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh
+<h4 id="Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><a href="#Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands" class="headerlink" title="Activate the virtualenv environment by issuing one of the following commands:"></a>Activate the virtualenv environment by issuing one of the following commands:</h4><pre><code>$ source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh
 $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
 </code></pre><p>The preceding source command should change your prompt to the following:</p>
 <pre><code>(tensorflow)$ 
-</code></pre><h6 id="4-Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><a href="#4-Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment" class="headerlink" title="4. Issue one of the following commands to install TensorFlow in the active virtualenv environment:"></a>4. Issue one of the following commands to install TensorFlow in the active virtualenv environment:</h6><pre><code>(tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7
+</code></pre><h4 id="Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><a href="#Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment" class="headerlink" title="Issue one of the following commands to install TensorFlow in the active virtualenv environment:"></a>Issue one of the following commands to install TensorFlow in the active virtualenv environment:</h4><pre><code>(tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7
 (tensorflow)$ pip3 install --upgrade tensorflow     # for Python 3.n
 (tensorflow)$ pip install --upgrade tensorflow-gpu  # for Python 2.7 and GPU
 (tensorflow)$ pip3 install --upgrade tensorflow-gpu # for Python 3.n and GPU
 </code></pre><p>If the preceding command succeeds, skip Step 5. If the preceding command fails, perform Step 5.</p>
-<h6 id="5-Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><a href="#5-Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format" class="headerlink" title="5. (Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:"></a>5. (Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</h6><pre><code>(tensorflow)$ pip install --upgrade TF_PYTHON_URL   # Python 2.7
+<h4 id="Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><a href="#Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format" class="headerlink" title="(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:"></a>(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</h4><pre><code>(tensorflow)$ pip install --upgrade TF_PYTHON_URL   # Python 2.7
 (tensorflow)$ pip3 install --upgrade TF_PYTHON_URL  # Python 3.N 
 </code></pre><p>where TF_PYTHON_URL identifies the URL of the TensorFlow Python package. The appropriate value of TF_PYTHON_URLdepends on the operating system, Python version, and GPU support. Find the appropriate value for TF_PYTHON_URL for your system here. For example, if you are installing TensorFlow for Linux, Python 2.7, and CPU-only support, issue the following command to install TensorFlow in the active virtualenv environment:</p>
 <pre><code>(tensorflow)$ pip3 install --upgrade \
@@ -111,6 +111,16 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/machine-learning/">machine learning</a><a href="/tags/deep-learning/">deep learning</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+</div>
 
 
 
@@ -145,16 +155,12 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu"><span class="toc-number">1.</span> <span class="toc-text">ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><span class="toc-number">2.</span> <span class="toc-text">Take the following steps to install TensorFlow with Virtualenv:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-Install-pip-and-virtualenv-by-issuing-the-following-command"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1. Install pip and virtualenv by issuing the following command:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Create-a-virtualenv-environment-by-issuing-the-following-command"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">2. Create a virtualenv environment by issuing the following command:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">3. Activate the virtualenv environment by issuing one of the following commands:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">4. Issue one of the following commands to install TensorFlow in the active virtualenv environment:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">5. (Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</span></a></li></ol></li></ol></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu"><span class="toc-number">1.</span> <span class="toc-text">ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><span class="toc-number">2.</span> <span class="toc-text">Take the following steps to install TensorFlow with Virtualenv:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install-pip-and-virtualenv-by-issuing-the-following-command"><span class="toc-number">2.1.</span> <span class="toc-text">Install pip and virtualenv by issuing the following command:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-virtualenv-environment-by-issuing-the-following-command"><span class="toc-number">2.2.</span> <span class="toc-text">Create a virtualenv environment by issuing the following command:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><span class="toc-number">2.3.</span> <span class="toc-text">Activate the virtualenv environment by issuing one of the following commands:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><span class="toc-number">2.4.</span> <span class="toc-text">Issue one of the following commands to install TensorFlow in the active virtualenv environment:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><span class="toc-number">2.5.</span> <span class="toc-text">(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -166,7 +172,19 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -177,7 +195,33 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -324,18 +368,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

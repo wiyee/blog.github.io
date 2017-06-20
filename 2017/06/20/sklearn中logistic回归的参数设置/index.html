@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:34.026Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:30:54.695Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:26:24.984Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -86,20 +86,20 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-number">1.</span> <span class="toc-text">1. 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-正则化选择参数：penalty"><span class="toc-number">2.</span> <span class="toc-text">2. 正则化选择参数：penalty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-优化算法选择参数：solver"><span class="toc-number">3.</span> <span class="toc-text">3. 优化算法选择参数：solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分类方式选择参数：multi-class"><span class="toc-number">4.</span> <span class="toc-text">4. 分类方式选择参数：multi_class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-类型权重参数：-class-weight"><span class="toc-number">5.</span> <span class="toc-text">5. 类型权重参数： class_weight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-样本权重参数：-sample-weight"><span class="toc-number">6.</span> <span class="toc-text">6. 样本权重参数： sample_weight</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则化选择参数：penalty"><span class="toc-number">2.</span> <span class="toc-text">正则化选择参数：penalty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化算法选择参数：solver"><span class="toc-number">3.</span> <span class="toc-text">优化算法选择参数：solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类方式选择参数：multi-class"><span class="toc-number">4.</span> <span class="toc-text">分类方式选择参数：multi_class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型权重参数：-class-weight"><span class="toc-number">5.</span> <span class="toc-text">类型权重参数： class_weight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样本权重参数：-sample-weight"><span class="toc-number">6.</span> <span class="toc-text">样本权重参数： sample_weight</span></a></li></ol>
 		</div>
 		
 		<p>原文出处：<a href="http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订" target="_blank" rel="external">http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订</a><br>sklearn中LogisticRegression的API如下，官方文档：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression</a></p>
 <p>class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
-<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>　　　　在scikit-learn中，与逻辑回归有关的主要是这3个类。LogisticRegression， LogisticRegressionCV 和logistic_regression_path。其中LogisticRegression和LogisticRegressionCV的主要区别是LogisticRegressionCV使用了交叉验证来选择正则化系数C。而LogisticRegression需要自己每次指定一个正则化系数。除了交叉验证，以及选择正则化系数C以外， LogisticRegression和LogisticRegressionCV的使用方法基本相同。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　　　在scikit-learn中，与逻辑回归有关的主要是这3个类。LogisticRegression， LogisticRegressionCV 和logistic_regression_path。其中LogisticRegression和LogisticRegressionCV的主要区别是LogisticRegressionCV使用了交叉验证来选择正则化系数C。而LogisticRegression需要自己每次指定一个正则化系数。除了交叉验证，以及选择正则化系数C以外， LogisticRegression和LogisticRegressionCV的使用方法基本相同。</p>
 <p>　　　　logistic_regression_path类则比较特殊，它拟合数据后，不能直接来做预测，只能为拟合数据选择合适逻辑回归的系数和正则化系数。主要是用在模型选择的时候。一般情况用不到这个类，所以后面不再讲述logistic_regression_path类。</p>
 <p>　　　　此外，scikit-learn里面有个容易让人误解的类RandomizedLogisticRegression,虽然名字里有逻辑回归的词，但是主要是用L1正则化的逻辑回归来做特征选择的，属于维度规约的算法类，不属于我们常说的分类算法的范畴。</p>
 <p>　　　　后面的讲解主要围绕LogisticRegression和LogisticRegressionCV中的重要参数的选择来来展开，这些参数的意义在这两个类中都是一样的。</p>
-<h2 id="2-正则化选择参数：penalty"><a href="#2-正则化选择参数：penalty" class="headerlink" title="2. 正则化选择参数：penalty"></a>2. 正则化选择参数：penalty</h2><p>　　　　LogisticRegression和LogisticRegressionCV默认就带了正则化项。penalty参数可选择的值为”l1”和”l2”.分别对应L1的正则化和L2的正则化，默认是L2的正则化。</p>
+<h2 id="正则化选择参数：penalty"><a href="#正则化选择参数：penalty" class="headerlink" title="正则化选择参数：penalty"></a>正则化选择参数：penalty</h2><p>　　　　LogisticRegression和LogisticRegressionCV默认就带了正则化项。penalty参数可选择的值为”l1”和”l2”.分别对应L1的正则化和L2的正则化，默认是L2的正则化。</p>
 <p>　　　　在调参时如果我们主要的目的只是为了解决过拟合，一般penalty选择L2正则化就够了。但是如果选择L2正则化发现还是过拟合，即预测效果差的时候，就可以考虑L1正则化。另外，如果模型的特征非常多，我们希望一些不重要的特征系数归零，从而让模型系数稀疏化的话，也可以使用L1正则化。</p>
 <p>　　　　penalty参数的选择会影响我们损失函数优化算法的选择。即参数solver的选择，如果是L2正则化，那么4种可选的算法{‘newton-cg’, ‘lbfgs’, ‘liblinear’, ‘sag’}都可以选择。但是如果penalty是L1正则化的话，就只能选择‘liblinear’了。这是因为L1正则化的损失函数不是连续可导的，而{‘newton-cg’, ‘lbfgs’,‘sag’}这三种优化算法时都需要损失函数的一阶或者二阶连续导数。而‘liblinear’并没有这个依赖。</p>
 <p>　　　　具体使用了这4个算法有什么不同以及有什么影响我们下一节讲。</p>
-<h2 id="3-优化算法选择参数：solver"><a href="#3-优化算法选择参数：solver" class="headerlink" title="3. 优化算法选择参数：solver"></a>3. 优化算法选择参数：solver</h2><p>　　　　solver参数决定了我们对逻辑回归损失函数的优化方法，有4种算法可以选择，分别是：</p>
+<h2 id="优化算法选择参数：solver"><a href="#优化算法选择参数：solver" class="headerlink" title="优化算法选择参数：solver"></a>优化算法选择参数：solver</h2><p>　　　　solver参数决定了我们对逻辑回归损失函数的优化方法，有4种算法可以选择，分别是：</p>
 <p>　　　　a) liblinear：使用了开源的liblinear库实现，内部使用了坐标轴下降法来迭代优化损失函数。</p>
 <p>　　　　b) lbfgs：拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</p>
 <p>　　　　c) newton-cg：也是牛顿法家族的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</p>
@@ -115,13 +115,13 @@
 </code></pre><p>　　　　从上面的描述，大家可能觉得，既然newton-cg, lbfgs和sag这么多限制，如果不是大样本，我们选择liblinear不就行了嘛！错，因为liblinear也有自己的弱点！我们知道，逻辑回归有二元逻辑回归和多元逻辑回归。对于多元逻辑回归常见的有one-vs-rest(OvR)和many-vs-many(MvM)两种。而MvM一般比OvR分类相对准确一些。郁闷的是liblinear只支持OvR，不支持MvM，这样如果我们需要相对精确的多元逻辑回归时，就不能选择liblinear了。也意味着如果我们需要相对精确的多元逻辑回归不能使用L1正则化了。</p>
 <p>总结而言，liblinear支持L1和L2，只支持OvR做多分类，“lbfgs”, “sag” “newton-cg”只支持L2，支持OvR和MvM做多分类。</p>
 <p>　　　　具体OvR和MvM有什么不同我们下一节讲。</p>
-<h2 id="4-分类方式选择参数：multi-class"><a href="#4-分类方式选择参数：multi-class" class="headerlink" title="4. 分类方式选择参数：multi_class"></a>4. 分类方式选择参数：multi_class</h2><p>　　　　multi_class参数决定了我们分类方式的选择，有 ovr和multinomial两个值可以选择，默认是 ovr。</p>
+<h2 id="分类方式选择参数：multi-class"><a href="#分类方式选择参数：multi-class" class="headerlink" title="分类方式选择参数：multi_class"></a>分类方式选择参数：multi_class</h2><p>　　　　multi_class参数决定了我们分类方式的选择，有 ovr和multinomial两个值可以选择，默认是 ovr。</p>
 <p>　　　　ovr即前面提到的one-vs-rest(OvR)，而multinomial即前面提到的many-vs-many(MvM)。如果是二元逻辑回归，ovr和multinomial并没有任何区别，区别主要在多元逻辑回归上。</p>
 <p>　　　　OvR的思想很简单，无论你是多少元逻辑回归，我们都可以看做二元逻辑回归。具体做法是，对于第K类的分类决策，我们把所有第K类的样本作为正例，除了第K类样本以外的所有样本都作为负例，然后在上面做二元逻辑回归，得到第K类的分类模型。其他类的分类模型获得以此类推。</p>
 <p>　　　　而MvM则相对复杂，这里举MvM的特例one-vs-one(OvO)作讲解。如果模型有T类，我们每次在所有的T类样本里面选择两类样本出来，不妨记为T1类和T2类，把所有的输出为T1和T2的样本放在一起，把T1作为正例，T2作为负例，进行二元逻辑回归，得到模型参数。我们一共需要T(T-1)/2次分类。</p>
 <p>　　　　从上面的描述可以看出OvR相对简单，但分类效果相对略差（这里指大多数样本分布情况，某些样本分布下OvR可能更好）。而MvM分类相对精确，但是分类速度没有OvR快。</p>
 <p>　　　　如果选择了ovr，则4种损失函数的优化方法liblinear，newton-cg, lbfgs和sag都可以选择。但是如果选择了multinomial,则只能选择newton-cg, lbfgs和sag了。</p>
-<h2 id="5-类型权重参数：-class-weight"><a href="#5-类型权重参数：-class-weight" class="headerlink" title="5. 类型权重参数： class_weight"></a>5. 类型权重参数： class_weight</h2><p>　　　　class_weight参数用于标示分类模型中各种类型的权重，可以不输入，即不考虑权重，或者说所有类型的权重一样。如果选择输入的话，可以选择balanced让类库自己计算类型权重，或者我们自己输入各个类型的权重，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9, 1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。</p>
+<h2 id="类型权重参数：-class-weight"><a href="#类型权重参数：-class-weight" class="headerlink" title="类型权重参数： class_weight"></a>类型权重参数： class_weight</h2><p>　　　　class_weight参数用于标示分类模型中各种类型的权重，可以不输入，即不考虑权重，或者说所有类型的权重一样。如果选择输入的话，可以选择balanced让类库自己计算类型权重，或者我们自己输入各个类型的权重，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9, 1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。</p>
 <p>　　　　如果class_weight选择balanced，那么类库会根据训练样本量来计算权重。某种类型样本量越多，则权重越低，样本量越少，则权重越高。</p>
 <p>sklearn的官方文档中，当class_weight为balanced时，类权重计算方法如下：</p>
 <p>n_samples / (n_classes * np.bincount(y))，n_samples为样本数，n_classes为类别数量，np.bincount(y)会输出每个类的样本数，例如y=[1,0,0,1,1],则np.bincount(y)=[2,3]<br>　　　　那么class_weight有什么作用呢？在分类模型中，我们经常会遇到两类问题：</p>
@@ -129,13 +129,23 @@
 <p>　　　　第二种是样本是高度失衡的，比如我们有合法用户和非法用户的二元样本数据10000条，里面合法用户有9995条，非法用户只有5条，如果我们不考虑权重，则我们可以将所有的测试集都预测为合法用户，这样预测准确率理论上有99.95%，但是却没有任何意义。这时，我们可以选择balanced，让类库自动提高非法用户样本的权重。</p>
 <p>　　　　提高了某种分类的权重，相比不考虑权重，会有更多的样本分类划分到高权重的类别，从而可以解决上面两类问题。</p>
 <p>　　　　当然，对于第二种样本失衡的情况，我们还可以考虑用下一节讲到的样本权重参数： sample_weight，而不使用class_weight。sample_weight在下一节讲。</p>
-<h2 id="6-样本权重参数：-sample-weight"><a href="#6-样本权重参数：-sample-weight" class="headerlink" title="6. 样本权重参数： sample_weight"></a>6. 样本权重参数： sample_weight</h2><p>　　　　上一节我们提到了样本不失衡的问题，由于样本不平衡，导致样本不是总体样本的无偏估计，从而可能导致我们的模型预测能力下降。遇到这种情况，我们可以通过调节样本权重来尝试解决这个问题。调节样本权重的方法有两种，第一种是在class_weight使用balanced。第二种是在调用fit函数时，通过sample_weight来自己调节每个样本权重。</p>
+<h2 id="样本权重参数：-sample-weight"><a href="#样本权重参数：-sample-weight" class="headerlink" title="样本权重参数： sample_weight"></a>样本权重参数： sample_weight</h2><p>　　　　上一节我们提到了样本不失衡的问题，由于样本不平衡，导致样本不是总体样本的无偏估计，从而可能导致我们的模型预测能力下降。遇到这种情况，我们可以通过调节样本权重来尝试解决这个问题。调节样本权重的方法有两种，第一种是在class_weight使用balanced。第二种是在调用fit函数时，通过sample_weight来自己调节每个样本权重。</p>
 <p>　　　　在scikit-learn做逻辑回归时，如果上面两种方法都用到了，那么样本的真正权重是class_weight*sample_weight.</p>
 <p>　　　　以上就是scikit-learn中逻辑回归类库调参的一个小结，还有些参数比如正则化参数C（交叉验证就是 Cs），迭代次数max_iter等，由于和其它的算法类库并没有特别不同，这里不多累述了。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/machine-learning/">machine learning</a><a href="/tags/regression/">regression</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+</div>
 
 
 
@@ -160,9 +170,9 @@
 
 
 <div class="next">
-<a href="/2017/06/20/maven的安装配置/"  title="Maven安装配置">
+<a href="/2017/06/20/map排序/"  title="map排序">
  <strong>NEXT:</strong><br/> 
- <span>Maven安装配置
+ <span>map排序
 </span>
 </a>
 </div>
@@ -170,16 +180,12 @@
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-number">1.</span> <span class="toc-text">1. 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-正则化选择参数：penalty"><span class="toc-number">2.</span> <span class="toc-text">2. 正则化选择参数：penalty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-优化算法选择参数：solver"><span class="toc-number">3.</span> <span class="toc-text">3. 优化算法选择参数：solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分类方式选择参数：multi-class"><span class="toc-number">4.</span> <span class="toc-text">4. 分类方式选择参数：multi_class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-类型权重参数：-class-weight"><span class="toc-number">5.</span> <span class="toc-text">5. 类型权重参数： class_weight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-样本权重参数：-sample-weight"><span class="toc-number">6.</span> <span class="toc-text">6. 样本权重参数： sample_weight</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则化选择参数：penalty"><span class="toc-number">2.</span> <span class="toc-text">正则化选择参数：penalty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化算法选择参数：solver"><span class="toc-number">3.</span> <span class="toc-text">优化算法选择参数：solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类方式选择参数：multi-class"><span class="toc-number">4.</span> <span class="toc-text">分类方式选择参数：multi_class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型权重参数：-class-weight"><span class="toc-number">5.</span> <span class="toc-text">类型权重参数： class_weight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样本权重参数：-sample-weight"><span class="toc-number">6.</span> <span class="toc-text">样本权重参数： sample_weight</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -191,7 +197,19 @@
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -202,7 +220,33 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -349,18 +393,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

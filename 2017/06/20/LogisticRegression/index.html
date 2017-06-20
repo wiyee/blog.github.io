@@ -10,8 +10,7 @@
     <meta name="author" content="wiyee">
     
     <meta name="description" content="数据集这里使用uci上的开源数据集
-# 数据介绍：
-这可能是模式识别文献中最知名的数据库。费雪的论文是这个领域的经典，到今天还经常被引用。 数据集包含3个类，每个类包含50个实例，其中每个类都指一种类型的鸢尾花。一类与另外一类线性分离2;后者不能彼此线性分离。预测属性： 鸢尾花类别.这是一个非常简单">
+数据介绍：这可能是模式识别文献中最知名的数据库。费雪的论文是这个领域的经典，到今天还经常被引用。 数据集包含3个类，每个类包含50个实例，其中每个类都指一种类型的鸢尾花。一类与另外一类线性分离2;后者不能彼此线性分离。预测属性： 鸢尾花类别.这是一个非常简单的领域">
     
     
     
@@ -79,7 +78,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:33.987Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T08:59:37.269Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:29:17.973Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -88,15 +87,12 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导库"><span class="toc-number">4.1.</span> <span class="toc-text">导库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">5.</span> <span class="toc-text">划分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据展示"><span class="toc-number">6.</span> <span class="toc-text">数据展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据标准化"><span class="toc-number">7.</span> <span class="toc-text">数据标准化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">8.</span> <span class="toc-text">模型构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果展示"><span class="toc-number">9.</span> <span class="toc-text">结果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准确率计算"><span class="toc-number">10.</span> <span class="toc-text">准确率计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Logistic回归处理多分类问题"><span class="toc-number">11.</span> <span class="toc-text">用Logistic回归处理多分类问题</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性信息："><span class="toc-number">1.2.</span> <span class="toc-text">属性信息：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导库"><span class="toc-number">4.1.</span> <span class="toc-text">导库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">5.</span> <span class="toc-text">划分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据展示"><span class="toc-number">6.</span> <span class="toc-text">数据展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据标准化"><span class="toc-number">7.</span> <span class="toc-text">数据标准化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">8.</span> <span class="toc-text">模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#因此我们得到了步骤2中所需的3个参数，可以得到如下关系："><span class="toc-number">8.1.</span> <span class="toc-text">因此我们得到了步骤2中所需的3个参数，可以得到如下关系：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果展示"><span class="toc-number">9.</span> <span class="toc-text">结果展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-number">9.1.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准确率计算"><span class="toc-number">10.</span> <span class="toc-text">准确率计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Logistic回归处理多分类问题"><span class="toc-number">11.</span> <span class="toc-text">用Logistic回归处理多分类问题</span></a></li></ol>
 		</div>
 		
 		<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
-<pre><code># 数据介绍：
-</code></pre><p>这可能是模式识别文献中最知名的数据库。费雪的论文是这个领域的经典，到今天还经常被引用。 数据集包含3个类，每个类包含50个实例，其中每个类都指一种类型的鸢尾花。一类与另外一类线性分离2;后者不能彼此线性分离。<br>预测属性： 鸢尾花类别.<br>这是一个非常简单的领域。<br>该数据与Fishers文章（由Steve Chadwick，spchadwick’@ espeedaz.net确定）中提供的数据不同。第35个样本应为：4.9,3.1,1.5,0.2，“Iris-setosa”，其中错误在第四个特征。第38个样本：4.9,3.6,1.4,0.1，“Iris-setosa”，其中错误在第二和第三个特征。</p>
-<pre><code># 属性信息：
-
-sepal length: 萼片长度（厘米）
+<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>这可能是模式识别文献中最知名的数据库。费雪的论文是这个领域的经典，到今天还经常被引用。 数据集包含3个类，每个类包含50个实例，其中每个类都指一种类型的鸢尾花。一类与另外一类线性分离2;后者不能彼此线性分离。<br>预测属性： 鸢尾花类别.<br>这是一个非常简单的领域。<br>该数据与Fishers文章（由Steve Chadwick，spchadwick’@ espeedaz.net确定）中提供的数据不同。第35个样本应为：4.9,3.1,1.5,0.2，“Iris-setosa”，其中错误在第四个特征。第38个样本：4.9,3.6,1.4,0.1，“Iris-setosa”，其中错误在第二和第三个特征。</p>
+<h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><pre><code>sepal length: 萼片长度（厘米）
 sepal width: 萼片宽度（厘米）
 petal length: 花瓣长度（厘米）
 petal width: 花瓣宽度（厘米）
@@ -104,9 +100,8 @@ petal width: 花瓣宽度（厘米）
 - Setosa
 - Versicolour
 - Virginica
-
-# 数据下载：
-</code></pre><p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/" target="_blank" rel="external">https://archive.ics.uci.edu/ml/machine-learning-databases/iris/</a></p>
+</code></pre><p>###数据下载：</p>
+<p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/" target="_blank" rel="external">https://archive.ics.uci.edu/ml/machine-learning-databases/iris/</a></p>
 <h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><p>为了方便展示，我们只使用数据中的前两个特征，并且只使用setosa和versicolour两个类别的数据。我们的问题是得到一个sigmoid函数，利用这个函数可以区分出两种类别的鸢尾花。</p>
 <p><img src="http://chart.googleapis.com/chart?cht=tx&chl=z%20%3D%20%5Ctheta_%7B0%7D%20%2B%20%5Ctheta%20_%7B1%7D%5Ctimes%20sepal_%7Blength%7D%20%2B%20%5Ctheta%20_%7B2%7D%20%5Ctimes%20sepal_%7Bwidth%7D" style="border:none;"></p>
 <p><img src="http://chart.googleapis.com/chart?cht=tx&chl=h(z)%3D%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D" style="border:none;"></p>
@@ -122,19 +117,14 @@ petal width: 花瓣宽度（厘米）
 </code></pre><h2 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 利用matplotlib将数据在图中展现出来</div><div class="line">plt.scatter(X[:50, 0], X[:50, 1],color=&apos;red&apos;, marker=&apos;^&apos;, label=&apos;setosa&apos;)</div><div class="line">plt.scatter(X[50:100, 0], X[50:100, 1],color=&apos;blue&apos;, marker=&apos;x&apos;, label=&apos;versicolor&apos;)</div><div class="line"># plt.scatter(X[100:, 0], X[100:, 1],color=&apos;green&apos;, marker=&apos;+&apos;, label=&apos;Virginica&apos;)</div><div class="line">plt.xlabel(&apos;petal length&apos;)</div><div class="line">plt.ylabel(&apos;sepal length&apos;)</div><div class="line"># 把说明放在左上角，具体请参考官方文档</div><div class="line">plt.legend(loc=2)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 <h2 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 为了追求机器学习和最优化算法的最佳性能，我们将特征缩放</div><div class="line">from sklearn.preprocessing import StandardScaler</div><div class="line">sc = StandardScaler()</div><div class="line"># 估算每个特征的平均值和标准差</div><div class="line">sc.fit(X_train)</div><div class="line"></div><div class="line"># print sc.mean_</div><div class="line"># print sc.scale_</div><div class="line"></div><div class="line"># 注意：这里我们要用同样的参数来标准化测试集，使得测试集和训练集之间有可比性</div><div class="line">X_train_std = sc.transform(X_train)</div><div class="line">X_test_std = sc.transform(X_test)</div></pre></td></tr></table></figure>
 <h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lr = LogisticRegression(C=1000.0, random_state=0, penalty=&apos;l2&apos;)</div><div class="line">lr.fit(X_train_std, Y_train)</div></pre></td></tr></table></figure>
-<p>拟合完毕后，我们看看我们的需要的模型系数结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 打印偏置项和各特征权重</div><div class="line">print lr.intercept_</div><div class="line">print lr.coef_</div></pre></td></tr></table></figure></p>
-<pre><code># 输出结果为：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ 2.54973732]</div><div class="line">[[ -0.93280168  12.40529916]]</div></pre></td></tr></table></figure>
-
-# 因此我们得到了步骤2中所需的3个参数，可以得到如下关系：
-</code></pre><p><img src="http://chart.googleapis.com/chart?cht=tx&chl=z%3D2.54973732-0.93280168%5Ctimes%20sepal_%7Blength%7D%20%2B%2012.40529916%5Ctimes%20sepal_%7Bwidth%7D" style="border:none;"></p>
+<p>拟合完毕后，我们看看我们的需要的模型系数结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 打印偏置项和各特征权重</div><div class="line">print lr.intercept_</div><div class="line">print lr.coef_</div></pre></td></tr></table></figure>
+<p>###输出结果为：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ 2.54973732]</div><div class="line">[[ -0.93280168  12.40529916]]</div></pre></td></tr></table></figure>
+</code></pre><h3 id="因此我们得到了步骤2中所需的3个参数，可以得到如下关系："><a href="#因此我们得到了步骤2中所需的3个参数，可以得到如下关系：" class="headerlink" title="因此我们得到了步骤2中所需的3个参数，可以得到如下关系："></a>因此我们得到了步骤2中所需的3个参数，可以得到如下关系：</h3><p><img src="http://chart.googleapis.com/chart?cht=tx&chl=z%3D2.54973732-0.93280168%5Ctimes%20sepal_%7Blength%7D%20%2B%2012.40529916%5Ctimes%20sepal_%7Bwidth%7D" style="border:none;"></p>
 <p><img src="http://chart.googleapis.com/chart?cht=tx&chl=h(z)%3D%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D" style="border:none;"></p>
-<h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><pre><code># 得出测试数据属于setosa和versicolour的概率
-y_hat_prob = lr.predict_proba(X_test_std)
-print y_hat_prob
-
-# 结果
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[  9.99519133e-01   4.80867345e-04]</div><div class="line"> [  7.34532569e-08   9.99999927e-01]</div><div class="line"> [  9.99942289e-01   5.77106095e-05]</div><div class="line"> [	...				 ...		   ]</div><div class="line"> [  8.82184814e-08   9.99999912e-01]</div><div class="line"> [  8.32854787e-07   9.99999167e-01]</div><div class="line"> [  9.18305501e-04   9.99081694e-01]]</div></pre></td></tr></table></figure>
+<h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 得出测试数据属于setosa和versicolour的概率</div><div class="line">y_hat_prob = lr.predict_proba(X_test_std)</div><div class="line">print y_hat_prob</div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[  9.99519133e-01   4.80867345e-04]</div><div class="line"> [  7.34532569e-08   9.99999927e-01]</div><div class="line"> [  9.99942289e-01   5.77106095e-05]</div><div class="line"> [	...				 ...		   ]</div><div class="line"> [  8.82184814e-08   9.99999912e-01]</div><div class="line"> [  8.32854787e-07   9.99999167e-01]</div><div class="line"> [  9.18305501e-04   9.99081694e-01]]</div></pre></td></tr></table></figure>
 </code></pre><p>其中第一列为测试样本属于setosa的概率，第二列为属于versicolour的概率，哪一个值大我们就认为这个样本属于这一类的概率更大。</p>
 <h2 id="准确率计算"><a href="#准确率计算" class="headerlink" title="准确率计算"></a>准确率计算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">np.set_printoptions(suppress=True)</div><div class="line"># print &apos;y_hat_prob = \n&apos;, y_hat_prob</div><div class="line">print u&apos;准确度：%.2f%%&apos; % (100*np.mean(predict_result == Y_test.ravel()))</div></pre></td></tr></table></figure>
 <h2 id="用Logistic回归处理多分类问题"><a href="#用Logistic回归处理多分类问题" class="headerlink" title="用Logistic回归处理多分类问题"></a>用Logistic回归处理多分类问题</h2><p>一种简单的方法是一对所有（one-Versus-All，OVA），给定m个类，训练m个二元分类器(将选取任意一类，再将其它所有类看成是一类，构建一个两类分类器)。分类器j使类j的元组为正类，其余为负类，进行训练。为了对未知元组X进行分类，分类器作为一个组合分类器投票。例如，如果分类器j预测X为正类，则类j得到一票。如果他测得X为正类，则类j得到一票。如果测X为负类，则除j以外的每一个类都得到一票（相当于此类的票数减一）。得票最多的指派给X。<br>这种方法简单有效，而且使用类似logistic这种有概率值大小可以比较的情况下，类边界其实是个有范围的值，可以增加正确率。而且当K(类别数量)很大时，通过投票的方式解决了一部分不平衡性问题。</p>
@@ -142,6 +132,16 @@ print y_hat_prob
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/machine-learning/">machine learning</a><a href="/tags/regression/">regression</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+</div>
 
 
 
@@ -176,16 +176,12 @@ print y_hat_prob
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导库"><span class="toc-number">4.1.</span> <span class="toc-text">导库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">5.</span> <span class="toc-text">划分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据展示"><span class="toc-number">6.</span> <span class="toc-text">数据展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据标准化"><span class="toc-number">7.</span> <span class="toc-text">数据标准化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">8.</span> <span class="toc-text">模型构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果展示"><span class="toc-number">9.</span> <span class="toc-text">结果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准确率计算"><span class="toc-number">10.</span> <span class="toc-text">准确率计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Logistic回归处理多分类问题"><span class="toc-number">11.</span> <span class="toc-text">用Logistic回归处理多分类问题</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性信息："><span class="toc-number">1.2.</span> <span class="toc-text">属性信息：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导库"><span class="toc-number">4.1.</span> <span class="toc-text">导库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">5.</span> <span class="toc-text">划分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据展示"><span class="toc-number">6.</span> <span class="toc-text">数据展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据标准化"><span class="toc-number">7.</span> <span class="toc-text">数据标准化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">8.</span> <span class="toc-text">模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#因此我们得到了步骤2中所需的3个参数，可以得到如下关系："><span class="toc-number">8.1.</span> <span class="toc-text">因此我们得到了步骤2中所需的3个参数，可以得到如下关系：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果展示"><span class="toc-number">9.</span> <span class="toc-text">结果展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-number">9.1.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准确率计算"><span class="toc-number">10.</span> <span class="toc-text">准确率计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Logistic回归处理多分类问题"><span class="toc-number">11.</span> <span class="toc-text">用Logistic回归处理多分类问题</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -197,7 +193,19 @@ print y_hat_prob
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -208,7 +216,33 @@ print y_hat_prob
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -355,18 +389,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

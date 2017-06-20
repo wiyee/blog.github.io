@@ -79,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:33.978Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:29:23.046Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:31:05.530Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -88,14 +88,14 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中给项目程序添加log"><span class="toc-number">1.</span> <span class="toc-text">Java中给项目程序添加log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-java-util-logging"><span class="toc-number">1.1.</span> <span class="toc-text">1. java.util.logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-log4j"><span class="toc-number">1.2.</span> <span class="toc-text">2. log4j</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j的基本使用方法"><span class="toc-number">2.</span> <span class="toc-text">log4j的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-定义配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 定义配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置根Logger，其语法为："><span class="toc-number">2.1.0.1.</span> <span class="toc-text">配置根Logger，其语法为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置日志信息输出目的地Appender，其语法为："><span class="toc-number">2.1.0.2.</span> <span class="toc-text">配置日志信息输出目的地Appender，其语法为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置日志信息的格式（布局），其语法为："><span class="toc-number">2.1.0.3.</span> <span class="toc-text">配置日志信息的格式（布局），其语法为：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-在代码中使用Log4j"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 在代码中使用Log4j</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#得到记录器"><span class="toc-number">2.2.0.1.</span> <span class="toc-text">得到记录器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#读取配置文件"><span class="toc-number">2.2.0.2.</span> <span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插入记录信息（格式化日志信息）"><span class="toc-number">2.2.0.3.</span> <span class="toc-text">插入记录信息（格式化日志信息）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-日志级别"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 日志级别</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中给项目程序添加log"><span class="toc-number">1.</span> <span class="toc-text">Java中给项目程序添加log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-logging"><span class="toc-number">1.1.</span> <span class="toc-text">java.util.logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log4j"><span class="toc-number">1.2.</span> <span class="toc-text">log4j</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j的基本使用方法"><span class="toc-number">2.</span> <span class="toc-text">log4j的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">定义配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置根Logger，其语法为："><span class="toc-number">2.1.1.</span> <span class="toc-text">配置根Logger，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息输出目的地Appender，其语法为："><span class="toc-number">2.1.2.</span> <span class="toc-text">配置日志信息输出目的地Appender，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息的格式（布局），其语法为："><span class="toc-number">2.1.3.</span> <span class="toc-text">配置日志信息的格式（布局），其语法为：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在代码中使用Log4j"><span class="toc-number">2.2.</span> <span class="toc-text">在代码中使用Log4j</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#得到记录器"><span class="toc-number">2.2.1.</span> <span class="toc-text">得到记录器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取配置文件"><span class="toc-number">2.2.2.</span> <span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入记录信息（格式化日志信息）"><span class="toc-number">2.2.3.</span> <span class="toc-text">插入记录信息（格式化日志信息）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志级别"><span class="toc-number">2.3.</span> <span class="toc-text">日志级别</span></a></li></ol></li></ol>
 		</div>
 		
 		<h2 id="Java中给项目程序添加log"><a href="#Java中给项目程序添加log" class="headerlink" title="Java中给项目程序添加log"></a>Java中给项目程序添加log</h2><ol>
 <li>使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。</li>
 <li>使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。</li>
 </ol>
-<h3 id="1-java-util-logging"><a href="#1-java-util-logging" class="headerlink" title="1. java.util.logging"></a>1. java.util.logging</h3><p>【例1.1】：日志的简单使用</p>
+<h3 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h3><p>【例1.1】：日志的简单使用</p>
 <pre><code>import java.util.logging.Logger;
 public class LogDemo1 {
     static String strClassName = LogDemo1.class.getName();  
@@ -135,7 +135,7 @@ public class LogDemo1 {
     }  
     return result;  
 }  
-</code></pre><h3 id="2-log4j"><a href="#2-log4j" class="headerlink" title="2. log4j"></a>2. log4j</h3><ol>
+</code></pre><h3 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h3><ol>
 <li>新建一个JAva工程，导入包log4j-1.2.17.jar.</li>
 <li><p>src同级创建并设置log4j.properties,</p>
 <pre><code>### 设置 ###
@@ -191,10 +191,10 @@ public class LogDemo2 {
 </code></pre></li>
 </ol>
 <h2 id="log4j的基本使用方法"><a href="#log4j的基本使用方法" class="headerlink" title="log4j的基本使用方法"></a>log4j的基本使用方法</h2><p>Log4j由三个重要的组件构成：日志信息的优先级，日志信息的输出目的地，日志信息的输出格式。日志信息的优先级从高到低有ERROR、WARN、 INFO、DEBUG，分别用来指定这条日志信息的重要程度；日志信息的输出目的地指定了日志将打印到控制台还是文件中；而输出格式则控制了日志信息的显 示内容。</p>
-<h3 id="2-1-定义配置文件"><a href="#2-1-定义配置文件" class="headerlink" title="2.1 定义配置文件"></a>2.1 定义配置文件</h3><p>其实您也可以完全不使用配置文件，而是在代码中配置Log4j环境。但是，使用配置文件将使您的应用程序更加灵活。Log4j支持两种配置文件格式，一种是XML格式的文件，一种是Java特性文件（键=值）。下面我们介绍使用Java特性文件做为配置文件的方法：</p>
-<h5 id="配置根Logger，其语法为："><a href="#配置根Logger，其语法为：" class="headerlink" title="配置根Logger，其语法为："></a>配置根Logger，其语法为：</h5><pre><code>log4j.rootLogger = [ level ] , appenderName, appenderName, …
+<h3 id="定义配置文件"><a href="#定义配置文件" class="headerlink" title="定义配置文件"></a>定义配置文件</h3><p>其实您也可以完全不使用配置文件，而是在代码中配置Log4j环境。但是，使用配置文件将使您的应用程序更加灵活。Log4j支持两种配置文件格式，一种是XML格式的文件，一种是Java特性文件（键=值）。下面我们介绍使用Java特性文件做为配置文件的方法：</p>
+<h4 id="配置根Logger，其语法为："><a href="#配置根Logger，其语法为：" class="headerlink" title="配置根Logger，其语法为："></a>配置根Logger，其语法为：</h4><pre><code>log4j.rootLogger = [ level ] , appenderName, appenderName, …
 </code></pre><p>其中，level 是日志记录的优先级，分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL或者您定义的级别。Log4j建议只使用四个级别，优 先级从高到低分别是ERROR、WARN、INFO、DEBUG。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了INFO级别，则应用程序中所有DEBUG级别的日志信息将不被打印出来。 appenderName就是指B日志信息输出到哪个地方。您可以同时指定多个输出目的地。</p>
-<h5 id="配置日志信息输出目的地Appender，其语法为："><a href="#配置日志信息输出目的地Appender，其语法为：" class="headerlink" title="配置日志信息输出目的地Appender，其语法为："></a>配置日志信息输出目的地Appender，其语法为：</h5><pre><code>log4j.appender.appenderName = fully.qualified.name.of.appender.class  
+<h4 id="配置日志信息输出目的地Appender，其语法为："><a href="#配置日志信息输出目的地Appender，其语法为：" class="headerlink" title="配置日志信息输出目的地Appender，其语法为："></a>配置日志信息输出目的地Appender，其语法为：</h4><pre><code>log4j.appender.appenderName = fully.qualified.name.of.appender.class  
 log4j.appender.appenderName.option1 = value1  
 …  
 log4j.appender.appenderName.option = valueN
@@ -204,7 +204,7 @@ org.apache.log4j.FileAppender（文件），
 org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），  
 .apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），  
 org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
-</code></pre><h5 id="配置日志信息的格式（布局），其语法为："><a href="#配置日志信息的格式（布局），其语法为：" class="headerlink" title="配置日志信息的格式（布局），其语法为："></a>配置日志信息的格式（布局），其语法为：</h5><pre><code>log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class  
+</code></pre><h4 id="配置日志信息的格式（布局），其语法为："><a href="#配置日志信息的格式（布局），其语法为：" class="headerlink" title="配置日志信息的格式（布局），其语法为："></a>配置日志信息的格式（布局），其语法为：</h4><pre><code>log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class  
 log4j.appender.appenderName.layout.option1 = value1  
 …  
 log4j.appender.appenderName.layout.option = valueN
@@ -221,20 +221,20 @@ org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等�
 %n 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”  
 %d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss,SSS}，输出类似：2002年10月18日 22：10：28，921  
 %l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)
-</code></pre><h3 id="2-2-在代码中使用Log4j"><a href="#2-2-在代码中使用Log4j" class="headerlink" title="2.2 在代码中使用Log4j"></a>2.2 在代码中使用Log4j</h3><h5 id="得到记录器"><a href="#得到记录器" class="headerlink" title="得到记录器"></a>得到记录器</h5><p>使用Log4j，第一步就是获取日志记录器，这个记录器将负责控制日志信息。其语法为：</p>
+</code></pre><h3 id="在代码中使用Log4j"><a href="#在代码中使用Log4j" class="headerlink" title="在代码中使用Log4j"></a>在代码中使用Log4j</h3><h4 id="得到记录器"><a href="#得到记录器" class="headerlink" title="得到记录器"></a>得到记录器</h4><p>使用Log4j，第一步就是获取日志记录器，这个记录器将负责控制日志信息。其语法为：</p>
 <pre><code>public static Logger getLogger( String name)
 </code></pre><p>通过指定的名字获得记录器，如果必要的话，则为这个名字创建一个新的记录器。Name一般取本类的名字，比如：</p>
 <pre><code>static Logger logger = Logger.getLogger ( ServerWithLog4j.class.getName () )
-</code></pre><h5 id="读取配置文件"><a href="#读取配置文件" class="headerlink" title="读取配置文件"></a>读取配置文件</h5><p>当获得了日志记录器之后，第二步将配置Log4j环境，其语法为：</p>
+</code></pre><h4 id="读取配置文件"><a href="#读取配置文件" class="headerlink" title="读取配置文件"></a>读取配置文件</h4><p>当获得了日志记录器之后，第二步将配置Log4j环境，其语法为：</p>
 <pre><code>BasicConfigurator.configure ()： 自动快速地使用缺省Log4j环境。  
 PropertyConfigurator.configure ( String configFilename) ：读取使用Java的特性文件编写的配置文件。  
 DOMConfigurator.configure ( String filename ) ：读取XML形式的配置文件。
-</code></pre><h5 id="插入记录信息（格式化日志信息）"><a href="#插入记录信息（格式化日志信息）" class="headerlink" title="插入记录信息（格式化日志信息）"></a>插入记录信息（格式化日志信息）</h5><p>当上两个必要步骤执行完毕，您就可以轻松地使用不同优先级别的日志记录语句插入到您想记录日志的任何地方，其语法如下：</p>
+</code></pre><h4 id="插入记录信息（格式化日志信息）"><a href="#插入记录信息（格式化日志信息）" class="headerlink" title="插入记录信息（格式化日志信息）"></a>插入记录信息（格式化日志信息）</h4><p>当上两个必要步骤执行完毕，您就可以轻松地使用不同优先级别的日志记录语句插入到您想记录日志的任何地方，其语法如下：</p>
 <pre><code>Logger.debug ( Object message ) ;  
 Logger.info ( Object message ) ;  
 Logger.warn ( Object message ) ;      
 Logger.error ( Object message ) ;
-</code></pre><h3 id="2-3-日志级别"><a href="#2-3-日志级别" class="headerlink" title="2.3 日志级别"></a>2.3 日志级别</h3><p>每个Logger都被了一个日志级别（log level），用来控制日志信息的输出。日志级别从高到低分为：</p>
+</code></pre><h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><p>每个Logger都被了一个日志级别（log level），用来控制日志信息的输出。日志级别从高到低分为：</p>
 <pre><code>A：off 最高等级，用于关闭所有日志记录。
 B：fatal 指出每个严重的错误事件将会导致应用程序的退出。
 C：error 指出虽然发生错误事件，但仍然不影响系统的继续运行。
@@ -247,6 +247,11 @@ G：all 最低等级，用于打开所有日志记录。
 	</div>
 		<footer class="article-footer clearfix">
 
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/java/">java</a>
+</div>
 
 
 
@@ -281,16 +286,12 @@ G：all 最低等级，用于打开所有日志记录。
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中给项目程序添加log"><span class="toc-number">1.</span> <span class="toc-text">Java中给项目程序添加log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-java-util-logging"><span class="toc-number">1.1.</span> <span class="toc-text">1. java.util.logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-log4j"><span class="toc-number">1.2.</span> <span class="toc-text">2. log4j</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j的基本使用方法"><span class="toc-number">2.</span> <span class="toc-text">log4j的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-定义配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 定义配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置根Logger，其语法为："><span class="toc-number">2.1.0.1.</span> <span class="toc-text">配置根Logger，其语法为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置日志信息输出目的地Appender，其语法为："><span class="toc-number">2.1.0.2.</span> <span class="toc-text">配置日志信息输出目的地Appender，其语法为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置日志信息的格式（布局），其语法为："><span class="toc-number">2.1.0.3.</span> <span class="toc-text">配置日志信息的格式（布局），其语法为：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-在代码中使用Log4j"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 在代码中使用Log4j</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#得到记录器"><span class="toc-number">2.2.0.1.</span> <span class="toc-text">得到记录器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#读取配置文件"><span class="toc-number">2.2.0.2.</span> <span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#插入记录信息（格式化日志信息）"><span class="toc-number">2.2.0.3.</span> <span class="toc-text">插入记录信息（格式化日志信息）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-日志级别"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 日志级别</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中给项目程序添加log"><span class="toc-number">1.</span> <span class="toc-text">Java中给项目程序添加log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-logging"><span class="toc-number">1.1.</span> <span class="toc-text">java.util.logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log4j"><span class="toc-number">1.2.</span> <span class="toc-text">log4j</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j的基本使用方法"><span class="toc-number">2.</span> <span class="toc-text">log4j的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">定义配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置根Logger，其语法为："><span class="toc-number">2.1.1.</span> <span class="toc-text">配置根Logger，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息输出目的地Appender，其语法为："><span class="toc-number">2.1.2.</span> <span class="toc-text">配置日志信息输出目的地Appender，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息的格式（布局），其语法为："><span class="toc-number">2.1.3.</span> <span class="toc-text">配置日志信息的格式（布局），其语法为：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在代码中使用Log4j"><span class="toc-number">2.2.</span> <span class="toc-text">在代码中使用Log4j</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#得到记录器"><span class="toc-number">2.2.1.</span> <span class="toc-text">得到记录器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取配置文件"><span class="toc-number">2.2.2.</span> <span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入记录信息（格式化日志信息）"><span class="toc-number">2.2.3.</span> <span class="toc-text">插入记录信息（格式化日志信息）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志级别"><span class="toc-number">2.3.</span> <span class="toc-text">日志级别</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -302,7 +303,19 @@ G：all 最低等级，用于打开所有日志记录。
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -313,7 +326,33 @@ G：all 最低等级，用于打开所有日志记录。
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -460,18 +499,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

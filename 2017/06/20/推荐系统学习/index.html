@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:33.903Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:25:44.215Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:17:17.456Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -86,7 +86,7 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">3.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">4.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">5.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">2.1.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">2.2.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">2.3.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol></li></ol>
 		</div>
 		
 		<ol>
@@ -95,8 +95,8 @@
 <li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
 </ol>
 <p>Audience扩展是LinkedIn开发的一种技术，旨在简化定位并确定与原始目标受众具有相似属性的新受众群体。我们开发了两种方法来实现受众群体扩展：与广告系列无关的扩展和广告系列感知扩展。在本文中，我们描述这些方法的细节，目前对其交易的深入分析，并展示具有两种方法的综合强度的混合策略。通过大规模的在线实验，我们展示了所提出的方法的有效性，因此，它带给整个市场，包括LinkedIn和广告客户的好处。实现的效益可以表征为：1）简化的定向过程和增加广告客户的覆盖面; 2）更好地利用LinkedIn的广告资源，以及更高效和更有效的市场参与。</p>
-<h4 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h4><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
-<h4 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h4><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">引用</a></p>
+<h3 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h3><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
+<h3 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h3><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">互联网推荐系统比较研究</a></p>
 <p>组合推荐(hybrid recommendation)的一个最重要原则就是通过组合后应能避免或弥补各自推荐技术的弱点。研究和应用最多的是内容推荐和协同过滤推荐的组合。尽管从理论上有很多种推荐组合方法，但不同的组合思路适用于不同的应用场景。我们将研究人员提出的组合思路大致分为如下3类：</p>
 <ul>
 <li>后融合：融合两种或两种以上的推荐方法各自产生的推荐结果。如使用基于内容的方法和协同过滤方法分别得到推荐列表，融合列表的结果决定最后推荐的对象。</li>
@@ -112,6 +112,16 @@
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/论文/">论文</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/推荐系统/">推荐系统</a>
+</div>
 
 
 
@@ -146,16 +156,12 @@
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">3.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">4.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">5.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">2.1.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">2.2.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">2.3.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -167,7 +173,19 @@
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -178,7 +196,33 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -325,18 +369,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

@@ -9,8 +9,8 @@
     
     <meta name="author" content="wiyee">
     
-    <meta name="description" content="1.数据集这里使用uci上的开源数据集
-数据介绍：数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。联合循环发电厂（CC">
+    <meta name="description" content="数据集这里使用uci上的开源数据集
+数据介绍：数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。联合循环发电厂（CCPP">
     
     
     
@@ -78,7 +78,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:33.972Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:49:22.676Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:32:38.511Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -87,12 +87,12 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据集"><span class="toc-number">1.</span> <span class="toc-text">1.数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#属性信息："><span class="toc-number">1.0.0.2.</span> <span class="toc-text">属性信息：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据下载："><span class="toc-number">1.0.0.3.</span> <span class="toc-text">数据下载：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题模型"><span class="toc-number">2.</span> <span class="toc-text">2.问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据清洗"><span class="toc-number">3.</span> <span class="toc-text">3.数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">4.用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#导入需要的几个python库"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">导入需要的几个python库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-划分数据"><span class="toc-number">5.</span> <span class="toc-text">5.划分数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><span class="toc-number">5.0.1.</span> <span class="toc-text">我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-划分训练集和测试集"><span class="toc-number">6.</span> <span class="toc-text">6.划分训练集和测试集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在python代码中导入库"><span class="toc-number">6.0.0.1.</span> <span class="toc-text">在python代码中导入库</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-模型构建"><span class="toc-number">7.</span> <span class="toc-text">7.模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输出结果为："><span class="toc-number">7.0.0.1.</span> <span class="toc-text">输出结果为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><span class="toc-number">7.0.0.2.</span> <span class="toc-text">因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-模型评价"><span class="toc-number">8.</span> <span class="toc-text">8.模型评价</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我们看看我们的模型的MSE和RMSE，代码如下："><span class="toc-number">8.0.0.1.</span> <span class="toc-text">我们看看我们的模型的MSE和RMSE，代码如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><span class="toc-number">8.0.0.2.</span> <span class="toc-text">一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-交叉验证"><span class="toc-number">9.</span> <span class="toc-text">9.交叉验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-利用matlibplot画图观察结果"><span class="toc-number">10.</span> <span class="toc-text">10.利用matlibplot画图观察结果</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性信息："><span class="toc-number">1.2.</span> <span class="toc-text">属性信息：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据下载："><span class="toc-number">1.3.</span> <span class="toc-text">数据下载：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入需要的几个python库"><span class="toc-number">4.1.</span> <span class="toc-text">导入需要的几个python库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分数据"><span class="toc-number">5.</span> <span class="toc-text">划分数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><span class="toc-number">5.1.</span> <span class="toc-text">我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">6.</span> <span class="toc-text">划分训练集和测试集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在python代码中导入库"><span class="toc-number">6.1.</span> <span class="toc-text">在python代码中导入库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">7.</span> <span class="toc-text">模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输出结果为："><span class="toc-number">7.1.</span> <span class="toc-text">输出结果为：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><span class="toc-number">7.2.</span> <span class="toc-text">因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型评价"><span class="toc-number">8.</span> <span class="toc-text">模型评价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#我们看看我们的模型的MSE和RMSE，代码如下："><span class="toc-number">8.1.</span> <span class="toc-text">我们看看我们的模型的MSE和RMSE，代码如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><span class="toc-number">8.2.</span> <span class="toc-text">一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交叉验证"><span class="toc-number">9.</span> <span class="toc-text">交叉验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用matlibplot画图观察结果"><span class="toc-number">10.</span> <span class="toc-text">利用matlibplot画图观察结果</span></a></li></ol>
 		</div>
 		
-		<h2 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1.数据集"></a>1.数据集</h2><p>这里使用uci上的开源数据集</p>
-<h5 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h5><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p>
-<h5 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h5><p>特征包括小时平均环境变量</p>
+		<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
+<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p>
+<h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><p>特征包括小时平均环境变量</p>
 <ul>
 <li>温度（T）在1.81℃和37.11℃的范围内，</li>
 <li>环境压力（AP）在992.89-1033.30 milibar范围内，</li>
@@ -100,36 +100,37 @@
 <li>排气真空度（V）范围25.36-81.56厘米汞柱</li>
 <li>净小时电能输出（PE）420.26-495.76兆瓦<br>平均值来自位于工厂周围的各种传感器，每秒记录环境变量。 这些变量在没有标准化的情况下给出。<br><a href="http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant" target="_blank" rel="external">http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant</a></li>
 </ul>
-<h5 id="数据下载："><a href="#数据下载：" class="headerlink" title="数据下载："></a>数据下载：</h5><p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/00294/" target="_blank" rel="external"> http://archive.ics.uci.edu/ml/machine-learning-databases/00294/</a></p>
-<h2 id="2-问题模型"><a href="#2-问题模型" class="headerlink" title="2.问题模型"></a>2.问题模型</h2><p>我们的问题是得到一个线性的关系，对应PE是样本输出，而AT/V/AP/RH这4个是样本特征， 机器学习的目的就是得到一个线性回归模型，即:</p>
+<h3 id="数据下载："><a href="#数据下载：" class="headerlink" title="数据下载："></a>数据下载：</h3><p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/00294/" target="_blank" rel="external"> http://archive.ics.uci.edu/ml/machine-learning-databases/00294/</a></p>
+<h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><p>我们的问题是得到一个线性的关系，对应PE是样本输出，而AT/V/AP/RH这4个是样本特征， 机器学习的目的就是得到一个线性回归模型，即:</p>
 <pre><code>PE=θ0+θ1∗AT+θ2∗V+θ3∗AP+θ4∗RH
 </code></pre><p>而需要学习的，就是θ0,θ1,θ2,θ3,θ4这5个参数。</p>
-<h2 id="3-数据清洗"><a href="#3-数据清洗" class="headerlink" title="3.数据清洗"></a>3.数据清洗</h2><p>下载完数据后会得到一个压缩文件，解压后可以得到一个后缀为.xlsx的文件，我们使用excel打开这个文件后，将文件另存为csv格式，我们会使用这个csv格式的文件进行线性回归。<br>因为这个csv格式中没有非法数据，我们不需要进行预处理操作。</p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>下载完数据后会得到一个压缩文件，解压后可以得到一个后缀为.xlsx的文件，我们使用excel打开这个文件后，将文件另存为csv格式，我们会使用这个csv格式的文件进行线性回归。<br>因为这个csv格式中没有非法数据，我们不需要进行预处理操作。</p>
 <p>######备注：数据的标准化操作会在sklearn中进行，不需要我们另外进行标准化。</p>
-<h2 id="4-用Pandas读数据"><a href="#4-用Pandas读数据" class="headerlink" title="4.用Pandas读数据"></a>4.用Pandas读数据</h2><h5 id="导入需要的几个python库"><a href="#导入需要的几个python库" class="headerlink" title="导入需要的几个python库"></a>导入需要的几个python库</h5><pre><code># 需要使用的几个库
+<h2 id="用Pandas读数据"><a href="#用Pandas读数据" class="headerlink" title="用Pandas读数据"></a>用Pandas读数据</h2><h3 id="导入需要的几个python库"><a href="#导入需要的几个python库" class="headerlink" title="导入需要的几个python库"></a>导入需要的几个python库</h3><pre><code># 需要使用的几个库
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn import datasets, linear_model
-</code></pre><h5 id="使用pandas读取数据"><a href="#使用pandas读取数据" class="headerlink" title="使用pandas读取数据"></a>使用pandas读取数据</h5><pre><code>data = pd.read_csv(&apos;CCPP.csv&apos;)
+</code></pre><h3 id="使用pandas读取数据"><a href="#使用pandas读取数据" class="headerlink" title="使用pandas读取数据"></a>使用pandas读取数据</h3><pre><code>data = pd.read_csv(&apos;CCPP.csv&apos;)
 print data
 # 测试读取数据
 # data.head()读取前5条数据，data.tail()读取最后5条数据
-</code></pre><h2 id="5-划分数据"><a href="#5-划分数据" class="headerlink" title="5.划分数据"></a>5.划分数据</h2><pre><code># 查看数据的维数
+</code></pre><h2 id="划分数据"><a href="#划分数据" class="headerlink" title="划分数据"></a>划分数据</h2><pre><code># 查看数据的维数
 print data.shape
 X = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
 Y = data[[&apos;PE&apos;]]
 print X.head()
 print Y.head()
-</code></pre><h4 id="我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><a href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据" class="headerlink" title="我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据"></a>我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</h4><h2 id="6-划分训练集和测试集"><a href="#6-划分训练集和测试集" class="headerlink" title="6.划分训练集和测试集"></a>6.划分训练集和测试集</h2><h5 id="在python代码中导入库"><a href="#在python代码中导入库" class="headerlink" title="在python代码中导入库"></a>在python代码中导入库</h5><pre><code>from sklearn.cross_validation import train_test_split
-</code></pre><p>#<br>    X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3,random_state=0)</p>
-<pre><code># test_size为测试集在数据中所占比重
+</code></pre><h3 id="我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><a href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据" class="headerlink" title="我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据"></a>我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</h3><h2 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h2><h3 id="在python代码中导入库"><a href="#在python代码中导入库" class="headerlink" title="在python代码中导入库"></a>在python代码中导入库</h3><pre><code>from sklearn.cross_validation import train_test_split
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3,random_state=0)
+# test_size为测试集在数据中所占比重
 # 查看训练集和测试集的唯独
 print X_train.shape
 print X_test.shape
 print Y_train.shape
 print Y_test.shape
-</code></pre><h2 id="7-模型构建"><a href="#7-模型构建" class="headerlink" title="7.模型构建"></a>7.模型构建</h2><p>sklearn线性回归的损失函数默使用最小二乘法来实现</p>
+</code></pre><h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><p>sklearn线性回归的损失函数默使用最小二乘法来实现</p>
 <pre><code>from sklearn.linear_model import LinearRegression
 linreg = LinearRegression()
 linreg.fit(X_train, Y_train)
@@ -137,19 +138,19 @@ linreg.fit(X_train, Y_train)
 <pre><code># 打印偏置项和各特征权重
 print linreg.intercept_
 print linreg.coef_
-</code></pre><h5 id="输出结果为："><a href="#输出结果为：" class="headerlink" title="输出结果为："></a>输出结果为：</h5><pre><code>[ 448.53067141]
+</code></pre><h3 id="输出结果为："><a href="#输出结果为：" class="headerlink" title="输出结果为："></a>输出结果为：</h3><pre><code>[ 448.53067141]
 [[-1.9797936  -0.23300225  0.06812315 -0.15839461]]
-</code></pre><h5 id="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><a href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系：" class="headerlink" title="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："></a>因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</h5><pre><code>PE=448.53067141−1.9797936∗AT−0.23300225∗V+0.06812315∗AP-0.15839461∗RHPE　
-</code></pre><h2 id="8-模型评价"><a href="#8-模型评价" class="headerlink" title="8.模型评价"></a>8.模型评价</h2><p>我们需要评估我们的模型的好坏程度，对于线性回归来说，我们一般用均方差（Mean Squared Error, MSE）或者均方根差(Root Mean Squared Error, RMSE)在测试集上的表现来评价模型的好坏。</p>
-<h5 id="我们看看我们的模型的MSE和RMSE，代码如下："><a href="#我们看看我们的模型的MSE和RMSE，代码如下：" class="headerlink" title="我们看看我们的模型的MSE和RMSE，代码如下："></a>我们看看我们的模型的MSE和RMSE，代码如下：</h5><pre><code># 模型拟合测试集
+</code></pre><h3 id="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><a href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系：" class="headerlink" title="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："></a>因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</h3><pre><code>PE=448.53067141−1.9797936∗AT−0.23300225∗V+0.06812315∗AP-0.15839461∗RHPE　
+</code></pre><h2 id="模型评价"><a href="#模型评价" class="headerlink" title="模型评价"></a>模型评价</h2><p>我们需要评估我们的模型的好坏程度，对于线性回归来说，我们一般用均方差（Mean Squared Error, MSE）或者均方根差(Root Mean Squared Error, RMSE)在测试集上的表现来评价模型的好坏。</p>
+<h3 id="我们看看我们的模型的MSE和RMSE，代码如下："><a href="#我们看看我们的模型的MSE和RMSE，代码如下：" class="headerlink" title="我们看看我们的模型的MSE和RMSE，代码如下："></a>我们看看我们的模型的MSE和RMSE，代码如下：</h3><pre><code># 模型拟合测试集
 from sklearn import metrics
 y_pred = linreg.predict(X_test)
 # 用scikit-learn计算MSE
 print &quot;MSE:&quot;,metrics.mean_squared_error(y_test, y_pred)
 # 用scikit-learn计算RMSE
 print &quot;RMSE:&quot;,np.sqrt(metrics.mean_squared_error(y_test, y_pred))
-</code></pre><h5 id="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><a href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。" class="headerlink" title="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"></a>一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</h5><p>可以看出，去掉RH后，模型拟合的没有加上RH的好，MSE变大了。说明RH对结果的预测还是有影响的。</p>
-<h2 id="9-交叉验证"><a href="#9-交叉验证" class="headerlink" title="9.交叉验证"></a>9.交叉验证</h2><p>我们可以通过交叉验证来持续优化模型，代码如下，我们采用10折交叉验证，即cross_val_predict中的cv参数为10：</p>
+</code></pre><h3 id="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><a href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。" class="headerlink" title="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"></a>一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</h3><p>可以看出，去掉RH后，模型拟合的没有加上RH的好，MSE变大了。说明RH对结果的预测还是有影响的。</p>
+<h2 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>我们可以通过交叉验证来持续优化模型，代码如下，我们采用10折交叉验证，即cross_val_predict中的cv参数为10：</p>
 <pre><code># 交叉验证
 from sklearn.cross_validation import cross_val_predict
 X2 = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
@@ -161,7 +162,7 @@ predicted = cross_val_predict(linreg, X, Y, cv=10)
 print &quot;10折交叉验证的MSE:&quot;,metrics.mean_squared_error(Y, predicted)
 # 用scikit-learn计算RMSE
 print &quot;10折交叉验证的RMSE:&quot;,np.sqrt(metrics.mean_squared_error(Y, predicted))
-</code></pre><h2 id="10-利用matlibplot画图观察结果"><a href="#10-利用matlibplot画图观察结果" class="headerlink" title="10.利用matlibplot画图观察结果"></a>10.利用matlibplot画图观察结果</h2><p>这里画图真实值和预测值的变化关系，离中间的直线y=x直接越近的点代表预测损失越低。代码如下：</p>
+</code></pre><h2 id="利用matlibplot画图观察结果"><a href="#利用matlibplot画图观察结果" class="headerlink" title="利用matlibplot画图观察结果"></a>利用matlibplot画图观察结果</h2><p>这里画图真实值和预测值的变化关系，离中间的直线y=x直接越近的点代表预测损失越低。代码如下：</p>
 <pre><code># matplotlib画图
 fig, ax = plt.subplots()
 ax.scatter(Y,predicted)
@@ -175,7 +176,7 @@ plt.show()
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/machine-learning/">machine learning</a>
+  <span></span> <a href="/tags/machine-learning/">machine learning</a><a href="/tags/regression/">regression</a>
   </div>
 
 
@@ -217,16 +218,12 @@ plt.show()
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据集"><span class="toc-number">1.</span> <span class="toc-text">1.数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#属性信息："><span class="toc-number">1.0.0.2.</span> <span class="toc-text">属性信息：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据下载："><span class="toc-number">1.0.0.3.</span> <span class="toc-text">数据下载：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题模型"><span class="toc-number">2.</span> <span class="toc-text">2.问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据清洗"><span class="toc-number">3.</span> <span class="toc-text">3.数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">4.用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#导入需要的几个python库"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">导入需要的几个python库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-划分数据"><span class="toc-number">5.</span> <span class="toc-text">5.划分数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><span class="toc-number">5.0.1.</span> <span class="toc-text">我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-划分训练集和测试集"><span class="toc-number">6.</span> <span class="toc-text">6.划分训练集和测试集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在python代码中导入库"><span class="toc-number">6.0.0.1.</span> <span class="toc-text">在python代码中导入库</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-模型构建"><span class="toc-number">7.</span> <span class="toc-text">7.模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输出结果为："><span class="toc-number">7.0.0.1.</span> <span class="toc-text">输出结果为：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><span class="toc-number">7.0.0.2.</span> <span class="toc-text">因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-模型评价"><span class="toc-number">8.</span> <span class="toc-text">8.模型评价</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我们看看我们的模型的MSE和RMSE，代码如下："><span class="toc-number">8.0.0.1.</span> <span class="toc-text">我们看看我们的模型的MSE和RMSE，代码如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><span class="toc-number">8.0.0.2.</span> <span class="toc-text">一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-交叉验证"><span class="toc-number">9.</span> <span class="toc-text">9.交叉验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-利用matlibplot画图观察结果"><span class="toc-number">10.</span> <span class="toc-text">10.利用matlibplot画图观察结果</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集"><span class="toc-number">1.</span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据介绍："><span class="toc-number">1.1.</span> <span class="toc-text">数据介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性信息："><span class="toc-number">1.2.</span> <span class="toc-text">属性信息：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据下载："><span class="toc-number">1.3.</span> <span class="toc-text">数据下载：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题模型"><span class="toc-number">2.</span> <span class="toc-text">问题模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-number">3.</span> <span class="toc-text">数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用Pandas读数据"><span class="toc-number">4.</span> <span class="toc-text">用Pandas读数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入需要的几个python库"><span class="toc-number">4.1.</span> <span class="toc-text">导入需要的几个python库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pandas读取数据"><span class="toc-number">4.2.</span> <span class="toc-text">使用pandas读取数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分数据"><span class="toc-number">5.</span> <span class="toc-text">划分数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><span class="toc-number">5.1.</span> <span class="toc-text">我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-number">6.</span> <span class="toc-text">划分训练集和测试集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在python代码中导入库"><span class="toc-number">6.1.</span> <span class="toc-text">在python代码中导入库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型构建"><span class="toc-number">7.</span> <span class="toc-text">模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输出结果为："><span class="toc-number">7.1.</span> <span class="toc-text">输出结果为：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><span class="toc-number">7.2.</span> <span class="toc-text">因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型评价"><span class="toc-number">8.</span> <span class="toc-text">模型评价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#我们看看我们的模型的MSE和RMSE，代码如下："><span class="toc-number">8.1.</span> <span class="toc-text">我们看看我们的模型的MSE和RMSE，代码如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><span class="toc-number">8.2.</span> <span class="toc-text">一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交叉验证"><span class="toc-number">9.</span> <span class="toc-text">交叉验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用matlibplot画图观察结果"><span class="toc-number">10.</span> <span class="toc-text">利用matlibplot画图观察结果</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -238,7 +235,19 @@ plt.show()
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -249,7 +258,33 @@ plt.show()
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -396,18 +431,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 

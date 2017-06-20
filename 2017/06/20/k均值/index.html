@@ -9,11 +9,11 @@
     
     <meta name="author" content="wiyee">
     
-    <meta name="description" content="什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。
+    <meta name="description" content="前言什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。
 基本的聚类分析算法
 K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。
 
-凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的">
+凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠">
     
     
     
@@ -81,7 +81,7 @@ K均值：基于原型的、划分的距离技术，它试图发现用户指定�
     </p>
   <p class="article-time">
     <time datetime="2017-06-20T07:13:33.964Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T07:28:05.716Z" itemprop="dateModified">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T13:34:36.854Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -90,10 +90,10 @@ K均值：基于原型的、划分的距离技术，它试图发现用户指定�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number"></span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行和结果"><span class="toc-number">0.1.</span> <span class="toc-text">运行和结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">1.</span> <span class="toc-text">K-Means算法的缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">1.1.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">1.1.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">1.1.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">1.2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">1.3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number">2.</span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行和结果"><span class="toc-number">2.1.</span> <span class="toc-text">运行和结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">2.2.</span> <span class="toc-text">K-Means算法的缺陷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">3.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">3.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">3.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol>
 		</div>
 		
-		<h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
 <h3 id="基本的聚类分析算法"><a href="#基本的聚类分析算法" class="headerlink" title="基本的聚类分析算法"></a>基本的聚类分析算法</h3><ol>
 <li><p>K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。</p>
 </li>
@@ -172,7 +172,7 @@ def randCent(dataSet, k):
         rangeJ = float(max(dataSet[:,j]) - minJ)
         centroids[:,j] = mat(minJ + rangeJ * random.rand(k,1))
     return centroids
-</code></pre><h4 id="运行和结果"><a href="#运行和结果" class="headerlink" title="运行和结果"></a>运行和结果</h4><p>将上述代码写到kMeans.py中，然后打开python交互端。</p>
+</code></pre><h3 id="运行和结果"><a href="#运行和结果" class="headerlink" title="运行和结果"></a>运行和结果</h3><p>将上述代码写到kMeans.py中，然后打开python交互端。</p>
 <pre><code>&gt;&gt;&gt; from numpy import *
 &gt;&gt;&gt; import kMeans
 &gt;&gt;&gt; dat=mat(kMeans.loadDataSet(&apos;testSet.txt&apos;)) #读入数据
@@ -206,12 +206,22 @@ def randCent(dataSet, k):
 <li><p>对离群点的数据进行聚类时，K均值也有问题，这种情况下，离群点检测和删除有很大的帮助。</p>
 </li>
 </ol>
-<h4 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h4><h5 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h5><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
-<h5 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h5><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
+<h2 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h2><h3 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h3><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
+<h3 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h3><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/machine-learning/">machine learning</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+</div>
 
 
 
@@ -246,16 +256,12 @@ def randCent(dataSet, k):
 </nav>
 
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number"></span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行和结果"><span class="toc-number">0.1.</span> <span class="toc-text">运行和结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">1.</span> <span class="toc-text">K-Means算法的缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">1.1.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">1.1.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">1.1.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">1.2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">1.3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number">2.</span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行和结果"><span class="toc-number">2.1.</span> <span class="toc-text">运行和结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">2.2.</span> <span class="toc-text">K-Means算法的缺陷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">3.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">3.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">3.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -267,7 +273,19 @@ def randCent(dataSet, k):
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/categories/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/categories/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/categories/推荐系统/" title="推荐系统">推荐系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/最优化算法/" title="最优化算法">最优化算法<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -278,7 +296,33 @@ def randCent(dataSet, k):
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+			<li><a href="/tags/deep-learning/" title="deep learning">deep learning<sup>2</sup></a></li>
+		
+			<li><a href="/tags/hadoop/" title="hadoop">hadoop<sup>1</sup></a></li>
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>6</sup></a></li>
+		
+			<li><a href="/tags/numpy/" title="numpy">numpy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+		
+			<li><a href="/tags/regression/" title="regression">regression<sup>3</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>3</sup></a></li>
+		
+			<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+		
+			<li><a href="/tags/大数据/" title="大数据">大数据<sup>1</sup></a></li>
+		
+			<li><a href="/tags/最优化/" title="最优化">最优化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+		
+			<li><a href="/tags/论文/" title="论文">论文<sup>1</sup></a></li>
+		
+			<li><a href="/tags/集群/" title="集群">集群<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -425,18 +469,6 @@ $(document).ready(function(){
 });     
 </script>
 
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 
