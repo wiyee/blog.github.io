@@ -1,0 +1,446 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>k-均值聚类算法对未标注数据分组 | wiyee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wiyee">
+    
+    <meta name="description" content="什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。
+基本的聚类分析算法
+K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。
+
+凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="wiyee&#39;s blog" title="wiyee&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="wiyee&#39;s blog">wiyee&#39;s blog</a></h1>
+				<h2 class="blog-motto">learn and live.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:dbsi.hdu.edu.cn">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/20/k均值/" title="k-均值聚类算法对未标注数据分组" itemprop="url">k-均值聚类算法对未标注数据分组</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="dbsi.hdu.edu.cn" title="wiyee">wiyee</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-06-20T07:13:33.964Z" itemprop="datePublished">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T07:28:05.716Z" itemprop="dateModified">2017-06-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number"></span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行和结果"><span class="toc-number">0.1.</span> <span class="toc-text">运行和结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">1.</span> <span class="toc-text">K-Means算法的缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">1.1.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">1.1.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">1.1.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
+<h3 id="基本的聚类分析算法"><a href="#基本的聚类分析算法" class="headerlink" title="基本的聚类分析算法"></a>基本的聚类分析算法</h3><ol>
+<li><p>K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。</p>
+</li>
+<li><p>凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。</p>
+</li>
+<li><p>DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法自动的确定，低密度中的点被视为噪声而忽略，因此其不产生完全聚类。 </p>
+</li>
+</ol>
+<h3 id="距离量度"><a href="#距离量度" class="headerlink" title="距离量度"></a>距离量度</h3><p>不同的距离量度会对距离的结果产生影响，常见的距离量度如下所示：</p>
+<h2 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a>K-Means算法</h2><p>下面介绍K均值算法：<br>优点：易于实现<br>缺点：可能收敛于局部最小值，在大规模数据收敛慢<br>算法思想较为简单如下所示：</p>
+<pre><code>选择K个点作为初始质心  
+repeat  
+    将每个点指派到最近的质心，形成K个簇  
+    重新计算每个簇的质心  
+until 簇不发生变化或达到最大迭代次数
+</code></pre><p>这里的重新计算每个簇的质心，如何计算的是根据目标函数得来的，因此在开始时我们要考虑 距离度量和目标函数。</p>
+<p>考虑欧几里得距离的数据，使用 误差平方和（Sum of the Squared Error,SSE） 作为聚类的目标函数，两次运行K均值产生的两个不同的簇集，我们更喜欢SSE最小的那个。 </p>
+<p>下面用Python进行实现</p>
+<pre><code># dataSet样本点,k 簇的个数
+# disMeas距离量度，默认为欧几里得距离
+# createCent,初始点的选取
+def kMeans(dataSet, k, distMeas=distEclud, createCent=randCent):
+    m = shape(dataSet)[0] #样本数
+    clusterAssment = mat(zeros((m,2))) #m*2的矩阵                   
+    centroids = createCent(dataSet, k) #初始化k个中心
+    clusterChanged = True             
+    while clusterChanged:      #当聚类不再变化
+        clusterChanged = False
+        for i in range(m):
+            minDist = inf; minIndex = -1
+            for j in range(k): #找到最近的质心
+                distJI = distMeas(centroids[j,:],dataSet[i,:])
+                if distJI &lt; minDist:
+                    minDist = distJI; minIndex = j
+            if clusterAssment[i,0] != minIndex: clusterChanged = True
+            # 第1列为所属质心，第2列为距离
+            clusterAssment[i,:] = minIndex,minDist**2
+        print centroids
+
+        # 更改质心位置
+        for cent in range(k):
+            ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+            centroids[cent,:] = mean(ptsInClust, axis=0) 
+    return centroids, clusterAssment
+</code></pre><p>重点理解一下：</p>
+<pre><code>for cent in range(k):
+  ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+  centroids[cent,:] = mean(ptsInClust, axis=0)
+</code></pre><p>循环每一个质心，找到属于当前质心的所有点，然后根据这些点去更新当前的质心。<br>nonzero()返回的是一个二维的数组，其表示非0的元素位置。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; a=array([[1,0,0],[0,1,2],[2,0,0]])
+&gt;&gt;&gt; a
+array([[1, 0, 0],
+       [0, 1, 2],
+       [2, 0, 0]])
+&gt;&gt;&gt; nonzero(a)
+(array([0, 1, 1, 2]), array([0, 1, 2, 0]))
+</code></pre><p>引入辅助函数：</p>
+<pre><code>def loadDataSet(fileName):      #general function to parse tab -delimited floats
+    dataMat = []                #assume last column is target value
+    fr = open(fileName)
+    for line in fr.readlines():
+        curLine = line.strip().split(&apos;\t&apos;)
+        fltLine = map(float,curLine) #map all elements to float()
+        dataMat.append(fltLine)
+    return dataMat
+
+def distEclud(vecA, vecB):
+    return sqrt(sum(power(vecA - vecB, 2))) #la.norm(vecA-vecB)
+
+def randCent(dataSet, k):
+    n = shape(dataSet)[1]
+    centroids = mat(zeros((k,n)))#create centroid mat
+    for j in range(n):#create random cluster centers, within bounds of each dimension
+        minJ = min(dataSet[:,j]) 
+        rangeJ = float(max(dataSet[:,j]) - minJ)
+        centroids[:,j] = mat(minJ + rangeJ * random.rand(k,1))
+    return centroids
+</code></pre><h4 id="运行和结果"><a href="#运行和结果" class="headerlink" title="运行和结果"></a>运行和结果</h4><p>将上述代码写到kMeans.py中，然后打开python交互端。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; import kMeans
+&gt;&gt;&gt; dat=mat(kMeans.loadDataSet(&apos;testSet.txt&apos;)) #读入数据
+&gt;&gt;&gt; center，clust=kMeans.kMeans(dat,4)
+[[ 0.90796996  5.05836784]
+ [-2.88425582  0.01687006]
+ [-3.3447423  -1.01730512]
+ [-0.32810867  0.48063528]]
+[[ 1.90508653  3.530091  ]
+ [-3.00984169  2.66771831]
+ [-3.38237045 -2.9473363 ]
+ [ 2.22463036 -1.37361589]]
+[[ 2.54391447  3.21299611]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.8692781  -2.54779119]]
+[[ 2.6265299   3.10868015]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.80293085 -2.7315146 ]]
+# 作图
+&gt;&gt;&gt;kMeans(dat,center)
+</code></pre><h3 id="K-Means算法的缺陷"><a href="#K-Means算法的缺陷" class="headerlink" title="K-Means算法的缺陷"></a>K-Means算法的缺陷</h3><p>k均值算法非常简单且使用广泛，但是其有主要的两个缺陷：</p>
+<ol>
+<li><p>K值需要预先给定，属于预先知识，很多情况下K值的估计是非常困难的，对于像计算全部微信用户的交往圈这样的场景就完全的没办法用K-Means进行。对于可以确定K值不会太大但不明确精确的K值的场景，可以进行迭代运算，然后找出Cost Function最小时所对应的K值，这个值往往能较好的描述有多少个簇类。</p>
+</li>
+<li><p>K-Means算法对初始选取的聚类中心点是敏感的，不同的随机种子点得到的聚类结果完全不同</p>
+</li>
+<li><p>K均值算法并不是很所有的数据类型。它不能处理非球形簇、不同尺寸和不同密度的簇，银冠指定足够大的簇的个数是他通常可以发现纯子簇。</p>
+</li>
+<li><p>对离群点的数据进行聚类时，K均值也有问题，这种情况下，离群点检测和删除有很大的帮助。</p>
+</li>
+</ol>
+<h4 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h4><h5 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h5><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
+<h5 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h5><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="dbsi.hdu.edu.cn/2017/06/20/k均值/" data-title="k-均值聚类算法对未标注数据分组 | wiyee&#39;s blog" data-tsina="伟大的码农" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/06/20/linearRegresiion/" title="LinearRegression">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  LinearRegression</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/06/20/install vm-tools/"  title="在VMvare的linux虚拟机上安装vm-tools">
+ <strong>NEXT:</strong><br/> 
+ <span>在VMvare的linux虚拟机上安装vm-tools
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是聚类分析"><span class="toc-number">1.</span> <span class="toc-text">什么是聚类分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的聚类分析算法"><span class="toc-number">2.</span> <span class="toc-text">基本的聚类分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离量度"><span class="toc-number">3.</span> <span class="toc-text">距离量度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means算法"><span class="toc-number"></span> <span class="toc-text">K-Means算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行和结果"><span class="toc-number">0.1.</span> <span class="toc-text">运行和结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-Means算法的缺陷"><span class="toc-number">1.</span> <span class="toc-text">K-Means算法的缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面对初始质心的选择进行讨论："><span class="toc-number">1.1.</span> <span class="toc-text">下面对初始质心的选择进行讨论：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#拙劣的初始质心"><span class="toc-number">1.1.1.</span> <span class="toc-text">拙劣的初始质心</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#随机初始化的局限"><span class="toc-number">1.1.2.</span> <span class="toc-text">随机初始化的局限</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 说来惭愧，连一点微小的事情都没做。 <br/>
+			yesterday i said tomorrow</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/heitom" target="_blank" title="weibo"></a>
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="dbsi.hdu.edu.cn" target="_blank" title="wiyee">wiyee</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

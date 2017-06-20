@@ -1,0 +1,346 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>一篇kdd上的推荐系统相关的论文 | wiyee&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wiyee">
+    
+    <meta name="description" content="Audience Expansion for Online Social Network Advertising加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="wiyee&#39;s blog" title="wiyee&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="wiyee&#39;s blog">wiyee&#39;s blog</a></h1>
+				<h2 class="blog-motto">learn and live.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">tags</a></li>
+					
+						<li><a href="/categories">categories</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:dbsi.hdu.edu.cn">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/20/推荐系统学习/" title="一篇kdd上的推荐系统相关的论文" itemprop="url">一篇kdd上的推荐系统相关的论文</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="dbsi.hdu.edu.cn" title="wiyee">wiyee</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-06-20T07:13:33.903Z" itemprop="datePublished">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T07:25:44.215Z" itemprop="dateModified">2017-06-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">3.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">4.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">5.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol>
+		</div>
+		
+		<ol>
+<li>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</li>
+<li>利用用户的相似度为一个用户补充属性</li>
+<li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
+</ol>
+<p>Audience扩展是LinkedIn开发的一种技术，旨在简化定位并确定与原始目标受众具有相似属性的新受众群体。我们开发了两种方法来实现受众群体扩展：与广告系列无关的扩展和广告系列感知扩展。在本文中，我们描述这些方法的细节，目前对其交易的深入分析，并展示具有两种方法的综合强度的混合策略。通过大规模的在线实验，我们展示了所提出的方法的有效性，因此，它带给整个市场，包括LinkedIn和广告客户的好处。实现的效益可以表征为：1）简化的定向过程和增加广告客户的覆盖面; 2）更好地利用LinkedIn的广告资源，以及更高效和更有效的市场参与。</p>
+<h4 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h4><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
+<h4 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h4><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">引用</a></p>
+<p>组合推荐(hybrid recommendation)的一个最重要原则就是通过组合后应能避免或弥补各自推荐技术的弱点。研究和应用最多的是内容推荐和协同过滤推荐的组合。尽管从理论上有很多种推荐组合方法，但不同的组合思路适用于不同的应用场景。我们将研究人员提出的组合思路大致分为如下3类：</p>
+<ul>
+<li>后融合：融合两种或两种以上的推荐方法各自产生的推荐结果。如使用基于内容的方法和协同过滤方法分别得到推荐列表，融合列表的结果决定最后推荐的对象。</li>
+<li>中融合：以一种推荐方法为框架，融合另一种推荐方法。如以基于内容的方法为框架，融合协同过滤的方法，或者以协同过滤的方法为框架，融合基于内容的方法。</li>
+<li>前融合：直接融合各种推荐方法。如将基于内容和协同过滤的方法整合到一个统一的框架模型下。  </li>
+</ul>
+<h4 id="后融合组合推荐"><a href="#后融合组合推荐" class="headerlink" title="后融合组合推荐"></a>后融合组合推荐</h4><p>在后融合组合推荐中，最简单的做法就是分别用基于内容的方法和协同过滤推荐方法去产生一个推荐预测结果，然后用某种方法组合其结果。文献[37]使用了评分结果的线性组合，而文献[38]使用了投票机制来组合这些推荐结果。除此之外，也可以分别考察两个推荐列表，判断使用其中的哪个推荐结果。比如，Daily Learner system[39]计算推荐结果的可信度，然后选择一个列表的结果。这种结果层次上的融合我们称为后融合组合推荐。</p>
+<h4 id="中融合组合推荐"><a href="#中融合组合推荐" class="headerlink" title="中融合组合推荐"></a>中融合组合推荐</h4><p>目前，中融合的组合推荐主要有两种，以基于内容的方法为框架,融合协同过滤的方法和以协同过滤的方法为框架，融合基于内容的方法。前者利用降维技术把基于内容的对象特征进行精简化。例如，文献[40]使用了LSI(latent semantic indexing)算法，在基于内容的框架中使用精化的用户特征向量。后者为了克服协同过滤的稀疏问题（详见第3.3节），把用户当作对象，使用基于内容的特征提取方法把用户本身的特征（如年龄、工作情况等人口统计学特征(demographic features)）使用到相似度计算中，而不是仅仅依赖用户的点击行为。Good等人在文献[41]中引入多种不同的用户描述符来归类用户，挖掘用户的内在联系，从而得到更好的推荐效果。文献[42]使用独立的基于内容的特征来补偿用户提供的简单的rating，也属于此类方法。</p>
+<h4 id="前融合组合推荐"><a href="#前融合组合推荐" class="headerlink" title="前融合组合推荐"></a>前融合组合推荐</h4><p>近年来，这类推荐方法最受学者的关注。在文献[36]中，研究者把用户的年龄和电影的类型放到一个统一的分类器中训练学习。另外一种方法[43]使用了贝叶斯混合效果回归模型,，并通过马尔可夫蒙特卡洛方法得到这个模型的参数。文献[43]将用户和对象的特征都放到一个统计模型下来计算效用函数，研究者使用用户属性z、对象属性w及其交互关系(如选择关系)x来计算效用r。对象j对于用户i的效用值rij计算式可以表示为</p>
+<p>这其中的3种正态分布的变量分别用于描述数据的噪声、用户属性的异质性和对象属性的异质性。式(9)表述效用值是由这几个因素共同决定的。这3种分布的3个参数由马尔可夫蒙特卡洛方法估算得到。</p>
+<p>近年来,一些方法比较的工作[9,42,38]讨论并实验了各种方法与组合策略，得出结论：组合策略能够取得比纯基于内容或协同过滤方法更好的效果。这种在方法层次上融合的方法我们称为前融合组合推荐。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="dbsi.hdu.edu.cn/2017/06/20/推荐系统学习/" data-title="一篇kdd上的推荐系统相关的论文 | wiyee&#39;s blog" data-tsina="伟大的码农" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/06/20/axis和stack/" title="numpy之stack、axis">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  numpy之stack、axis</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/06/20/hello-world/"  title="Hello World">
+ <strong>NEXT:</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">3.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">4.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">5.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/machine-learning/" title="machine learning">machine learning<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 说来惭愧，连一点微小的事情都没做。 <br/>
+			yesterday i said tomorrow</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/heitom" target="_blank" title="weibo"></a>
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="dbsi.hdu.edu.cn" target="_blank" title="wiyee">wiyee</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>
