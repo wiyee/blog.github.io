@@ -4,13 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>map排序 | wiyee&#39;s blog</title>
+    <title>Maven安装配置 | wiyee&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="wiyee">
     
-    <meta name="description" content="List&amp;lt;Map.Entry&amp;lt;String, Integer&amp;gt;&amp;gt; list = new ArrayList&amp;lt;Map.Entry&amp;lt;String, Integer&amp;gt;&amp;gt;(hotGameMap.entrySet());
-Collections.sort(lis">
+    <meta name="description" content="想要安装 Apache Maven 在Windows 系统上, 需要下载 Maven 的 zip 文件，并将其解压到你想安装的目录，并配置 Windows 环境变量。
+所需工具：
+
+JDK 1.8
+Maven 3.3.3
+Windows 7
+
+JDK 和 JAVA_HOME确保已安装JDK，并 “J">
     
     
     
@@ -70,15 +76,15 @@ Collections.sort(lis">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/06/20/map排序/" title="map排序" itemprop="url">map排序</a>
+      <a href="/2017/06/20/maven的安装配置/" title="Maven安装配置" itemprop="url">Maven安装配置</a>
   </h1>
   <p class="article-author">By
     
       <a href="yiyu.site" title="wiyee">wiyee</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-06-20T07:13:33.994Z" itemprop="datePublished">2017-06-20</time>
-    更新日期:<time datetime="2017-06-20T13:27:32.803Z" itemprop="dateModified">2017-06-20</time>
+    <time datetime="2017-06-20T07:13:34.000Z" itemprop="datePublished">2017-06-20</time>
+    更新日期:<time datetime="2017-06-20T14:34:53.598Z" itemprop="dateModified">2017-06-20</time>
     
   </p>
 </header>
@@ -87,29 +93,52 @@ Collections.sort(lis">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK-和-JAVA-HOME"><span class="toc-number">1.</span> <span class="toc-text">JDK 和 JAVA_HOME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载Apache-Maven"><span class="toc-number">2.</span> <span class="toc-text">下载Apache Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加M2-HOME和MAVEN-HOME"><span class="toc-number">3.</span> <span class="toc-text">添加M2_HOME和MAVEN_HOME</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#M2-HOME-或-MAVEN-HOME"><span class="toc-number">3.1.</span> <span class="toc-text">M2_HOME 或 MAVEN_HOME</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加到环境变量-PATH"><span class="toc-number">4.</span> <span class="toc-text">添加到环境变量 - PATH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">5.</span> <span class="toc-text">验证</span></a></li></ol>
 		</div>
 		
-		<pre><code>List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;String, Integer&gt;&gt;(hotGameMap.entrySet());
-Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {// 降序排序
-public int compare(Entry&lt;String, Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {
-    return o2.getValue().compareTo(o1.getValue());
-    }
-});
-hotGameMap.clear();
-for(Map.Entry&lt;String,Integer&gt; mapping:list){
-hotGameMap.put(mapping.getKey(), mapping.getValue());
-} 
-</code></pre>  
+		<p>想要安装 Apache Maven 在Windows 系统上, 需要下载 Maven 的 zip 文件，并将其解压到你想安装的目录，并配置 Windows 环境变量。</p>
+<p>所需工具：</p>
+<ol>
+<li>JDK 1.8</li>
+<li>Maven 3.3.3</li>
+<li>Windows 7</li>
+</ol>
+<h3 id="JDK-和-JAVA-HOME"><a href="#JDK-和-JAVA-HOME" class="headerlink" title="JDK 和 JAVA_HOME"></a>JDK 和 JAVA_HOME</h3><p>确保已安装JDK，并 “JAVA_HOME” 变量已加入到 Windows 环境变量。 </p>
+<h3 id="下载Apache-Maven"><a href="#下载Apache-Maven" class="headerlink" title="下载Apache Maven"></a>下载Apache Maven</h3><p>访问 Maven官方网站 <a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a> ，打开后找到下载链接，下载 Maven的zip文件，例如： apache-maven-3.3.9-bin.zip，将它解压到你要安装Maven的文件夹。</p>
+<p>假设你解压缩到文件夹 –  D:\software\yiibai.com\apache-maven </p>
+<h3 id="添加M2-HOME和MAVEN-HOME"><a href="#添加M2-HOME和MAVEN-HOME" class="headerlink" title="添加M2_HOME和MAVEN_HOME"></a>添加M2_HOME和MAVEN_HOME</h3><p>添加M2_HOME和MAVEN_HOME环境变量到Windows环境变量，并将其指向你的 Maven文件夹。 </p>
+<h4 id="M2-HOME-或-MAVEN-HOME"><a href="#M2-HOME-或-MAVEN-HOME" class="headerlink" title="M2_HOME 或 MAVEN_HOME"></a>M2_HOME 或 MAVEN_HOME</h4><p>Maven说只是添加M2_HOME, 但一些项目仍引用Maven的文件夹MAVEN_HOME, 因此，为了安全也把它添加进去。</p>
+<h3 id="添加到环境变量-PATH"><a href="#添加到环境变量-PATH" class="headerlink" title="添加到环境变量 - PATH"></a>添加到环境变量 - PATH</h3><p>更新PATH变量，添加 Maven bin文件夹到PATH的最后，如：%M2_HOME%\bin, 这样就可以在命令中的任何目录下运行Maven命令了。 </p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>完成，以验证它，执行 mvn –version 在命令提示符下，如下图输出结果：</p>
+<pre><code>C:\Users\Administrator&gt;mvn -version
+Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:3
+7+08:00)
+Maven home: D:\software\yiibai.com\apache-maven
+Java version: 1.8.0_40, vendor: Oracle Corporation
+Java home: D:\Program Files\Java\jdk1.8.0_40
+Default locale: zh_CN, platform encoding: GBK
+OS name: &quot;windows 7&quot;, version: &quot;6.1&quot;, arch: &quot;amd64&quot;, family: &quot;dos&quot;
+</code></pre><p>如果你看到类似消息，说明 Apache Maven 在 Windows 上已安装成功。 </p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">java</a><a href="/tags/maven/">maven</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/java/">java</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="yiyu.site/2017/06/20/map排序/" data-title="map排序 | wiyee&#39;s blog" data-tsina="伟大的码农" class="share clearfix">
+  <div data-url="yiyu.site/2017/06/20/maven的安装配置/" data-title="Maven安装配置 | wiyee&#39;s blog" data-tsina="伟大的码农" class="share clearfix">
   </div>
 
 </div>
@@ -119,18 +148,18 @@ hotGameMap.put(mapping.getKey(), mapping.getValue());
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/06/20/maven的安装配置/" title="Maven安装配置">
+ <a href="/2017/06/20/sklearn中logistic回归的参数设置/" title="sklern中logistic回归参数设置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Maven安装配置</span>
+  sklern中logistic回归参数设置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/06/20/LogisticRegression/"  title="LogisticRegression">
+<a href="/2017/06/20/map排序/"  title="map排序">
  <strong>NEXT:</strong><br/> 
- <span>LogisticRegression
+ <span>map排序
 </span>
 </a>
 </div>
@@ -143,7 +172,7 @@ hotGameMap.put(mapping.getKey(), mapping.getValue());
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK-和-JAVA-HOME"><span class="toc-number">1.</span> <span class="toc-text">JDK 和 JAVA_HOME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载Apache-Maven"><span class="toc-number">2.</span> <span class="toc-text">下载Apache Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加M2-HOME和MAVEN-HOME"><span class="toc-number">3.</span> <span class="toc-text">添加M2_HOME和MAVEN_HOME</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#M2-HOME-或-MAVEN-HOME"><span class="toc-number">3.1.</span> <span class="toc-text">M2_HOME 或 MAVEN_HOME</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加到环境变量-PATH"><span class="toc-number">4.</span> <span class="toc-text">添加到环境变量 - PATH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">5.</span> <span class="toc-text">验证</span></a></li></ol>
   </div>
 
 <div id="asidepart">
