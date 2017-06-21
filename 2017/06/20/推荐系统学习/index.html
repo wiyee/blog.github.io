@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Audience Expansion for Online Social Network Advertising加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Can">
+<meta name="description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
 <meta name="keywords" content="论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一篇kdd上的推荐系统相关的论文">
 <meta property="og:url" content="yiyu.site/2017/06/20/推荐系统学习/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="Audience Expansion for Online Social Network Advertising加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Can">
-<meta property="og:updated_time" content="2017-06-20T13:17:17.456Z">
+<meta property="og:description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
+<meta property="og:updated_time" content="2017-06-21T14:31:22.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一篇kdd上的推荐系统相关的论文">
-<meta name="twitter:description" content="Audience Expansion for Online Social Network Advertising加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Can">
+<meta name="twitter:description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -307,8 +307,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</li>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</p>
+<ol>
 <li>利用用户的相似度为一个用户补充属性</li>
 <li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
 </ol>
@@ -326,7 +329,7 @@
 <h4 id="前融合组合推荐"><a href="#前融合组合推荐" class="headerlink" title="前融合组合推荐"></a>前融合组合推荐</h4><p>近年来，这类推荐方法最受学者的关注。在文献[36]中，研究者把用户的年龄和电影的类型放到一个统一的分类器中训练学习。另外一种方法[43]使用了贝叶斯混合效果回归模型,，并通过马尔可夫蒙特卡洛方法得到这个模型的参数。文献[43]将用户和对象的特征都放到一个统计模型下来计算效用函数，研究者使用用户属性z、对象属性w及其交互关系(如选择关系)x来计算效用r。对象j对于用户i的效用值rij计算式可以表示为</p>
 <p>这其中的3种正态分布的变量分别用于描述数据的噪声、用户属性的异质性和对象属性的异质性。式(9)表述效用值是由这几个因素共同决定的。这3种分布的3个参数由马尔可夫蒙特卡洛方法估算得到。</p>
 <p>近年来,一些方法比较的工作[9,42,38]讨论并实验了各种方法与组合策略，得出结论：组合策略能够取得比纯基于内容或协同过滤方法更好的效果。这种在方法层次上融合的方法我们称为前融合组合推荐。</p>
-
+</the>
       
     </div>
     
@@ -337,7 +340,7 @@
         <p><span>Title:</span><a href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
         <p><span>Created:</span>2017-06-20, 15:13:33</p>
-        <p><span>Updated:</span>2017-06-20, 21:17:17</p>
+        <p><span>Updated:</span>2017-06-21, 22:31:22</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/06/20/推荐系统学习/" title="一篇kdd上的推荐系统相关的论文">yiyu.site/2017/06/20/推荐系统学习/</a>
             <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/推荐系统学习/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>

@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="原文出处：http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订sklearn中LogisticRegression的API如下，官方文档：http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn">
+<meta name="description" content="在scikit-learn中，使用Logistic回归时需要注意的一些参数。">
 <meta name="keywords" content="machine learning,regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sklern中logistic回归参数设置">
 <meta property="og:url" content="yiyu.site/2017/06/20/sklearn中logistic回归的参数设置/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="原文出处：http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订sklearn中LogisticRegression的API如下，官方文档：http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn">
-<meta property="og:updated_time" content="2017-06-20T13:26:24.984Z">
+<meta property="og:description" content="在scikit-learn中，使用Logistic回归时需要注意的一些参数。">
+<meta property="og:updated_time" content="2017-06-21T14:29:09.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sklern中logistic回归参数设置">
-<meta name="twitter:description" content="原文出处：http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订sklearn中LogisticRegression的API如下，官方文档：http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn">
+<meta name="twitter:description" content="在scikit-learn中，使用Logistic回归时需要注意的一些参数。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -307,7 +307,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>原文出处：<a href="http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订" target="_blank" rel="external">http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订</a><br>sklearn中LogisticRegression的API如下，官方文档：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression</a></p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>在scikit-learn中，使用Logistic回归时需要注意的一些参数。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>原文出处：<a href="http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订" target="_blank" rel="external">http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订</a><br>sklearn中LogisticRegression的API如下，官方文档：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression</a></p>
 <p>class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　　　在scikit-learn中，与逻辑回归有关的主要是这3个类。LogisticRegression， LogisticRegressionCV 和logistic_regression_path。其中LogisticRegression和LogisticRegressionCV的主要区别是LogisticRegressionCV使用了交叉验证来选择正则化系数C。而LogisticRegression需要自己每次指定一个正则化系数。除了交叉验证，以及选择正则化系数C以外， LogisticRegression和LogisticRegressionCV的使用方法基本相同。</p>
 <p>　　　　logistic_regression_path类则比较特殊，它拟合数据后，不能直接来做预测，只能为拟合数据选择合适逻辑回归的系数和正则化系数。主要是用在模型选择的时候。一般情况用不到这个类，所以后面不再讲述logistic_regression_path类。</p>
@@ -350,7 +353,7 @@
 <h2 id="样本权重参数：-sample-weight"><a href="#样本权重参数：-sample-weight" class="headerlink" title="样本权重参数： sample_weight"></a>样本权重参数： sample_weight</h2><p>　　　　上一节我们提到了样本不失衡的问题，由于样本不平衡，导致样本不是总体样本的无偏估计，从而可能导致我们的模型预测能力下降。遇到这种情况，我们可以通过调节样本权重来尝试解决这个问题。调节样本权重的方法有两种，第一种是在class_weight使用balanced。第二种是在调用fit函数时，通过sample_weight来自己调节每个样本权重。</p>
 <p>　　　　在scikit-learn做逻辑回归时，如果上面两种方法都用到了，那么样本的真正权重是class_weight*sample_weight.</p>
 <p>　　　　以上就是scikit-learn中逻辑回归类库调参的一个小结，还有些参数比如正则化参数C（交叉验证就是 Cs），迭代次数max_iter等，由于和其它的算法类库并没有特别不同，这里不多累述了。</p>
-
+</the>
       
     </div>
     
@@ -361,7 +364,7 @@
         <p><span>Title:</span><a href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
         <p><span>Created:</span>2017-06-20, 15:13:34</p>
-        <p><span>Updated:</span>2017-06-20, 21:26:24</p>
+        <p><span>Updated:</span>2017-06-21, 22:29:09</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/06/20/sklearn中logistic回归的参数设置/" title="sklern中logistic回归参数设置">yiyu.site/2017/06/20/sklearn中logistic回归的参数设置/</a>
             <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/sklearn中logistic回归的参数设置/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>

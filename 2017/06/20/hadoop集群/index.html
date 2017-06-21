@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="ubuntu集群上安装hadoop创建用户并增加管理员权限 sudo -s 进入root用户 adduser hadoop 创建hadoop用户 root@ubuntu:~# sudo vim /etc/sudoers 修改文件如下： # User privilege specification root ALL=(ALL) ALL aboutyun ALL=(ALL) ALL  保存退出，创建的">
+<meta name="description" content="在ubuntu环境下搭建hadoop集群。Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下,开发分布式程序。充分利用集群的威力进行高速运算和存储。">
 <meta name="keywords" content="hadoop,大数据,集群">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop集群安装与配置">
 <meta property="og:url" content="yiyu.site/2017/06/20/hadoop集群/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="ubuntu集群上安装hadoop创建用户并增加管理员权限 sudo -s 进入root用户 adduser hadoop 创建hadoop用户 root@ubuntu:~# sudo vim /etc/sudoers 修改文件如下： # User privilege specification root ALL=(ALL) ALL aboutyun ALL=(ALL) ALL  保存退出，创建的">
-<meta property="og:updated_time" content="2017-06-21T03:05:30.572Z">
+<meta property="og:description" content="在ubuntu环境下搭建hadoop集群。Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下,开发分布式程序。充分利用集群的威力进行高速运算和存储。">
+<meta property="og:updated_time" content="2017-06-21T14:37:28.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop集群安装与配置">
-<meta name="twitter:description" content="ubuntu集群上安装hadoop创建用户并增加管理员权限 sudo -s 进入root用户 adduser hadoop 创建hadoop用户 root@ubuntu:~# sudo vim /etc/sudoers 修改文件如下： # User privilege specification root ALL=(ALL) ALL aboutyun ALL=(ALL) ALL  保存退出，创建的">
+<meta name="twitter:description" content="在ubuntu环境下搭建hadoop集群。Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下,开发分布式程序。充分利用集群的威力进行高速运算和存储。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -307,7 +307,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ubuntu集群上安装hadoop"><a href="#ubuntu集群上安装hadoop" class="headerlink" title="ubuntu集群上安装hadoop"></a>ubuntu集群上安装hadoop</h2><h3 id="创建用户并增加管理员权限"><a href="#创建用户并增加管理员权限" class="headerlink" title="创建用户并增加管理员权限"></a>创建用户并增加管理员权限</h3><ol>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>在ubuntu环境下搭建hadoop集群。Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下,开发分布式程序。充分利用集群的威力进行高速运算和存储。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="ubuntu集群上安装hadoop"><a href="#ubuntu集群上安装hadoop" class="headerlink" title="ubuntu集群上安装hadoop"></a>ubuntu集群上安装hadoop</h2><h3 id="创建用户并增加管理员权限"><a href="#创建用户并增加管理员权限" class="headerlink" title="创建用户并增加管理员权限"></a>创建用户并增加管理员权限</h3><ol>
 <li>sudo -s 进入root用户</li>
 <li>adduser hadoop 创建hadoop用户</li>
 <li><p>root@ubuntu:~# sudo vim /etc/sudoers<br> 修改文件如下：</p>
@@ -425,7 +428,7 @@ mkdir/hadoop
 <h5 id="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"><a href="#将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上" class="headerlink" title="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"></a>将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上</h5><p>以slave1为例：命令如下：</p>
 <pre><code>scp -r  ~/hadoop-2.7.2 hadoop@slave1:~/
 </code></pre><p>安装完成后，我们要格式化HDFS然后启动集群所有节点。</p>
-
+</the>
       
     </div>
     
@@ -436,7 +439,7 @@ mkdir/hadoop
         <p><span>Title:</span><a href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
         <p><span>Created:</span>2017-06-20, 15:13:33</p>
-        <p><span>Updated:</span>2017-06-21, 11:05:30</p>
+        <p><span>Updated:</span>2017-06-21, 22:37:28</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/06/20/hadoop集群/" title="hadoop集群安装与配置">yiyu.site/2017/06/20/hadoop集群/</a>
             <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/hadoop集群/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>

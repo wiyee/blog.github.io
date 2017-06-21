@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="前言什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。 基本的聚类分析算法 K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。  凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。  DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法">
+<meta name="description" content="在数据挖掘中，K-Means算法是一种 cluster analysis 的算法，其主要是来计算数据聚集的算法，主要通过不断地取离种子点最近均值的算法。">
 <meta name="keywords" content="machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="k-均值聚类算法对未标注数据分组">
 <meta property="og:url" content="yiyu.site/2017/06/20/k均值/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="前言什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。 基本的聚类分析算法 K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。  凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。  DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法">
-<meta property="og:updated_time" content="2017-06-20T13:34:36.854Z">
+<meta property="og:description" content="在数据挖掘中，K-Means算法是一种 cluster analysis 的算法，其主要是来计算数据聚集的算法，主要通过不断地取离种子点最近均值的算法。">
+<meta property="og:updated_time" content="2017-06-21T14:36:15.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="k-均值聚类算法对未标注数据分组">
-<meta name="twitter:description" content="前言什么是聚类分析聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。 基本的聚类分析算法 K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。  凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。  DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法">
+<meta name="twitter:description" content="在数据挖掘中，K-Means算法是一种 cluster analysis 的算法，其主要是来计算数据聚集的算法，主要通过不断地取离种子点最近均值的算法。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -307,7 +307,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>在数据挖掘中，K-Means算法是一种 cluster analysis 的算法，其主要是来计算数据聚集的算法，主要通过不断地取离种子点最近均值的算法。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
 <h3 id="基本的聚类分析算法"><a href="#基本的聚类分析算法" class="headerlink" title="基本的聚类分析算法"></a>基本的聚类分析算法</h3><ol>
 <li><p>K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。</p>
 </li>
@@ -422,7 +425,7 @@ def randCent(dataSet, k):
 </ol>
 <h2 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h2><h3 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h3><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
 <h3 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h3><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
-
+</the>
       
     </div>
     
@@ -433,7 +436,7 @@ def randCent(dataSet, k):
         <p><span>Title:</span><a href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
         <p><span>Created:</span>2017-06-20, 15:13:33</p>
-        <p><span>Updated:</span>2017-06-20, 21:34:36</p>
+        <p><span>Updated:</span>2017-06-21, 22:36:15</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/06/20/k均值/" title="k-均值聚类算法对未标注数据分组">yiyu.site/2017/06/20/k均值/</a>
             <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/k均值/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>

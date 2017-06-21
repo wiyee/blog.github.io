@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="数据集这里使用uci上的开源数据集 数据介绍：数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生">
+<meta name="description" content="回归是一种极易理解的模型，就相当于y=f(x)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。">
 <meta name="keywords" content="machine learning,regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LinearRegression">
 <meta property="og:url" content="yiyu.site/2017/06/20/linearRegresiion/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="数据集这里使用uci上的开源数据集 数据介绍：数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生">
-<meta property="og:updated_time" content="2017-06-20T13:32:38.511Z">
+<meta property="og:description" content="回归是一种极易理解的模型，就相当于y=f(x)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。">
+<meta property="og:updated_time" content="2017-06-21T14:35:23.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinearRegression">
-<meta name="twitter:description" content="数据集这里使用uci上的开源数据集 数据介绍：数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生">
+<meta name="twitter:description" content="回归是一种极易理解的模型，就相当于y=f(x)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -307,7 +307,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>回归是一种极易理解的模型，就相当于y=f(x)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
 <h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p>
 <h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><p>特征包括小时平均环境变量</p>
 <ul>
@@ -387,7 +391,7 @@ ax.plot([Y.min(), Y.max()], [Y.min(), Y.max()], &apos;k--&apos;, lw=4)
 ax.set_xlabel(&apos;Measured&apos;)
 ax.set_ylabel(&apos;Predicted&apos;)
 plt.show()
-</code></pre>
+</code></pre></the>
       
     </div>
     
@@ -398,7 +402,7 @@ plt.show()
         <p><span>Title:</span><a href="/2017/06/20/linearRegresiion/">LinearRegression</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
         <p><span>Created:</span>2017-06-20, 15:13:33</p>
-        <p><span>Updated:</span>2017-06-20, 21:32:38</p>
+        <p><span>Updated:</span>2017-06-21, 22:35:23</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2017/06/20/linearRegresiion/" title="LinearRegression">yiyu.site/2017/06/20/linearRegresiion/</a>
             <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/linearRegresiion/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
