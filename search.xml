@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[粒子群算法]]></title>
+      <url>/2017/06/20/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>微粒群算法，是由J. Kennedy和R. C. Eberhart等于1995年开发的一种演化计算技术，来源于对一个简化社会模型的模拟。其中“群（swarm）”来源于微粒群符合M. M. Millonas在开发应用于人工生命（artificial life）的模型时所提出的群体智能的5个基本原则。“粒子（particle）”是一个折衷的选择，因为既需要将群体中的成员描述为没有质量、没有体积的，同时也需要描述它的速度和加速状态。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>微粒群算法，是由J. Kennedy和R. C. Eberhart等于1995年开发的一种演化计算技术，来源于对一个简化社会模型的模拟。其中“群（swarm）”来源于微粒群符合M. M. Millonas在开发应用于人工生命（artificial life）的模型时所提出的群体智能的5个基本原则。“粒子（particle）”是一个折衷的选择，因为既需要将群体中的成员描述为没有质量、没有体积的，同时也需要描述它的速度和加速状态。</p>
+<p>PSO算法最初是为了图形化的模拟鸟群优美而不可预测的运动。而通过对动物社会行为的观察，发现在群体中对信息的社会共享提供一个演化的优势，并以此作为开发算法的基础。通过加入近邻的速度匹配、并考虑了多维搜索和根据距离的加速，形成了PSO的最初版本。之后引入了惯性权重w来更好的控制开发（exploitation）和探索（exploration），形成了标准版本。为了提高粒群算法的性能和实用性，中山大学、（英国）格拉斯哥大学等又开发了自适应版本（Adaptive PSO）.[1]</p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>PSO算法是基于群体的，根据对环境的适应度将群体中的个体移动到好的区域。然而它不对个体使用演化算子，而是将每个个体看作是D维搜索空间中的一个没有体积的微粒（点），在搜索空间中以一定的速度飞行，这个速度根据它本身的飞行经验和同伴的飞行经验来动态调整。第i个微粒表示为Xi = （xi1, xi2, …, xiD），它经历过的最好位置（有最好的适应值）记为Pi = （pi1, pi2, …, piD），也称为pbest。在群体所有微粒经历过的最好位置的索引号用符号g表示，即Pg，也称为gbest。微粒i的速度用Vi = （vi1, vi2, …, viD）表示。对每一代，它的第d维（1 ≤ d ≤ D）根据如下方程进行变化：</p>
+<pre><code>vid = w∙vid+c1∙rand（）∙（pid-xid）+c2∙Rand（）∙（pgd-xid）   （1a）
+xid = xid+vid                                               （1b）
+</code></pre><p>其中w为惯性权重（inertia weight），c1和c2为加速常数（acceleration constants），rand（）和Rand（）为两个在[0,1]范围里变化的随机值。</p>
+<p>此外，微粒的速度Vi被一个最大速度Vmax所限制。如果当前对微粒的加速导致它的在某维的速度vid超过该维的最大速度vmax,d，则该维的速度被限制为该维最大速度vmax,d。</p>
+<p>对公式（1a），第一部分为微粒先前行为的惯性，第二部分为“认知（cognition）”部分，表示微粒本身的思考；第三部分为“社会（social）”部分，表示微粒间的信息共享与相互合作。</p>
+<p>“认知”部分可以由Thorndike的效应法则（law of effect）所解释，即一个得到加强的随机行为在将来更有可能出现。这里的行为即“认知”，并假设获得正确的知识是得到加强的，这样的一个模型假定微粒被激励着去减小误差。</p>
+<p>“社会”部分可以由Bandura的替代强化（vicarious reinforcement）所解释。根据该理论的预期，当观察者观察到一个模型在加强某一行为时，将增加它实行该行为的几率。即微粒本身的认知将被其它微粒所模仿。</p>
+<p>PSO算法使用如下心理学假设：在寻求一致的认知过程中，个体往往记住自身的信念，并同时考虑同事们的信念。当其察觉同事的信念较好的时候，将进行适应性地调整。</p>
+<p>标准PSO的算法流程如下：</p>
+<p>初始化一群微粒（群体规模为m），包括随机的位置和速度；<br>评价每个微粒的适应度；<br>对每个微粒，将它的适应值和它经历过的最好位置pbest的作比较，如果较好，则将其作为当前的最好位置pbest；<br>对每个微粒，将它的适应值和全局所经历最好位置gbest的作比较，如果较好，则重新设置gbest的索引号；<br>根据方程（1）变化微粒的速度和位置；<br>如未达到结束条件（通常为足够好的适应值或达到一个预设最大代数Gmax），回到2）。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> 最优化算法 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ubuntu常用命令]]></title>
+      <url>/2017/06/20/Ubuntu%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>文件和文件夹操作、添加用户为用户赋予权限。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h5 id="创建、删除文件及文件夹，强行清空回收站"><a href="#创建、删除文件及文件夹，强行清空回收站" class="headerlink" title="创建、删除文件及文件夹，强行清空回收站"></a>创建、删除文件及文件夹，强行清空回收站</h5><pre><code>mkdir 目录名         =&gt; 创建一个目录
+rmdir 空目录名      =&gt; 删除一个空目录
+rm 文件名 文件名   =&gt; 删除一个文件或多个文件
+rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切
+touch 文件名        =&gt; 创建一个空文件
+</code></pre><h5 id="重命名文件（夹）-移动文件（夹）到指定文件夹"><a href="#重命名文件（夹）-移动文件（夹）到指定文件夹" class="headerlink" title="重命名文件（夹） / 移动文件（夹）到指定文件夹"></a>重命名文件（夹） / 移动文件（夹）到指定文件夹</h5><pre><code>mv file1 file2    =&gt;    将文件 file1，更改文件名为 file2。
+
+mv file1 dir1     =&gt;    将文件 file1，移到目录 dir1下，文件名仍为 file1。
+
+mv dir1 dir2      =&gt;    若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和子目录，更改为目录 dir2。
+</code></pre><h5 id="强制清空回收站"><a href="#强制清空回收站" class="headerlink" title="强制清空回收站"></a>强制清空回收站</h5><pre><code>ubuntu8.04以前的版本
+sudo rm -fr $HOME/.Trash/*
+ubuntu 8.04
+sudo rm -fr $HOME/.local/share/Trash/files/*
+</code></pre><h5 id="创建角色"><a href="#创建角色" class="headerlink" title="创建角色"></a>创建角色</h5><p>$是普通管员，#是系统管理员，在Ubuntu下，root用户默认是没有密码的，因此也就无法使用（据说是为了安全）。想用root的话，得给root用户设置一个密码：</p>
+<pre><code>sudo passwd root
+</code></pre><p>然后登录时用户名输入root，再输入密码就行了。<br>ubuntu建用户最好用adduser，虽然adduser和useradd是一样的在别的linux糸统下，但是我在ubuntu下用useradd时，并没有创建同名的用户主目录。</p>
+<pre><code>例子：adduser user1
+</code></pre><p>这样他就会自动创建用户主目录，创建用户同名的组。</p>
+<pre><code>root@ubuntu:~# sudo adduser linuxidc
+[sudo] password for xx:
+输入xx用户的密码，出现如下信息
+正在添加用户&quot;linuxidc&quot;…
+正在添加新组&quot;linuxidc&quot; (1006)…
+正在添加新用户&quot;linuxidc&quot; (1006) 到组&quot;linuxidc&quot;…
+创建主目录&quot;/home/linuxidc&quot;…
+正在从&quot;/etc/skel&quot;复制文件…
+输入新的 UNIX 口令：
+重新输入新的 UNIX 口令：
+两次输入linuxidc的初始密码，出现的信息如下
+passwd: password updated successfully
+Changing the user information for linuxidc
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Full Name []:等信息一路回车
+这个信息是否正确？ [Y/n] y
+</code></pre><p>到此，用户添加成功。如果需要让此用户有root权限，执行命令：</p>
+<pre><code>root@ubuntu:~# sudo vim /etc/sudoers
+</code></pre><p>修改文件如下：</p>
+<pre><code># User privilege specification
+root ALL=(ALL) ALL
+linuxidc ALL=(ALL) ALL
+</code></pre><p>保存退出，linuxidc用户就拥有了root权限。</p>
+<p>删除：<br>    终端方法：以下用newuser代替想要删除的用户账户<br>    在root用户下：userdel -r newuser<br>    在普通用户下：sudo userdel -r newuser<br>    因为你需要彻底删除用户，所以加上-r的选项，在删除用户的同时一起把这个用户的宿主目录和邮件目录删除。</p>
+<h5 id="进入用户"><a href="#进入用户" class="headerlink" title="进入用户"></a>进入用户</h5><pre><code>sudo su user
+</code></pre></the>]]></content>
+      
+        <categories>
+            
+            <category> ubuntu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ubuntu配置ssh]]></title>
+      <url>/2017/06/20/ubuntu%20ssh/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>在ubuntu中配置ssh<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="ssh配置"><a href="#ssh配置" class="headerlink" title="ssh配置"></a>ssh配置</h2><h3 id="更新源列表"><a href="#更新源列表" class="headerlink" title="更新源列表"></a>更新源列表</h3><p>打开”终端窗口”，输入”sudo apt-get update”–&gt;回车–&gt;”输入当前登录用户的管理员密码”–&gt;回车,就可以了。</p>
+<h3 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h3><p>打开”终端窗口”，输入”sudo apt-get install openssh-server”–&gt;回车–&gt;输入”y”–&gt;回车–&gt;安装完成。</p>
+<h3 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看ssh服务是否启动</h3><p>打开”终端窗口”，输入”sudo ps -e |grep ssh”–&gt;回车–&gt;有sshd,说明ssh服务已经启动，如果没有启动，输入”sudo service ssh start”–&gt;回车–&gt;ssh服务就会启动。</p>
+<h3 id="使用gedit修改配置文件”-etc-ssh-sshd-config”"><a href="#使用gedit修改配置文件”-etc-ssh-sshd-config”" class="headerlink" title="使用gedit修改配置文件”/etc/ssh/sshd_config”"></a>使用gedit修改配置文件”/etc/ssh/sshd_config”</h3><h4 id="gedit需要安装"><a href="#gedit需要安装" class="headerlink" title="gedit需要安装"></a>gedit需要安装</h4><p>打开”终端窗口”，输入”sudo gedit /etc/ssh/sshd_config”–&gt;回车–&gt;把配置文件中的”PermitRootLogin without-password”加一个”#”号,把它注释掉–&gt;再增加一句”PermitRootLogin yes”–&gt;保存，修改成功。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> ubuntu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[TensorFlow学习入门]]></title>
+      <url>/2017/06/20/TensorFlow%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。它灵活的架构让你可以在多种平台上展开计算，例如台式计算机中的一个或多个CPU（或GPU），服务器，移动设备等等。TensorFlow 最初由Google大脑小组（隶属于Google机器智能研究机构）的研究员和工程师们开发出来，用于机器学习和深度神经网络方面的研究，但这个系统的通用性使其也可广泛用于其他计算领域。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。它灵活的架构让你可以在多种平台上展开计算，例如台式计算机中的一个或多个CPU（或GPU），服务器，移动设备等等。TensorFlow 最初由Google大脑小组（隶属于Google机器智能研究机构）的研究员和工程师们开发出来，用于机器学习和深度神经网络方面的研究，但这个系统的通用性使其也可广泛用于其他计算领域。</p>
+<h3 id="什么是数据流图（Data-Flow-Graph）"><a href="#什么是数据流图（Data-Flow-Graph）" class="headerlink" title="什么是数据流图（Data Flow Graph）?"></a>什么是数据流图（Data Flow Graph）?</h3><p>数据流图用“结点”（nodes）和“线”(edges)的有向图来描述数学计算。“节点” 一般用来表示施加的数学操作，但也可以表示数据输入（feed in）的起点/输出（push out）的终点，或者是读取/写入持久变量（persistent variable）的终点。“线”表示“节点”之间的输入/输出关系。这些数据“线”可以输运“size可动态调整”的多维数据数组，即“张量”（tensor）。张量从图中流过的直观图像是这个工具取名为“Tensorflow”的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行地执行运算。</p>
+<h3 id="TensorFlow的特征"><a href="#TensorFlow的特征" class="headerlink" title="TensorFlow的特征"></a>TensorFlow的特征</h3><h4 id="高度的灵活性"><a href="#高度的灵活性" class="headerlink" title="高度的灵活性"></a>高度的灵活性</h4><p>TensorFlow 不是一个严格的“神经网络”库。只要你可以将你的计算表示为一个数据流图，你就可以使用Tensorflow。你来构建图，描写驱动计算的内部循环。我们提供了有用的工具来帮助你组装“子图”（常用于神经网络），当然用户也可以自己在Tensorflow基础上写自己的“上层库”。定义顺手好用的新复合操作和写一个python函数一样容易，而且也不用担心性能损耗。当然万一你发现找不到想要的底层数据操作，你也可以自己写一点c++代码来丰富底层的操作。</p>
+<h4 id="真正的可移植性（Portability）"><a href="#真正的可移植性（Portability）" class="headerlink" title="真正的可移植性（Portability）"></a>真正的可移植性（Portability）</h4><p>Tensorflow 在CPU和GPU上运行，比如说可以运行在台式机、服务器、手机移动设备等等。想要在没有特殊硬件的前提下，在你的笔记本上跑一下机器学习的新想法？Tensorflow可以办到这点。准备将你的训练模型在多个CPU上规模化运算，又不想修改代码？Tensorflow可以办到这点。想要将你的训练好的模型作为产品的一部分用到手机app里？Tensorflow可以办到这点。你改变主意了，想要将你的模型作为云端服务运行在自己的服务器上，或者运行在Docker容器里？Tensorfow也能办到。Tensorflow就是这么拽 :)</p>
+<h4 id="将科研和产品联系在一起"><a href="#将科研和产品联系在一起" class="headerlink" title="将科研和产品联系在一起"></a>将科研和产品联系在一起</h4><p>过去如果要将科研中的机器学习想法用到产品中，需要大量的代码重写工作。那样的日子一去不复返了！在Google，科学家用Tensorflow尝试新的算法，产品团队则用Tensorflow来训练和使用计算模型，并直接提供给在线用户。使用Tensorflow可以让应用型研究者将想法迅速运用到产品中，也可以让学术性研究者更直接地彼此分享代码，从而提高科研产出率。</p>
+<h4 id="自动求微分"><a href="#自动求微分" class="headerlink" title="自动求微分"></a>自动求微分</h4><p>基于梯度的机器学习算法会受益于Tensorflow自动求微分的能力。作为Tensorflow用户，你只需要定义预测模型的结构，将这个结构和目标函数（objective function）结合在一起，并添加数据，Tensorflow将自动为你计算相关的微分导数。计算某个变量相对于其他变量的导数仅仅是通过扩展你的图来完成的，所以你能一直清楚看到究竟在发生什么。</p>
+<h4 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h4><p>Tensorflow 有一个合理的c++使用界面，也有一个易用的python使用界面来构建和执行你的graphs。你可以直接写python/c++程序，也可以用交互式的ipython界面来用Tensorflow尝试些想法，它可以帮你将笔记、代码、可视化等有条理地归置好。当然这仅仅是个起点——我们希望能鼓励你创造自己最喜欢的语言界面，比如Go，Java，Lua，Javascript，或者是R。</p>
+<h4 id="性能最优化"><a href="#性能最优化" class="headerlink" title="性能最优化"></a>性能最优化</h4><p>比如说你又一个32个CPU内核、4个GPU显卡的工作站，想要将你工作站的计算潜能全发挥出来？由于Tensorflow 给予了线程、队列、异步操作等以最佳的支持，Tensorflow 让你可以将你手边硬件的计算潜能全部发挥出来。你可以自由地将Tensorflow图中的计算元素分配到不同设备上，Tensorflow可以帮你管理好这些不同副本。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+            <tag> deep learning </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Installing TensorFlow with virtualenv]]></title>
+      <url>/2017/06/20/tensorflow%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>在ubuntu上如何安装tenserflow。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><h3 id="Take-the-following-steps-to-install-TensorFlow-with-Virtualenv"><a href="#Take-the-following-steps-to-install-TensorFlow-with-Virtualenv" class="headerlink" title="Take the following steps to install TensorFlow with Virtualenv:"></a>Take the following steps to install TensorFlow with Virtualenv:</h3><h4 id="Install-pip-and-virtualenv-by-issuing-the-following-command"><a href="#Install-pip-and-virtualenv-by-issuing-the-following-command" class="headerlink" title="Install pip and virtualenv by issuing the following command:"></a>Install pip and virtualenv by issuing the following command:</h4><pre><code>$ sudo apt-get install python-pip python-dev python-virtualenv 
+</code></pre><h4 id="Create-a-virtualenv-environment-by-issuing-the-following-command"><a href="#Create-a-virtualenv-environment-by-issuing-the-following-command" class="headerlink" title="Create a virtualenv environment by issuing the following command:"></a>Create a virtualenv environment by issuing the following command:</h4><pre><code>$ virtualenv --system-site-packages targetDirectory 
+</code></pre><p>The targetDirectory specifies the top of the virtualenv tree. Our instructions assume that targetDirectory is ~/tensorflow, but you may choose any directory.</p>
+<h4 id="Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands"><a href="#Activate-the-virtualenv-environment-by-issuing-one-of-the-following-commands" class="headerlink" title="Activate the virtualenv environment by issuing one of the following commands:"></a>Activate the virtualenv environment by issuing one of the following commands:</h4><pre><code>$ source ~/tensorflow/bin/activate # bash, sh, ksh, or zsh
+$ source ~/tensorflow/bin/activate.csh  # csh or tcsh
+</code></pre><p>The preceding source command should change your prompt to the following:</p>
+<pre><code>(tensorflow)$ 
+</code></pre><h4 id="Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment"><a href="#Issue-one-of-the-following-commands-to-install-TensorFlow-in-the-active-virtualenv-environment" class="headerlink" title="Issue one of the following commands to install TensorFlow in the active virtualenv environment:"></a>Issue one of the following commands to install TensorFlow in the active virtualenv environment:</h4><pre><code>(tensorflow)$ pip install --upgrade tensorflow      # for Python 2.7
+(tensorflow)$ pip3 install --upgrade tensorflow     # for Python 3.n
+(tensorflow)$ pip install --upgrade tensorflow-gpu  # for Python 2.7 and GPU
+(tensorflow)$ pip3 install --upgrade tensorflow-gpu # for Python 3.n and GPU
+</code></pre><p>If the preceding command succeeds, skip Step 5. If the preceding command fails, perform Step 5.</p>
+<h4 id="Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format"><a href="#Optional-If-Step-4-failed-typically-because-you-invoked-a-pip-version-lower-than-8-1-install-TensorFlow-in-the-active-virtualenv-environment-by-issuing-a-command-of-the-following-format" class="headerlink" title="(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:"></a>(Optional) If Step 4 failed (typically because you invoked a pip version lower than 8.1), install TensorFlow in the active virtualenv environment by issuing a command of the following format:</h4><pre><code>(tensorflow)$ pip install --upgrade TF_PYTHON_URL   # Python 2.7
+(tensorflow)$ pip3 install --upgrade TF_PYTHON_URL  # Python 3.N 
+</code></pre><p>where TF_PYTHON_URL identifies the URL of the TensorFlow Python package. The appropriate value of TF_PYTHON_URLdepends on the operating system, Python version, and GPU support. Find the appropriate value for TF_PYTHON_URL for your system here. For example, if you are installing TensorFlow for Linux, Python 2.7, and CPU-only support, issue the following command to install TensorFlow in the active virtualenv environment:</p>
+<pre><code>(tensorflow)$ pip3 install --upgrade \
+ https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.1-cp34-cp34m-linux_x86_64.whl
+</code></pre><p>If you encounter installation problems, see Common Installation Problems.</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+            <tag> deep learning </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[sklern中logistic回归参数设置]]></title>
+      <url>/2017/06/20/sklearn%E4%B8%ADlogistic%E5%9B%9E%E5%BD%92%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>在scikit-learn中，使用Logistic回归时需要注意的一些参数。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>原文出处：<a href="http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订" target="_blank" rel="external">http://www.cnblogs.com/pinard/p/6035872.html，在原文的基础上做了一些修订</a><br>sklearn中LogisticRegression的API如下，官方文档：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression</a></p>
+<p>class sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver=’liblinear’, max_iter=100, multi_class=’ovr’, verbose=0, warm_start=False, n_jobs=1)</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　　　在scikit-learn中，与逻辑回归有关的主要是这3个类。LogisticRegression， LogisticRegressionCV 和logistic_regression_path。其中LogisticRegression和LogisticRegressionCV的主要区别是LogisticRegressionCV使用了交叉验证来选择正则化系数C。而LogisticRegression需要自己每次指定一个正则化系数。除了交叉验证，以及选择正则化系数C以外， LogisticRegression和LogisticRegressionCV的使用方法基本相同。</p>
+<p>　　　　logistic_regression_path类则比较特殊，它拟合数据后，不能直接来做预测，只能为拟合数据选择合适逻辑回归的系数和正则化系数。主要是用在模型选择的时候。一般情况用不到这个类，所以后面不再讲述logistic_regression_path类。</p>
+<p>　　　　此外，scikit-learn里面有个容易让人误解的类RandomizedLogisticRegression,虽然名字里有逻辑回归的词，但是主要是用L1正则化的逻辑回归来做特征选择的，属于维度规约的算法类，不属于我们常说的分类算法的范畴。</p>
+<p>　　　　后面的讲解主要围绕LogisticRegression和LogisticRegressionCV中的重要参数的选择来来展开，这些参数的意义在这两个类中都是一样的。</p>
+<h2 id="正则化选择参数：penalty"><a href="#正则化选择参数：penalty" class="headerlink" title="正则化选择参数：penalty"></a>正则化选择参数：penalty</h2><p>　　　　LogisticRegression和LogisticRegressionCV默认就带了正则化项。penalty参数可选择的值为”l1”和”l2”.分别对应L1的正则化和L2的正则化，默认是L2的正则化。</p>
+<p>　　　　在调参时如果我们主要的目的只是为了解决过拟合，一般penalty选择L2正则化就够了。但是如果选择L2正则化发现还是过拟合，即预测效果差的时候，就可以考虑L1正则化。另外，如果模型的特征非常多，我们希望一些不重要的特征系数归零，从而让模型系数稀疏化的话，也可以使用L1正则化。</p>
+<p>　　　　penalty参数的选择会影响我们损失函数优化算法的选择。即参数solver的选择，如果是L2正则化，那么4种可选的算法{‘newton-cg’, ‘lbfgs’, ‘liblinear’, ‘sag’}都可以选择。但是如果penalty是L1正则化的话，就只能选择‘liblinear’了。这是因为L1正则化的损失函数不是连续可导的，而{‘newton-cg’, ‘lbfgs’,‘sag’}这三种优化算法时都需要损失函数的一阶或者二阶连续导数。而‘liblinear’并没有这个依赖。</p>
+<p>　　　　具体使用了这4个算法有什么不同以及有什么影响我们下一节讲。</p>
+<h2 id="优化算法选择参数：solver"><a href="#优化算法选择参数：solver" class="headerlink" title="优化算法选择参数：solver"></a>优化算法选择参数：solver</h2><p>　　　　solver参数决定了我们对逻辑回归损失函数的优化方法，有4种算法可以选择，分别是：</p>
+<p>　　　　a) liblinear：使用了开源的liblinear库实现，内部使用了坐标轴下降法来迭代优化损失函数。</p>
+<p>　　　　b) lbfgs：拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</p>
+<p>　　　　c) newton-cg：也是牛顿法家族的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</p>
+<p>　　　　d) sag：即随机平均梯度下降，是梯度下降法的变种，和普通梯度下降法的区别是每次迭代仅仅用一部分的样本来计算梯度，适合于样本数据多的时候，SAG是一种线性收敛算法，这个速度远比SGD快。关于SAG的理解，参考博文线性收敛的随机优化算法之 SAG、SVRG（随机梯度下降）</p>
+<p>　　　　从上面的描述可以看出，newton-cg, lbfgs和sag这三种优化算法时都需要损失函数的一阶或者二阶连续导数，因此不能用于没有连续导数的L1正则化，只能用于L2正则化。而liblinear通吃L1正则化和L2正则化。</p>
+<p>　　　　同时，sag每次仅仅使用了部分样本进行梯度迭代，所以当样本量少的时候不要选择它，而如果样本量非常大，比如大于10万，sag是第一选择。但是sag不能用于L1正则化，所以当你有大量的样本，又需要L1正则化的话就要自己做取舍了。要么通过对样本采样来降低样本量，要么回到L2正则化。</p>
+<p>In a nutshell, one may choose the solver with the following rules:</p>
+<pre><code>| Case | Solver|
+| ------------- |:-------------:|
+| Small dataset or L1 penalty | “liblinear” |
+| Multinomial loss or large dataset | centered |
+| Very Large dataset | “sag” |
+</code></pre><p>　　　　从上面的描述，大家可能觉得，既然newton-cg, lbfgs和sag这么多限制，如果不是大样本，我们选择liblinear不就行了嘛！错，因为liblinear也有自己的弱点！我们知道，逻辑回归有二元逻辑回归和多元逻辑回归。对于多元逻辑回归常见的有one-vs-rest(OvR)和many-vs-many(MvM)两种。而MvM一般比OvR分类相对准确一些。郁闷的是liblinear只支持OvR，不支持MvM，这样如果我们需要相对精确的多元逻辑回归时，就不能选择liblinear了。也意味着如果我们需要相对精确的多元逻辑回归不能使用L1正则化了。</p>
+<p>总结而言，liblinear支持L1和L2，只支持OvR做多分类，“lbfgs”, “sag” “newton-cg”只支持L2，支持OvR和MvM做多分类。</p>
+<p>　　　　具体OvR和MvM有什么不同我们下一节讲。</p>
+<h2 id="分类方式选择参数：multi-class"><a href="#分类方式选择参数：multi-class" class="headerlink" title="分类方式选择参数：multi_class"></a>分类方式选择参数：multi_class</h2><p>　　　　multi_class参数决定了我们分类方式的选择，有 ovr和multinomial两个值可以选择，默认是 ovr。</p>
+<p>　　　　ovr即前面提到的one-vs-rest(OvR)，而multinomial即前面提到的many-vs-many(MvM)。如果是二元逻辑回归，ovr和multinomial并没有任何区别，区别主要在多元逻辑回归上。</p>
+<p>　　　　OvR的思想很简单，无论你是多少元逻辑回归，我们都可以看做二元逻辑回归。具体做法是，对于第K类的分类决策，我们把所有第K类的样本作为正例，除了第K类样本以外的所有样本都作为负例，然后在上面做二元逻辑回归，得到第K类的分类模型。其他类的分类模型获得以此类推。</p>
+<p>　　　　而MvM则相对复杂，这里举MvM的特例one-vs-one(OvO)作讲解。如果模型有T类，我们每次在所有的T类样本里面选择两类样本出来，不妨记为T1类和T2类，把所有的输出为T1和T2的样本放在一起，把T1作为正例，T2作为负例，进行二元逻辑回归，得到模型参数。我们一共需要T(T-1)/2次分类。</p>
+<p>　　　　从上面的描述可以看出OvR相对简单，但分类效果相对略差（这里指大多数样本分布情况，某些样本分布下OvR可能更好）。而MvM分类相对精确，但是分类速度没有OvR快。</p>
+<p>　　　　如果选择了ovr，则4种损失函数的优化方法liblinear，newton-cg, lbfgs和sag都可以选择。但是如果选择了multinomial,则只能选择newton-cg, lbfgs和sag了。</p>
+<h2 id="类型权重参数：-class-weight"><a href="#类型权重参数：-class-weight" class="headerlink" title="类型权重参数： class_weight"></a>类型权重参数： class_weight</h2><p>　　　　class_weight参数用于标示分类模型中各种类型的权重，可以不输入，即不考虑权重，或者说所有类型的权重一样。如果选择输入的话，可以选择balanced让类库自己计算类型权重，或者我们自己输入各个类型的权重，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9, 1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。</p>
+<p>　　　　如果class_weight选择balanced，那么类库会根据训练样本量来计算权重。某种类型样本量越多，则权重越低，样本量越少，则权重越高。</p>
+<p>sklearn的官方文档中，当class_weight为balanced时，类权重计算方法如下：</p>
+<p>n_samples / (n_classes * np.bincount(y))，n_samples为样本数，n_classes为类别数量，np.bincount(y)会输出每个类的样本数，例如y=[1,0,0,1,1],则np.bincount(y)=[2,3]<br>　　　　那么class_weight有什么作用呢？在分类模型中，我们经常会遇到两类问题：</p>
+<p>　　　　第一种是误分类的代价很高。比如对合法用户和非法用户进行分类，将非法用户分类为合法用户的代价很高，我们宁愿将合法用户分类为非法用户，这时可以人工再甄别，但是却不愿将非法用户分类为合法用户。这时，我们可以适当提高非法用户的权重。</p>
+<p>　　　　第二种是样本是高度失衡的，比如我们有合法用户和非法用户的二元样本数据10000条，里面合法用户有9995条，非法用户只有5条，如果我们不考虑权重，则我们可以将所有的测试集都预测为合法用户，这样预测准确率理论上有99.95%，但是却没有任何意义。这时，我们可以选择balanced，让类库自动提高非法用户样本的权重。</p>
+<p>　　　　提高了某种分类的权重，相比不考虑权重，会有更多的样本分类划分到高权重的类别，从而可以解决上面两类问题。</p>
+<p>　　　　当然，对于第二种样本失衡的情况，我们还可以考虑用下一节讲到的样本权重参数： sample_weight，而不使用class_weight。sample_weight在下一节讲。</p>
+<h2 id="样本权重参数：-sample-weight"><a href="#样本权重参数：-sample-weight" class="headerlink" title="样本权重参数： sample_weight"></a>样本权重参数： sample_weight</h2><p>　　　　上一节我们提到了样本不失衡的问题，由于样本不平衡，导致样本不是总体样本的无偏估计，从而可能导致我们的模型预测能力下降。遇到这种情况，我们可以通过调节样本权重来尝试解决这个问题。调节样本权重的方法有两种，第一种是在class_weight使用balanced。第二种是在调用fit函数时，通过sample_weight来自己调节每个样本权重。</p>
+<p>　　　　在scikit-learn做逻辑回归时，如果上面两种方法都用到了，那么样本的真正权重是class_weight*sample_weight.</p>
+<p>　　　　以上就是scikit-learn中逻辑回归类库调参的一个小结，还有些参数比如正则化参数C（交叉验证就是 Cs），迭代次数max_iter等，由于和其它的算法类库并没有特别不同，这里不多累述了。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+            <tag> regression </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Maven安装配置]]></title>
+      <url>/2017/06/20/maven%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>想要安装 Apache Maven 在Windows 系统上, 需要下载 Maven 的 zip 文件，并将其解压到你想安装的目录，并配置 Windows 环境变量。</excerpt></p>
+<a id="more"></a>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>想要安装 Apache Maven 在Windows 系统上, 需要下载 Maven 的 zip 文件，并将其解压到你想安装的目录，并配置 Windows 环境变量。</p>
+<p>所需工具：</p>
+<ol>
+<li>JDK 1.8</li>
+<li>Maven 3.3.3</li>
+<li>Windows 7</li>
+</ol>
+<h3 id="JDK-和-JAVA-HOME"><a href="#JDK-和-JAVA-HOME" class="headerlink" title="JDK 和 JAVA_HOME"></a>JDK 和 JAVA_HOME</h3><p>确保已安装JDK，并 “JAVA_HOME” 变量已加入到 Windows 环境变量。 </p>
+<h3 id="下载Apache-Maven"><a href="#下载Apache-Maven" class="headerlink" title="下载Apache Maven"></a>下载Apache Maven</h3><p>访问 Maven官方网站 <a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a> ，打开后找到下载链接，下载 Maven的zip文件，例如： apache-maven-3.3.9-bin.zip，将它解压到你要安装Maven的文件夹。</p>
+<p>假设你解压缩到文件夹 –  D:\software\yiibai.com\apache-maven </p>
+<h3 id="添加M2-HOME和MAVEN-HOME"><a href="#添加M2-HOME和MAVEN-HOME" class="headerlink" title="添加M2_HOME和MAVEN_HOME"></a>添加M2_HOME和MAVEN_HOME</h3><p>添加M2_HOME和MAVEN_HOME环境变量到Windows环境变量，并将其指向你的 Maven文件夹。 </p>
+<h4 id="M2-HOME-或-MAVEN-HOME"><a href="#M2-HOME-或-MAVEN-HOME" class="headerlink" title="M2_HOME 或 MAVEN_HOME"></a>M2_HOME 或 MAVEN_HOME</h4><p>Maven说只是添加M2_HOME, 但一些项目仍引用Maven的文件夹MAVEN_HOME, 因此，为了安全也把它添加进去。</p>
+<h3 id="添加到环境变量-PATH"><a href="#添加到环境变量-PATH" class="headerlink" title="添加到环境变量 - PATH"></a>添加到环境变量 - PATH</h3><p>更新PATH变量，添加 Maven bin文件夹到PATH的最后，如：%M2_HOME%\bin, 这样就可以在命令中的任何目录下运行Maven命令了。 </p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>完成，以验证它，执行 mvn –version 在命令提示符下，如下图输出结果：</p>
+<pre><code>C:\Users\Administrator&gt;mvn -version
+Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:3
+7+08:00)
+Maven home: D:\software\yiibai.com\apache-maven
+Java version: 1.8.0_40, vendor: Oracle Corporation
+Java home: D:\Program Files\Java\jdk1.8.0_40
+Default locale: zh_CN, platform encoding: GBK
+OS name: &quot;windows 7&quot;, version: &quot;6.1&quot;, arch: &quot;amd64&quot;, family: &quot;dos&quot;
+</code></pre><p>如果你看到类似消息，说明 Apache Maven 在 Windows 上已安装成功。 </p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> maven </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[map排序]]></title>
+      <url>/2017/06/20/map%E6%8E%92%E5%BA%8F/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>常用代码备忘。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<pre><code>List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;String, Integer&gt;&gt;(hotGameMap.entrySet());
+Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {// 降序排序
+public int compare(Entry&lt;String, Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {
+    return o2.getValue().compareTo(o1.getValue());
+    }
+});
+hotGameMap.clear();
+for(Map.Entry&lt;String,Integer&gt; mapping:list){
+hotGameMap.put(mapping.getKey(), mapping.getValue());
+} 
+</code></pre></the>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[LogisticRegression]]></title>
+      <url>/2017/06/20/LogisticRegression/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>逻辑回归(Logistic Regression, LR)模型其实仅在线性回归的基础上，套用了一个逻辑函数，但也就由于这个逻辑函数，使得逻辑回归模型成为了机器学习领域一颗耀眼的明星，更是计算广告学的核心。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
+<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>这可能是模式识别文献中最知名的数据库。费雪的论文是这个领域的经典，到今天还经常被引用。 数据集包含3个类，每个类包含50个实例，其中每个类都指一种类型的鸢尾花。一类与另外一类线性分离2;后者不能彼此线性分离。<br>预测属性： 鸢尾花类别.<br>这是一个非常简单的领域。<br>该数据与Fishers文章（由Steve Chadwick，spchadwick’@ espeedaz.net确定）中提供的数据不同。第35个样本应为：4.9,3.1,1.5,0.2，“Iris-setosa”，其中错误在第四个特征。第38个样本：4.9,3.6,1.4,0.1，“Iris-setosa”，其中错误在第二和第三个特征。</p>
+<h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><pre><code>sepal length: 萼片长度（厘米）
+sepal width: 萼片宽度（厘米）
+petal length: 花瓣长度（厘米）
+petal width: 花瓣宽度（厘米）
+类别：
+- Setosa
+- Versicolour
+- Virginica
+</code></pre><h3 id="数据下载："><a href="#数据下载：" class="headerlink" title="数据下载："></a>数据下载：</h3><p><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/" target="_blank" rel="external">https://archive.ics.uci.edu/ml/machine-learning-databases/iris/</a></p>
+<h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><p>为了方便展示，我们只使用数据中的前两个特征，并且只使用setosa和versicolour两个类别的数据。我们的问题是得到一个sigmoid函数，利用这个函数可以区分出两种类别的鸢尾花。</p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=z%20%3D%20%5Ctheta_%7B0%7D%20%2B%20%5Ctheta%20_%7B1%7D%5Ctimes%20sepal_%7Blength%7D%20%2B%20%5Ctheta%20_%7B2%7D%20%5Ctimes%20sepal_%7Bwidth%7D" style="border:none;"></p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=h(z)%3D%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D" style="border:none;"></p>
+<p>而需要学习的，就是<img src="http://chart.googleapis.com/chart?cht=tx&chl=%5Ctheta%20_%7B0%7D%2C%20%5Ctheta%20_%7B1%7D%2C%20%5Ctheta%20_%7B2%7D" style="border:none;">这3个参数。 </p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>打开第一节中的数据下载链接，将iris.data的数据保存为csv文件，我们会使用这个csv格式的文件进行logistic回归。<br>因为这个csv格式中没有非法数据，我们不需要进行预处理操作。<br>备注：数据的标准化操作会在sklearn中进行，不需要我们另外进行标准化。</p>
+<h2 id="用Pandas读数据"><a href="#用Pandas读数据" class="headerlink" title="用Pandas读数据"></a>用Pandas读数据</h2><h3 id="导库"><a href="#导库" class="headerlink" title="导库"></a>导库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 导入需要使用的几个库</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import numpy as np</div><div class="line">import pandas as pd</div><div class="line">from sklearn.linear_model import LogisticRegression</div><div class="line">from sklearn.cross_validation import train_test_split</div></pre></td></tr></table></figure>
+<h3 id="使用pandas读取数据"><a href="#使用pandas读取数据" class="headerlink" title="使用pandas读取数据"></a>使用pandas读取数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 加载Iris数据集作为DataFrame对象</div><div class="line">df = pd.read_csv(&apos;iris.data&apos;, header=None)</div><div class="line">print df</div></pre></td></tr></table></figure>
+<pre><code># 我们的目的就是训练出一个模型，给定&apos;sepal length&apos;, &apos;sepal width&apos;数据后，预测出鸢尾花的类型
+</code></pre><h2 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 取出2个特征，并把它们用Numpy数组表示</div><div class="line">X = df.iloc[:100, [0, 2]].values</div><div class="line">Y = df.iloc[:100, 4].values	</div><div class="line">X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3,random_state=0)</div></pre></td></tr></table></figure>
+</code></pre><h2 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 利用matplotlib将数据在图中展现出来</div><div class="line">plt.scatter(X[:50, 0], X[:50, 1],color=&apos;red&apos;, marker=&apos;^&apos;, label=&apos;setosa&apos;)</div><div class="line">plt.scatter(X[50:100, 0], X[50:100, 1],color=&apos;blue&apos;, marker=&apos;x&apos;, label=&apos;versicolor&apos;)</div><div class="line"># plt.scatter(X[100:, 0], X[100:, 1],color=&apos;green&apos;, marker=&apos;+&apos;, label=&apos;Virginica&apos;)</div><div class="line">plt.xlabel(&apos;petal length&apos;)</div><div class="line">plt.ylabel(&apos;sepal length&apos;)</div><div class="line"># 把说明放在左上角，具体请参考官方文档</div><div class="line">plt.legend(loc=2)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h2 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 为了追求机器学习和最优化算法的最佳性能，我们将特征缩放</div><div class="line">from sklearn.preprocessing import StandardScaler</div><div class="line">sc = StandardScaler()</div><div class="line"># 估算每个特征的平均值和标准差</div><div class="line">sc.fit(X_train)</div><div class="line"></div><div class="line"># print sc.mean_</div><div class="line"># print sc.scale_</div><div class="line"></div><div class="line"># 注意：这里我们要用同样的参数来标准化测试集，使得测试集和训练集之间有可比性</div><div class="line">X_train_std = sc.transform(X_train)</div><div class="line">X_test_std = sc.transform(X_test)</div></pre></td></tr></table></figure>
+<h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lr = LogisticRegression(C=1000.0, random_state=0, penalty=&apos;l2&apos;)</div><div class="line">lr.fit(X_train_std, Y_train)</div></pre></td></tr></table></figure>
+<p>拟合完毕后，我们看看我们的需要的模型系数结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 打印偏置项和各特征权重</div><div class="line">print lr.intercept_</div><div class="line">print lr.coef_</div></pre></td></tr></table></figure>
+<p>###输出结果为：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ 2.54973732]</div><div class="line">[[ -0.93280168  12.40529916]]</div></pre></td></tr></table></figure>
+</code></pre><p>因此我们得到了步骤2中所需的3个参数，可以得到如下关系：</p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=z%3D2.54973732-0.93280168%5Ctimes%20sepal_%7Blength%7D%20%2B%2012.40529916%5Ctimes%20sepal_%7Bwidth%7D" style="border:none;"></p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=h(z)%3D%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D" style="border:none;"></p>
+<h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 得出测试数据属于setosa和versicolour的概率</div><div class="line">y_hat_prob = lr.predict_proba(X_test_std)</div><div class="line">print y_hat_prob</div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[  9.99519133e-01   4.80867345e-04]</div><div class="line"> [  7.34532569e-08   9.99999927e-01]</div><div class="line"> [  9.99942289e-01   5.77106095e-05]</div><div class="line"> [	...				 ...		   ]</div><div class="line"> [  8.82184814e-08   9.99999912e-01]</div><div class="line"> [  8.32854787e-07   9.99999167e-01]</div><div class="line"> [  9.18305501e-04   9.99081694e-01]]</div></pre></td></tr></table></figure>
+</code></pre><p>其中第一列为测试样本属于setosa的概率，第二列为属于versicolour的概率，哪一个值大我们就认为这个样本属于这一类的概率更大。</p>
+<h2 id="准确率计算"><a href="#准确率计算" class="headerlink" title="准确率计算"></a>准确率计算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">np.set_printoptions(suppress=True)</div><div class="line"># print &apos;y_hat_prob = \n&apos;, y_hat_prob</div><div class="line">print u&apos;准确度：%.2f%%&apos; % (100*np.mean(predict_result == Y_test.ravel()))</div></pre></td></tr></table></figure>
+<h2 id="解决多分类问题"><a href="#解决多分类问题" class="headerlink" title="解决多分类问题"></a>解决多分类问题</h2><p>用Logistic回归处理多分类问题，一种简单的方法是一对所有（one-Versus-All，OVA），给定m个类，训练m个二元分类器(将选取任意一类，再将其它所有类看成是一类，构建一个两类分类器)。分类器j使类j的元组为正类，其余为负类，进行训练。为了对未知元组X进行分类，分类器作为一个组合分类器投票。例如，如果分类器j预测X为正类，则类j得到一票。如果他测得X为正类，则类j得到一票。如果测X为负类，则除j以外的每一个类都得到一票（相当于此类的票数减一）。得票最多的指派给X。<br>这种方法简单有效，而且使用类似logistic这种有概率值大小可以比较的情况下，类边界其实是个有范围的值，可以增加正确率。而且当K(类别数量)很大时，通过投票的方式解决了一部分不平衡性问题。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+            <tag> regression </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java log的使用]]></title>
+      <url>/2017/06/20/log/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>Java中给项目程序添加log主要有三种方式，一使用JDK中的java.util.logging包，一种是log4j，一种是commons-logging。其中log4j和commons-logging都是apache软件基金会的开源项目。这三种方式的区别如下：<br>Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="Java中给项目程序添加log"><a href="#Java中给项目程序添加log" class="headerlink" title="Java中给项目程序添加log"></a>Java中给项目程序添加log</h2><ol>
+<li>使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。</li>
+<li>使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。</li>
+</ol>
+<h3 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h3><p>【例1.1】：日志的简单使用</p>
+<pre><code>import java.util.logging.Logger;
+public class LogDemo1 {
+    static String strClassName = LogDemo1.class.getName();  
+    static Logger logger = Logger.getLogger(strClassName);  
+
+    public static double division(int value1, int value2) {  
+        double result = 0;  
+        try {  
+            result = value1 / value2;  
+        } catch(ArithmeticException e) {  
+            logger.warning(&quot;除数不能为0&quot;);  
+            logger.info(&quot;i am info&quot;);
+            logger.severe(&quot;i am severe&quot;);
+            e.printStackTrace();  
+        }  
+        return result;  
+    }  
+
+    public static void main(String[] args) {  
+        System.out.println(division(5, 0));  
+    } 
+}
+</code></pre><p>【例1.2】：日志的级别</p>
+<pre><code>public static double division(int value1, int value2) {  
+    double result = 0;  
+    try {  
+        result = value1 / value2;  
+    } catch(ArithmeticException e) {  
+        logger.severe(&quot;[severe]除数不能为0.&quot;);  
+        logger.warning(&quot;[warning]除数不能为0.&quot;);  
+        logger.info(&quot;[info]除数不能为0.&quot;);  
+        logger.config(&quot;[config]除数不能为0.&quot;);  
+        logger.fine(&quot;[fine]除数不能为0.&quot;);  
+        logger.finer(&quot;[finer]除数不能为0.&quot;);  
+        logger.finest(&quot;[finest]除数不能为0.&quot;);  
+        e.printStackTrace();  
+    }  
+    return result;  
+}  
+</code></pre><h3 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h3><ol>
+<li>新建一个JAva工程，导入包log4j-1.2.17.jar.</li>
+<li><p>src同级创建并设置log4j.properties,</p>
+<pre><code>### 设置 ###
+log4j.rootLogger = debug,stdout,D,E
+
+### 输出信息到控制抬 ###
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target = System.out
+log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+### 输出DEBUG 级别以上的日志到=E://logs/error.log ###
+log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.D.File = E://logs/log.log
+log4j.appender.D.Append = true
+log4j.appender.D.Threshold = DEBUG 
+log4j.appender.D.layout = org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+### 输出ERROR 级别以上的日志到=E://logs/error.log ###
+log4j.appender.E = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.E.File =E://logs/error.log 
+log4j.appender.E.Append = true
+log4j.appender.E.Threshold = ERROR 
+log4j.appender.E.layout = org.apache.log4j.PatternLayout
+log4j.appender.E.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+</code></pre></li>
+<li><p>设置log4j</p>
+<pre><code>package cn.edu.hdu.demo;
+
+import org.apache.log4j.Logger;
+
+public class LogDemo2 {
+    public static Logger logger = Logger.getLogger(LogDemo2.class);
+    public static void main(String[] args) {
+        System.out.println(&quot;This is log4j:&quot;);
+        double result = 0;  
+        try {  
+            result = 4 / 0;  
+        } catch(ArithmeticException e) {  
+            logger.debug(&quot;i am debug&quot;);
+            logger.error(&quot;i am error&quot;);
+            logger.info(&quot;i am info&quot;);
+        }  
+    }
+}
+</code></pre></li>
+<li>打印内容</li>
+<li><pre><code>2017-01-11 21:04:13  [ main:2 ] - [ ERROR ]  i am error
+2017-01-11 21:04:13  [ main:0 ] - [ DEBUG ]  i am debug
+2017-01-11 21:04:13  [ main:2 ] - [ ERROR ]  i am error
+2017-01-11 21:04:13  [ main:2 ] - [ INFO ]  i am info
+</code></pre></li>
+</ol>
+<h2 id="log4j的基本使用方法"><a href="#log4j的基本使用方法" class="headerlink" title="log4j的基本使用方法"></a>log4j的基本使用方法</h2><p>Log4j由三个重要的组件构成：日志信息的优先级，日志信息的输出目的地，日志信息的输出格式。日志信息的优先级从高到低有ERROR、WARN、 INFO、DEBUG，分别用来指定这条日志信息的重要程度；日志信息的输出目的地指定了日志将打印到控制台还是文件中；而输出格式则控制了日志信息的显 示内容。</p>
+<h3 id="定义配置文件"><a href="#定义配置文件" class="headerlink" title="定义配置文件"></a>定义配置文件</h3><p>其实您也可以完全不使用配置文件，而是在代码中配置Log4j环境。但是，使用配置文件将使您的应用程序更加灵活。Log4j支持两种配置文件格式，一种是XML格式的文件，一种是Java特性文件（键=值）。下面我们介绍使用Java特性文件做为配置文件的方法：</p>
+<h4 id="配置根Logger，其语法为："><a href="#配置根Logger，其语法为：" class="headerlink" title="配置根Logger，其语法为："></a>配置根Logger，其语法为：</h4><pre><code>log4j.rootLogger = [ level ] , appenderName, appenderName, …
+</code></pre><p>其中，level 是日志记录的优先级，分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL或者您定义的级别。Log4j建议只使用四个级别，优 先级从高到低分别是ERROR、WARN、INFO、DEBUG。通过在这里定义的级别，您可以控制到应用程序中相应级别的日志信息的开关。比如在这里定 义了INFO级别，则应用程序中所有DEBUG级别的日志信息将不被打印出来。 appenderName就是指B日志信息输出到哪个地方。您可以同时指定多个输出目的地。</p>
+<h4 id="配置日志信息输出目的地Appender，其语法为："><a href="#配置日志信息输出目的地Appender，其语法为：" class="headerlink" title="配置日志信息输出目的地Appender，其语法为："></a>配置日志信息输出目的地Appender，其语法为：</h4><pre><code>log4j.appender.appenderName = fully.qualified.name.of.appender.class  
+log4j.appender.appenderName.option1 = value1  
+…  
+log4j.appender.appenderName.option = valueN
+</code></pre><p>其中，Log4j提供的appender有以下几种：</p>
+<pre><code>org.apache.log4j.ConsoleAppender（控制台），  
+org.apache.log4j.FileAppender（文件），  
+org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），  
+.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），  
+org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
+</code></pre><h4 id="配置日志信息的格式（布局），其语法为："><a href="#配置日志信息的格式（布局），其语法为：" class="headerlink" title="配置日志信息的格式（布局），其语法为："></a>配置日志信息的格式（布局），其语法为：</h4><pre><code>log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class  
+log4j.appender.appenderName.layout.option1 = value1  
+…  
+log4j.appender.appenderName.layout.option = valueN
+</code></pre><p>其中，Log4j提供的layout有以e几种：</p>
+<pre><code>org.apache.log4j.HTMLLayout（以HTML表格形式布局），  
+org.apache.log4j.PatternLayout（可以灵活地指定布局模式），  
+org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），  
+org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）
+</code></pre><p>Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，打印参数如下： %m 输出代码中指定的消息</p>
+<pre><code>%p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL  
+%r 输出自应用启动到输出该log信息耗费的毫秒数  
+%c 输出所属的类目，通常就是所在类的全名  
+%t 输出产生该日志事件的线程名  
+%n 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”  
+%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss,SSS}，输出类似：2002年10月18日 22：10：28，921  
+%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)
+</code></pre><h3 id="在代码中使用Log4j"><a href="#在代码中使用Log4j" class="headerlink" title="在代码中使用Log4j"></a>在代码中使用Log4j</h3><h4 id="得到记录器"><a href="#得到记录器" class="headerlink" title="得到记录器"></a>得到记录器</h4><p>使用Log4j，第一步就是获取日志记录器，这个记录器将负责控制日志信息。其语法为：</p>
+<pre><code>public static Logger getLogger( String name)
+</code></pre><p>通过指定的名字获得记录器，如果必要的话，则为这个名字创建一个新的记录器。Name一般取本类的名字，比如：</p>
+<pre><code>static Logger logger = Logger.getLogger ( ServerWithLog4j.class.getName () )
+</code></pre><h4 id="读取配置文件"><a href="#读取配置文件" class="headerlink" title="读取配置文件"></a>读取配置文件</h4><p>当获得了日志记录器之后，第二步将配置Log4j环境，其语法为：</p>
+<pre><code>BasicConfigurator.configure ()： 自动快速地使用缺省Log4j环境。  
+PropertyConfigurator.configure ( String configFilename) ：读取使用Java的特性文件编写的配置文件。  
+DOMConfigurator.configure ( String filename ) ：读取XML形式的配置文件。
+</code></pre><h4 id="插入记录信息（格式化日志信息）"><a href="#插入记录信息（格式化日志信息）" class="headerlink" title="插入记录信息（格式化日志信息）"></a>插入记录信息（格式化日志信息）</h4><p>当上两个必要步骤执行完毕，您就可以轻松地使用不同优先级别的日志记录语句插入到您想记录日志的任何地方，其语法如下：</p>
+<pre><code>Logger.debug ( Object message ) ;  
+Logger.info ( Object message ) ;  
+Logger.warn ( Object message ) ;      
+Logger.error ( Object message ) ;
+</code></pre><h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><p>每个Logger都被了一个日志级别（log level），用来控制日志信息的输出。日志级别从高到低分为：</p>
+<pre><code>A：off 最高等级，用于关闭所有日志记录。
+B：fatal 指出每个严重的错误事件将会导致应用程序的退出。
+C：error 指出虽然发生错误事件，但仍然不影响系统的继续运行。
+D：warm 表明会出现潜在的错误情形。
+E：info 一般和在粗粒度级别上，强调应用程序的运行全程。
+F：debug 一般用于细粒度级别上，对调试应用程序非常有帮助。
+G：all 最低等级，用于打开所有日志记录。
+</code></pre><p>上面这些级别是定义在org.apache.log4j.Level类中。Log4j只建议使用4个级别，优先级从高到低分别是error,warn,info和debug。通过使用日志级别，可以控制应用程序中相应级别日志信息的输出。例如，如果使用b了info级别，则应用程序中所有低于info级别的日志信息(如debug)将不会被打印出来。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> log </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[LinearRegression]]></title>
+      <url>/2017/06/20/linearRegresiion/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>回归是一种极易理解的模型，就相当于y=f(x)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
+<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p>
+<h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><p>特征包括小时平均环境变量</p>
+<ul>
+<li>温度（T）在1.81℃和37.11℃的范围内，</li>
+<li>环境压力（AP）在992.89-1033.30 milibar范围内，</li>
+<li>相对湿度（RH）在25.56％至100.16％之间</li>
+<li>排气真空度（V）范围25.36-81.56厘米汞柱</li>
+<li>净小时电能输出（PE）420.26-495.76兆瓦<br>平均值来自位于工厂周围的各种传感器，每秒记录环境变量。 这些变量在没有标准化的情况下给出。<br><a href="http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant" target="_blank" rel="external">http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant</a></li>
+</ul>
+<h3 id="数据下载："><a href="#数据下载：" class="headerlink" title="数据下载："></a>数据下载：</h3><p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/00294/" target="_blank" rel="external"> http://archive.ics.uci.edu/ml/machine-learning-databases/00294/</a></p>
+<h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><p>我们的问题是得到一个线性的关系，对应PE是样本输出，而AT/V/AP/RH这4个是样本特征， 机器学习的目的就是得到一个线性回归模型，即:</p>
+<pre><code>PE=θ0+θ1∗AT+θ2∗V+θ3∗AP+θ4∗RH
+</code></pre><p>而需要学习的，就是θ0,θ1,θ2,θ3,θ4这5个参数。</p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>下载完数据后会得到一个压缩文件，解压后可以得到一个后缀为.xlsx的文件，我们使用excel打开这个文件后，将文件另存为csv格式，我们会使用这个csv格式的文件进行线性回归。<br>因为这个csv格式中没有非法数据，我们不需要进行预处理操作。</p>
+<p>######备注：数据的标准化操作会在sklearn中进行，不需要我们另外进行标准化。</p>
+<h2 id="用Pandas读数据"><a href="#用Pandas读数据" class="headerlink" title="用Pandas读数据"></a>用Pandas读数据</h2><h3 id="导入需要的几个python库"><a href="#导入需要的几个python库" class="headerlink" title="导入需要的几个python库"></a>导入需要的几个python库</h3><pre><code># 需要使用的几个库
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn import datasets, linear_model
+</code></pre><h3 id="使用pandas读取数据"><a href="#使用pandas读取数据" class="headerlink" title="使用pandas读取数据"></a>使用pandas读取数据</h3><pre><code>data = pd.read_csv(&apos;CCPP.csv&apos;)
+print data
+# 测试读取数据
+# data.head()读取前5条数据，data.tail()读取最后5条数据
+</code></pre><h2 id="划分数据"><a href="#划分数据" class="headerlink" title="划分数据"></a>划分数据</h2><pre><code># 查看数据的维数
+print data.shape
+X = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
+Y = data[[&apos;PE&apos;]]
+print X.head()
+print Y.head()
+</code></pre><h3 id="我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><a href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据" class="headerlink" title="我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据"></a>我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</h3><h2 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h2><h3 id="在python代码中导入库"><a href="#在python代码中导入库" class="headerlink" title="在python代码中导入库"></a>在python代码中导入库</h3><pre><code>from sklearn.cross_validation import train_test_split
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3,random_state=0)
+# test_size为测试集在数据中所占比重
+# 查看训练集和测试集的唯独
+print X_train.shape
+print X_test.shape
+print Y_train.shape
+print Y_test.shape
+</code></pre><h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><p>sklearn线性回归的损失函数默使用最小二乘法来实现</p>
+<pre><code>from sklearn.linear_model import LinearRegression
+linreg = LinearRegression()
+linreg.fit(X_train, Y_train)
+</code></pre><p>拟合完毕后，我们看看我们的需要的模型系数结果：</p>
+<pre><code># 打印偏置项和各特征权重
+print linreg.intercept_
+print linreg.coef_
+</code></pre><h3 id="输出结果为："><a href="#输出结果为：" class="headerlink" title="输出结果为："></a>输出结果为：</h3><pre><code>[ 448.53067141]
+[[-1.9797936  -0.23300225  0.06812315 -0.15839461]]
+</code></pre><h3 id="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><a href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系：" class="headerlink" title="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："></a>因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</h3><pre><code>PE=448.53067141−1.9797936∗AT−0.23300225∗V+0.06812315∗AP-0.15839461∗RHPE　
+</code></pre><h2 id="模型评价"><a href="#模型评价" class="headerlink" title="模型评价"></a>模型评价</h2><p>我们需要评估我们的模型的好坏程度，对于线性回归来说，我们一般用均方差（Mean Squared Error, MSE）或者均方根差(Root Mean Squared Error, RMSE)在测试集上的表现来评价模型的好坏。</p>
+<h3 id="我们看看我们的模型的MSE和RMSE，代码如下："><a href="#我们看看我们的模型的MSE和RMSE，代码如下：" class="headerlink" title="我们看看我们的模型的MSE和RMSE，代码如下："></a>我们看看我们的模型的MSE和RMSE，代码如下：</h3><pre><code># 模型拟合测试集
+from sklearn import metrics
+y_pred = linreg.predict(X_test)
+# 用scikit-learn计算MSE
+print &quot;MSE:&quot;,metrics.mean_squared_error(y_test, y_pred)
+# 用scikit-learn计算RMSE
+print &quot;RMSE:&quot;,np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+</code></pre><h3 id="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><a href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。" class="headerlink" title="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"></a>一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</h3><p>可以看出，去掉RH后，模型拟合的没有加上RH的好，MSE变大了。说明RH对结果的预测还是有影响的。</p>
+<h2 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>我们可以通过交叉验证来持续优化模型，代码如下，我们采用10折交叉验证，即cross_val_predict中的cv参数为10：</p>
+<pre><code># 交叉验证
+from sklearn.cross_validation import cross_val_predict
+X2 = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
+Y2 = data[[&apos;PE&apos;]]
+
+predicted = cross_val_predict(linreg, X, Y, cv=10)
+# print predicted
+# 用scikit-learn计算MSE
+print &quot;10折交叉验证的MSE:&quot;,metrics.mean_squared_error(Y, predicted)
+# 用scikit-learn计算RMSE
+print &quot;10折交叉验证的RMSE:&quot;,np.sqrt(metrics.mean_squared_error(Y, predicted))
+</code></pre><h2 id="利用matlibplot画图观察结果"><a href="#利用matlibplot画图观察结果" class="headerlink" title="利用matlibplot画图观察结果"></a>利用matlibplot画图观察结果</h2><p>这里画图真实值和预测值的变化关系，离中间的直线y=x直接越近的点代表预测损失越低。代码如下：</p>
+<pre><code># matplotlib画图
+fig, ax = plt.subplots()
+ax.scatter(Y,predicted)
+ax.plot([Y.min(), Y.max()], [Y.min(), Y.max()], &apos;k--&apos;, lw=4)
+ax.set_xlabel(&apos;Measured&apos;)
+ax.set_ylabel(&apos;Predicted&apos;)
+plt.show()
+</code></pre></the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+            <tag> regression </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[k-均值聚类算法对未标注数据分组]]></title>
+      <url>/2017/06/20/k%E5%9D%87%E5%80%BC/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>在数据挖掘中，K-Means算法是一种 cluster analysis 的算法，其主要是来计算数据聚集的算法，主要通过不断地取离种子点最近均值的算法。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
+<h3 id="基本的聚类分析算法"><a href="#基本的聚类分析算法" class="headerlink" title="基本的聚类分析算法"></a>基本的聚类分析算法</h3><ol>
+<li><p>K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。</p>
+</li>
+<li><p>凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。</p>
+</li>
+<li><p>DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法自动的确定，低密度中的点被视为噪声而忽略，因此其不产生完全聚类。 </p>
+</li>
+</ol>
+<h3 id="距离量度"><a href="#距离量度" class="headerlink" title="距离量度"></a>距离量度</h3><p>不同的距离量度会对距离的结果产生影响，常见的距离量度如下所示：</p>
+<h2 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a>K-Means算法</h2><p>下面介绍K均值算法：<br>优点：易于实现<br>缺点：可能收敛于局部最小值，在大规模数据收敛慢<br>算法思想较为简单如下所示：</p>
+<pre><code>选择K个点作为初始质心  
+repeat  
+    将每个点指派到最近的质心，形成K个簇  
+    重新计算每个簇的质心  
+until 簇不发生变化或达到最大迭代次数
+</code></pre><p>这里的重新计算每个簇的质心，如何计算的是根据目标函数得来的，因此在开始时我们要考虑 距离度量和目标函数。</p>
+<p>考虑欧几里得距离的数据，使用 误差平方和（Sum of the Squared Error,SSE） 作为聚类的目标函数，两次运行K均值产生的两个不同的簇集，我们更喜欢SSE最小的那个。 </p>
+<p>下面用Python进行实现</p>
+<pre><code># dataSet样本点,k 簇的个数
+# disMeas距离量度，默认为欧几里得距离
+# createCent,初始点的选取
+def kMeans(dataSet, k, distMeas=distEclud, createCent=randCent):
+    m = shape(dataSet)[0] #样本数
+    clusterAssment = mat(zeros((m,2))) #m*2的矩阵                   
+    centroids = createCent(dataSet, k) #初始化k个中心
+    clusterChanged = True             
+    while clusterChanged:      #当聚类不再变化
+        clusterChanged = False
+        for i in range(m):
+            minDist = inf; minIndex = -1
+            for j in range(k): #找到最近的质心
+                distJI = distMeas(centroids[j,:],dataSet[i,:])
+                if distJI &lt; minDist:
+                    minDist = distJI; minIndex = j
+            if clusterAssment[i,0] != minIndex: clusterChanged = True
+            # 第1列为所属质心，第2列为距离
+            clusterAssment[i,:] = minIndex,minDist**2
+        print centroids
+
+        # 更改质心位置
+        for cent in range(k):
+            ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+            centroids[cent,:] = mean(ptsInClust, axis=0) 
+    return centroids, clusterAssment
+</code></pre><p>重点理解一下：</p>
+<pre><code>for cent in range(k):
+  ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+  centroids[cent,:] = mean(ptsInClust, axis=0)
+</code></pre><p>循环每一个质心，找到属于当前质心的所有点，然后根据这些点去更新当前的质心。<br>nonzero()返回的是一个二维的数组，其表示非0的元素位置。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; a=array([[1,0,0],[0,1,2],[2,0,0]])
+&gt;&gt;&gt; a
+array([[1, 0, 0],
+       [0, 1, 2],
+       [2, 0, 0]])
+&gt;&gt;&gt; nonzero(a)
+(array([0, 1, 1, 2]), array([0, 1, 2, 0]))
+</code></pre><p>引入辅助函数：</p>
+<pre><code>def loadDataSet(fileName):      #general function to parse tab -delimited floats
+    dataMat = []                #assume last column is target value
+    fr = open(fileName)
+    for line in fr.readlines():
+        curLine = line.strip().split(&apos;\t&apos;)
+        fltLine = map(float,curLine) #map all elements to float()
+        dataMat.append(fltLine)
+    return dataMat
+
+def distEclud(vecA, vecB):
+    return sqrt(sum(power(vecA - vecB, 2))) #la.norm(vecA-vecB)
+
+def randCent(dataSet, k):
+    n = shape(dataSet)[1]
+    centroids = mat(zeros((k,n)))#create centroid mat
+    for j in range(n):#create random cluster centers, within bounds of each dimension
+        minJ = min(dataSet[:,j]) 
+        rangeJ = float(max(dataSet[:,j]) - minJ)
+        centroids[:,j] = mat(minJ + rangeJ * random.rand(k,1))
+    return centroids
+</code></pre><h3 id="运行和结果"><a href="#运行和结果" class="headerlink" title="运行和结果"></a>运行和结果</h3><p>将上述代码写到kMeans.py中，然后打开python交互端。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; import kMeans
+&gt;&gt;&gt; dat=mat(kMeans.loadDataSet(&apos;testSet.txt&apos;)) #读入数据
+&gt;&gt;&gt; center，clust=kMeans.kMeans(dat,4)
+[[ 0.90796996  5.05836784]
+ [-2.88425582  0.01687006]
+ [-3.3447423  -1.01730512]
+ [-0.32810867  0.48063528]]
+[[ 1.90508653  3.530091  ]
+ [-3.00984169  2.66771831]
+ [-3.38237045 -2.9473363 ]
+ [ 2.22463036 -1.37361589]]
+[[ 2.54391447  3.21299611]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.8692781  -2.54779119]]
+[[ 2.6265299   3.10868015]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.80293085 -2.7315146 ]]
+# 作图
+&gt;&gt;&gt;kMeans(dat,center)
+</code></pre><h3 id="K-Means算法的缺陷"><a href="#K-Means算法的缺陷" class="headerlink" title="K-Means算法的缺陷"></a>K-Means算法的缺陷</h3><p>k均值算法非常简单且使用广泛，但是其有主要的两个缺陷：</p>
+<ol>
+<li><p>K值需要预先给定，属于预先知识，很多情况下K值的估计是非常困难的，对于像计算全部微信用户的交往圈这样的场景就完全的没办法用K-Means进行。对于可以确定K值不会太大但不明确精确的K值的场景，可以进行迭代运算，然后找出Cost Function最小时所对应的K值，这个值往往能较好的描述有多少个簇类。</p>
+</li>
+<li><p>K-Means算法对初始选取的聚类中心点是敏感的，不同的随机种子点得到的聚类结果完全不同</p>
+</li>
+<li><p>K均值算法并不是很所有的数据类型。它不能处理非球形簇、不同尺寸和不同密度的簇，银冠指定足够大的簇的个数是他通常可以发现纯子簇。</p>
+</li>
+<li><p>对离群点的数据进行聚类时，K均值也有问题，这种情况下，离群点检测和删除有很大的帮助。</p>
+</li>
+</ol>
+<h2 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h2><h3 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h3><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
+<h3 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h3><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> machine learning </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> machine learning </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在VMvare的linux虚拟机上安装vm-tools]]></title>
+      <url>/2017/06/20/install%20vm-tools/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>什么要安装vm-tools<br>1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；<br>2.解决windows和linux系统间的共享问题；<br>3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h4 id="为什么要安装vm-tools"><a href="#为什么要安装vm-tools" class="headerlink" title="为什么要安装vm-tools"></a>为什么要安装vm-tools</h4><h5 id="1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；"><a href="#1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；" class="headerlink" title="1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；"></a>1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；</h5><h5 id="2-解决windows和linux系统间的共享问题；"><a href="#2-解决windows和linux系统间的共享问题；" class="headerlink" title="2.解决windows和linux系统间的共享问题；"></a>2.解决windows和linux系统间的共享问题；</h5><h5 id="3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。"><a href="#3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。" class="headerlink" title="3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。"></a>3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。</h5><h4 id="VMwareTools的安装"><a href="#VMwareTools的安装" class="headerlink" title="VMwareTools的安装"></a>VMwareTools的安装</h4><pre><code>(1) 虚拟机上启动linux,以根用户权限进入.
+(2) 在VMware的菜单栏选择VM-&gt;install vmware-tools,此时vmware会把安装文件映射到linux的CD-ROM
+(3) 在/mnt目录下创建一个cdrom文件夹，把光驱挂载到cdrom上
+    mkdir /mnt/cdrom
+    mount /dev/cdrom /mnt/cdrom
+(4) 拷贝安装包到/tmp目录下,并解压安装.
+    cp /mnt/cdrom/VMwareTools-7.8.4-126130.tar.gz /tmp/      //拷贝安装包到tmp目录下
+    cd /tmp                                                  //切换到tmp目录下
+    tar xvzf VMwareTools-7.8.4-126130.tar.gz                 //解压安装包
+    cd ./vmware-tools-distrib                                //进入解压后的安装包
+    ./vmware-install.pl                                      //安装vmware-tools
+    一路回车,如果安装过程中遇到如下图所示的错误信息提示,由说明找不到运行的内核的C头文件目录位置.按Ctrl+c退出当前的安装或者重新打开一个新的终端.
+
+      (4.1) 安装编译工具
+            yum -y install gcc gcc-c++ kernel-devel
+            在使用yum安装工具的时候有可能出现出下图所示的问题                         
+            解决的办法是终端里输入:rm -f /var/run/yum.pid
+            然后重新输入命令安装编译工具.
+      (4.2) 更新kernel
+            yum -y update kernel
+      (4.3) 检查更新
+            rpm -qa | grep kernel
+       安装结束后,重新启动系统,使之生效.
+(5) 重新安装vmware-tools
+    重启系统后,打开终端进入/tmp/vmware-tools-distrib目录,运行./vmware-install.pl
+    一路回车，当遇到如下画面的时候，选择你的显示屏相应的分辨率,当然也可以选择安装默认的分辨率,然后继续.
+
+(6) 鼠标错位修正
+    由于在装载xorg-X11-drv-vmmouse驱动时的一个bug，在客户虚拟机的显示中，鼠标位置可能不正确，直到被更新前，在客户机中添加Option NoAutoAddDevices到/etc/X11/xorg.conf文件的SeverFlags节中，如果需要，创建这个节：(如果这一步不放在重启系统前操作,那么系统重启后再来修正鼠标错位就难了,因为那时的鼠标处在错位状态下,很难去操作!)
+
+(7) system-&gt;log out root or system-&gt;shut down
+    这时鼠标就可以在windows与linux之间自由切换了，不再需要借助Ctrl+Alt啦.
+(8) 共享文件夹的配置
+    (8.1) windows下设置共享
+          右击要共享的文件夹--&gt;属性--&gt;共享,按如下方式配置,(这里以share_f9文件夹为例)
+
+    (8.2) VMware下配置共享文件夹
+         (8.2.1) 虚拟机平台上选择Options--&gt;Shared Folders,按图配置
+
+     选择Add,添加要共享的文件夹
+     点击Next,选择Enable this share,保存退出.
+     不出意外的话,这时就可以在linux系统下的/mnt文件夹下看到一个名为hgfs的文件夹,要共享的文件夹就存放于此.
+     (*)如果发现/mnt/hgfs/下无共享的文件夹,那么这时可以在终端里输入命令:
+     vmware-config-tools.pl
+     如果执行过程中,有faile选项出现,重新执行这条命令就OK了. 一路回车,然后就会在/mnt/hgfs目录下发现要共享的文件夹了.  
+     (**)如果发现linux系统下访问共享文件夹时,只能读取不能写入的情况,一般都是SElinux开启造成的,解决办法:
+      (**.1) 打开/etc/selinux/config
+              vi /etc/selinux/config
+      (**.2) 如果有SELINUX=enforcing 这句,就将他更改为SELINUX=disabled,如果没有,就加入这句
+
+      (**.3)保存,然后重启系统,终端里输入reboot.
+</code></pre></the>]]></content>
+      
+        <categories>
+            
+            <category> ubuntu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> vmware </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hadoop集群安装与配置]]></title>
+      <url>/2017/06/20/hadoop%E9%9B%86%E7%BE%A4/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>在ubuntu环境下搭建hadoop集群。Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下,开发分布式程序。充分利用集群的威力进行高速运算和存储。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="ubuntu集群上安装hadoop"><a href="#ubuntu集群上安装hadoop" class="headerlink" title="ubuntu集群上安装hadoop"></a>ubuntu集群上安装hadoop</h2><h3 id="创建用户并增加管理员权限"><a href="#创建用户并增加管理员权限" class="headerlink" title="创建用户并增加管理员权限"></a>创建用户并增加管理员权限</h3><ol>
+<li>sudo -s 进入root用户</li>
+<li>adduser hadoop 创建hadoop用户</li>
+<li><p>root@ubuntu:~# sudo vim /etc/sudoers<br> 修改文件如下：</p>
+<pre><code># User privilege specification
+root ALL=(ALL) ALL
+aboutyun ALL=(ALL) ALL
+</code></pre><p> 保存退出，创建的用户就拥有了root权限。</p>
+<h3 id="修改-etc-hostname-和-etc-hosts-所有主机"><a href="#修改-etc-hostname-和-etc-hosts-所有主机" class="headerlink" title="修改/etc/hostname 和/etc/hosts(所有主机)"></a>修改/etc/hostname 和/etc/hosts(所有主机)</h3><p> 192.168.44.132     hadoop/123456        master<br> 192.168.44.133     hadoop/123456        slave1<br> 192.168.44.134     hadoop/123456        slave2<br> 192.168.44.132       hadoop/123456        slave3</p>
+</li>
+</ol>
+<p>上面各列分别为IP、user/passwd、hostname</p>
+<h4 id="下面是master的修改：通过命令"><a href="#下面是master的修改：通过命令" class="headerlink" title="下面是master的修改：通过命令"></a>下面是master的修改：通过命令</h4><p>sudo vim /etc/hosts</p>
+<pre><code>127.0.0.1       localhost
+127.0.1.1       Campusnetwork.localdomain       Campusnetwork
+#127.0.0.1      master
+192.168.44.133  slave1
+192.168.44.134  slave2
+192.168.44.135  slave3
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre><h4 id="下面修改hostname"><a href="#下面修改hostname" class="headerlink" title="下面修改hostname"></a>下面修改hostname</h4><p>sudo vim /etc/hostname</p>
+<pre><code>master
+</code></pre><p>修改主机名重启后生效。<br>上面hosts都一样，只不过hostname有所差别</p>
+<h3 id="打通master到slave节点的SSH无密码登陆"><a href="#打通master到slave节点的SSH无密码登陆" class="headerlink" title="打通master到slave节点的SSH无密码登陆"></a>打通master到slave节点的SSH无密码登陆</h3><h4 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h4><p>一般系统是默认安装了ssh命令的。如果没有，或者版本比较老，则可以重新安装：<br>sudo apt-get install ssh</p>
+<h4 id="生成master的公匙"><a href="#生成master的公匙" class="headerlink" title="生成master的公匙"></a>生成master的公匙</h4><p>首先生成 master 的公匙，在 master 节点终端中执行：<br>    cd ~/.ssh                      # 如果没有该目录，先执行一次ssh localhost<br>    ssh-keygen -t rsa              # 一直按回车就可以，生成的密钥保存为.ssh/id_rsa</p>
+<h4 id="设置无密码登陆"><a href="#设置无密码登陆" class="headerlink" title="设置无密码登陆"></a>设置无密码登陆</h4><p>master 节点需能无密码 ssh 本机，这一步还是在 master 节点上执行：<br>    cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</p>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>完成后可以使用 ssh Master 验证一下。接着将公匙传输到 Slave1 节点：</p>
+<pre><code>scp ~/.ssh/id_rsa.pub aboutyun@slave1:/home/aboutyun/
+</code></pre><p>scp时会要求输入slave1上aboutyun用户的密码，输入完成后会提示传输完毕。</p>
+<h4 id="保存公匙"><a href="#保存公匙" class="headerlink" title="保存公匙"></a>保存公匙</h4><p>接着在 slave1节点 上将ssh公匙保存到相应位置，执行</p>
+<pre><code>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</code></pre><p>如果有其他 slave 节点，也要执行 将公匙传输到 slave 节点、在 slave 节点上加入授权 这两步。</p>
+<p>####</p>
+<p>最后在 master 节点上就可以无密码SSH到slave1节点了。</p>
+<pre><code>ssh Slave1
+</code></pre><h3 id="安装jdk（这里以-tar-gz版本，64位系统为例）"><a href="#安装jdk（这里以-tar-gz版本，64位系统为例）" class="headerlink" title="安装jdk（这里以.tar.gz版本，64位系统为例）"></a>安装jdk（这里以.tar.gz版本，64位系统为例）</h3><h4 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h4><p>这里直接解压到了/usr/java/jdk1.8下面：<br>在/usr下并没有java目录，这需要我们去创建一个java文件夹 </p>
+<pre><code>cd /usr
+sudo mkdir java
+tar -xzf jdk-8u111-linux-x64.tar.gz          解压到了/usr/java/jdk1.8.0_111
+</code></pre><h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><p>环境变量分为用户变量和系统变量。</p>
+<p>用户变量配置文件：~/.bashrc（在当前用户主目录下的隐藏文件，可以通过<code>ls -a</code>查看到）</p>
+<p>系统环境配置文件：/etc/profile</p>
+<p>用户变量和系统变量的配置方法一样，本文以配置用户变量为例。</p>
+<p>编辑配置文件.bashrc：</p>
+<p>vi .bashrc</p>
+<p>在文件末尾追加：</p>
+<pre><code># set java environment
+export JAVA_HOME=/usr/java/jdk1.8.0_111
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+</code></pre><h4 id="使环境变量生效"><a href="#使环境变量生效" class="headerlink" title="使环境变量生效"></a>使环境变量生效</h4><p>source .bashrc</p>
+<h4 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h4><p>验证Java是否安装成功。</p>
+<p>$ java -version<br>java version “1.8.0_111”<br>Java(TM) SE Runtime Environment (build 1.8.0_111-b14)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)</p>
+<h3 id="关闭每台机器的防火墙"><a href="#关闭每台机器的防火墙" class="headerlink" title="关闭每台机器的防火墙"></a>关闭每台机器的防火墙</h3><pre><code>sudo ufw disable (重启生效)
+</code></pre><h3 id="hadoop安装"><a href="#hadoop安装" class="headerlink" title="hadoop安装"></a>hadoop安装</h3><h4 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h4><p>看不到进程大致有两个原因：<br>1.你的配置文件有问题。<br>对于配置文件，主机名，空格之类的这些都不要带上。仔细检查<br>2.Linux的权限不正确。<br>最常出问题的是core-site.xml，与hdfs-site.xml。</p>
+<p>core-site.xml</p>
+<pre><code>&lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;file:/home/aboutyun/tmp&lt;/value&gt;
+         &lt;description&gt;Abase forother temporary directories.&lt;/description&gt;
+&lt;/property&gt;
+</code></pre><p>说一下上面参数的含义，这里是hadoop的临时文件目录，file的含义是使用本地目录。也就是使用的是Linux的目录，一定确保下面目录的权限所属为你创建的用户。</p>
+<pre><code>/home/hadoop/tmp
+</code></pre><h4 id="在usr下创建hadoop文件夹"><a href="#在usr下创建hadoop文件夹" class="headerlink" title="在usr下创建hadoop文件夹"></a>在usr下创建hadoop文件夹</h4><pre><code>cd usr
+mkdir/hadoop
+</code></pre><p>下载hadoop-2.7.2并解压到/usr/hadoop/下，解压命令如下:<br>    tar -zxf hadoop-2.7.2.tar.gz</p>
+<h4 id="配置hadoop"><a href="#配置hadoop" class="headerlink" title="配置hadoop"></a>配置hadoop</h4><h5 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h5><p>修改hadoop-2.7.2/etc/hadoop/hadoop-env.sh，添加JDK支持：</p>
+<pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_111
+</code></pre><p>配置文件2：yarn-env.sh</p>
+<pre><code>修改JAVA_HOME值（export JAVA_HOME=/usr/java/jdk1.7）
+</code></pre><p>如果不知道你的JDK目录，使用命令echo $JAVA_HOME查看。</p>
+<h5 id="修改hadoop-2-7-2-etc-hadoop-core-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-core-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/core-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/core-site.xml</h5><p>注意：必须加在<configuration></configuration>节点内</p>
+<pre><code>&lt;configuration&gt;
+&lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+       &lt;value&gt;/home/hadoop/hadoop-2.7.2/tmp&lt;/value&gt;
+       &lt;description&gt;Abase for other temporary directories.&lt;/description&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+         &lt;name&gt;fs.default.name&lt;/name&gt;
+        &lt;value&gt;hdfs://master:9000&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-hdfs-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-hdfs-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/hdfs-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/hdfs-site.xml</h5><pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.name.dir&lt;/name&gt;
+    &lt;value&gt;/home/hadoop/hadoop-2.7.2/dfs/name&lt;/value&gt;
+    &lt;description&gt;Path on the local filesystem where the NameNode stores the namespace and transactions logs persistently.&lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+    &lt;name&gt;dfs.data.dir&lt;/name&gt;
+    &lt;value&gt;/home/hadoop/hadoop-2.7.2/dfs/data&lt;/value&gt;
+    &lt;description&gt;Comma separated list of paths on the local filesystem of a DataNode where it should store its blocks.&lt;/description&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;
+    &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-mapred-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-mapred-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/mapred-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/mapred-site.xml</h5><pre><code>&lt;property&gt;
+    &lt;name&gt;mapred.job.tracker&lt;/name&gt;
+    &lt;value&gt;master:9001&lt;/value&gt;
+    &lt;description&gt;Host or IP and port of JobTracker.&lt;/description&gt;
+&lt;/property&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-masters"><a href="#修改hadoop-2-7-2-etc-hadoop-masters" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/masters"></a>修改hadoop-2.7.2/etc/hadoop/masters</h5><p>列出所有的master节点：</p>
+<p>master</p>
+<h5 id="修改hadoop-2-7-2-etc-hadoop-slaves"><a href="#修改hadoop-2-7-2-etc-hadoop-slaves" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/slaves"></a>修改hadoop-2.7.2/etc/hadoop/slaves</h5><p>这个是所有datanode的机器，例如：</p>
+<p>slave1</p>
+<p>slave2</p>
+<p>slave3</p>
+<p>slave4</p>
+<h5 id="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"><a href="#将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上" class="headerlink" title="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"></a>将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上</h5><p>以slave1为例：命令如下：</p>
+<pre><code>scp -r  ~/hadoop-2.7.2 hadoop@slave1:~/
+</code></pre><p>安装完成后，我们要格式化HDFS然后启动集群所有节点。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> hadoop </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 集群 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[numpy之stack、axis]]></title>
+      <url>/2017/06/20/axis%E5%92%8Cstack/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>numpy中的两个方法。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h3 id="stack、axis"><a href="#stack、axis" class="headerlink" title="stack、axis"></a>stack、axis</h3><pre><code>test_1 = np.array([[1, 2, 3], [4, 5, 6]])
+test_2 = np.array([[11, 12, 13], [14, 15, 16]])
+</code></pre><h4 id="stack针对维度相同的矩阵合并"><a href="#stack针对维度相同的矩阵合并" class="headerlink" title="stack针对维度相同的矩阵合并"></a>stack针对维度相同的矩阵合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># axis=0,1,2分别代表所有，行合并，列合并</div><div class="line">print(np.stack((test_1, test_2), axis=2))</div><div class="line">print(np.stack((test_1, test_2), axis=1))</div><div class="line">print(np.stack((test_1, test_2), axis=0))</div></pre></td></tr></table></figure>
+<p>axis=2,1,0时的结果分别是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=2))</div><div class="line">[[[ 1 11]</div><div class="line">  [ 2 12]</div><div class="line">  [ 3 13]]</div><div class="line"></div><div class="line"> [[ 4 14]</div><div class="line">  [ 5 15]</div><div class="line">  [ 6 16]]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=1))</div><div class="line">[[[ 1  2  3]</div><div class="line">  [11 12 13]]</div><div class="line"></div><div class="line"> [[ 4  5  6]</div><div class="line">  [14 15 16]]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=0))</div><div class="line">[[[ 1  2  3]</div><div class="line">  [ 4  5  6]]</div><div class="line"></div><div class="line"> [[11 12 13]</div><div class="line">  [14 15 16]]]</div></pre></td></tr></table></figure>
+<h4 id="hstack和vstack均针对于列向量和矩阵"><a href="#hstack和vstack均针对于列向量和矩阵" class="headerlink" title="hstack和vstack均针对于列向量和矩阵"></a>hstack和vstack均针对于列向量和矩阵</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># reshape在Numpy高级应用中介绍</div><div class="line"># 类似于np.stack(*****, axis=2)</div><div class="line">t = np.arange(1, 3).reshape((-1, 1))</div><div class="line">print(np.hstack((t, test_1 )))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">结果：</div><div class="line">[[1 1 2 3]</div><div class="line"> [2 4 5 6]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 类似于np.stack(*****, axis=1)</div><div class="line">t = np.arange(1, 4).reshape((1, -1))</div><div class="line">print(np.vstack((t, test_1)))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">结果：</div><div class="line">[[1 2 3]</div><div class="line"> [1 2 3]</div><div class="line"> [4 5 6]]</div></pre></td></tr></table></figure>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> numpy </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> numpy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一篇kdd上的推荐系统相关的论文]]></title>
+      <url>/2017/06/20/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</p>
+<ol>
+<li>利用用户的相似度为一个用户补充属性</li>
+<li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
+</ol>
+<p>Audience扩展是LinkedIn开发的一种技术，旨在简化定位并确定与原始目标受众具有相似属性的新受众群体。我们开发了两种方法来实现受众群体扩展：与广告系列无关的扩展和广告系列感知扩展。在本文中，我们描述这些方法的细节，目前对其交易的深入分析，并展示具有两种方法的综合强度的混合策略。通过大规模的在线实验，我们展示了所提出的方法的有效性，因此，它带给整个市场，包括LinkedIn和广告客户的好处。实现的效益可以表征为：1）简化的定向过程和增加广告客户的覆盖面; 2）更好地利用LinkedIn的广告资源，以及更高效和更有效的市场参与。</p>
+<h3 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h3><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
+<h3 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h3><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">互联网推荐系统比较研究</a></p>
+<p>组合推荐(hybrid recommendation)的一个最重要原则就是通过组合后应能避免或弥补各自推荐技术的弱点。研究和应用最多的是内容推荐和协同过滤推荐的组合。尽管从理论上有很多种推荐组合方法，但不同的组合思路适用于不同的应用场景。我们将研究人员提出的组合思路大致分为如下3类：</p>
+<ul>
+<li>后融合：融合两种或两种以上的推荐方法各自产生的推荐结果。如使用基于内容的方法和协同过滤方法分别得到推荐列表，融合列表的结果决定最后推荐的对象。</li>
+<li>中融合：以一种推荐方法为框架，融合另一种推荐方法。如以基于内容的方法为框架，融合协同过滤的方法，或者以协同过滤的方法为框架，融合基于内容的方法。</li>
+<li>前融合：直接融合各种推荐方法。如将基于内容和协同过滤的方法整合到一个统一的框架模型下。  </li>
+</ul>
+<h4 id="后融合组合推荐"><a href="#后融合组合推荐" class="headerlink" title="后融合组合推荐"></a>后融合组合推荐</h4><p>在后融合组合推荐中，最简单的做法就是分别用基于内容的方法和协同过滤推荐方法去产生一个推荐预测结果，然后用某种方法组合其结果。文献[37]使用了评分结果的线性组合，而文献[38]使用了投票机制来组合这些推荐结果。除此之外，也可以分别考察两个推荐列表，判断使用其中的哪个推荐结果。比如，Daily Learner system[39]计算推荐结果的可信度，然后选择一个列表的结果。这种结果层次上的融合我们称为后融合组合推荐。</p>
+<h4 id="中融合组合推荐"><a href="#中融合组合推荐" class="headerlink" title="中融合组合推荐"></a>中融合组合推荐</h4><p>目前，中融合的组合推荐主要有两种，以基于内容的方法为框架,融合协同过滤的方法和以协同过滤的方法为框架，融合基于内容的方法。前者利用降维技术把基于内容的对象特征进行精简化。例如，文献[40]使用了LSI(latent semantic indexing)算法，在基于内容的框架中使用精化的用户特征向量。后者为了克服协同过滤的稀疏问题（详见第3.3节），把用户当作对象，使用基于内容的特征提取方法把用户本身的特征（如年龄、工作情况等人口统计学特征(demographic features)）使用到相似度计算中，而不是仅仅依赖用户的点击行为。Good等人在文献[41]中引入多种不同的用户描述符来归类用户，挖掘用户的内在联系，从而得到更好的推荐效果。文献[42]使用独立的基于内容的特征来补偿用户提供的简单的rating，也属于此类方法。</p>
+<h4 id="前融合组合推荐"><a href="#前融合组合推荐" class="headerlink" title="前融合组合推荐"></a>前融合组合推荐</h4><p>近年来，这类推荐方法最受学者的关注。在文献[36]中，研究者把用户的年龄和电影的类型放到一个统一的分类器中训练学习。另外一种方法[43]使用了贝叶斯混合效果回归模型,，并通过马尔可夫蒙特卡洛方法得到这个模型的参数。文献[43]将用户和对象的特征都放到一个统计模型下来计算效用函数，研究者使用用户属性z、对象属性w及其交互关系(如选择关系)x来计算效用r。对象j对于用户i的效用值rij计算式可以表示为</p>
+<p>这其中的3种正态分布的变量分别用于描述数据的噪声、用户属性的异质性和对象属性的异质性。式(9)表述效用值是由这几个因素共同决定的。这3种分布的3个参数由马尔可夫蒙特卡洛方法估算得到。</p>
+<p>近年来,一些方法比较的工作[9,42,38]讨论并实验了各种方法与组合策略，得出结论：组合策略能够取得比纯基于内容或协同过滤方法更好的效果。这种在方法层次上融合的方法我们称为前融合组合推荐。</p>
+</the>]]></content>
+      
+        <categories>
+            
+            <category> 推荐系统 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2017/06/20/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+</search>
