@@ -1,3 +1,1206 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="说来惭愧，一点微小的事情都没做。"><title>wiyee's blog | learn and live.</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">wiyee's blog</h1><a id="logo" href="/.">wiyee's blog</a><p class="description">learn and live.</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2017/06/20/linearRegresiion/">LinearRegression</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
-<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p></div><p class="readmore"><a href="/2017/06/20/linearRegresiion/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p></div><p class="readmore"><a href="/2017/06/20/k均值/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/install vm-tools/">在VMvare的linux虚拟机上安装vm-tools</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><h4 id="为什么要安装vm-tools"><a href="#为什么要安装vm-tools" class="headerlink" title="为什么要安装vm-tools"></a>为什么要安装vm-tools</h4><h5 id="1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；"><a href="#1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；" class="headerlink" title="1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；"></a>1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；</h5><h5 id="2-解决windows和linux系统间的共享问题；"><a href="#2-解决windows和linux系统间的共享问题；" class="headerlink" title="2.解决windows和linux系统间的共享问题；"></a>2.解决windows和linux系统间的共享问题；</h5><h5 id="3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。"><a href="#3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。" class="headerlink" title="3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。"></a>3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。</h5><h4 id="VMwareTools的安装"><a href="#VMwareTools的安装" class="headerlink" title="VMwareTools的安装"></a>VMwareTools的安装</h4><pre><code>(1) 虚拟机上启动linux,以根用户权限进入.</div><p class="readmore"><a href="/2017/06/20/install vm-tools/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><h2 id="ubuntu集群上安装hadoop"><a href="#ubuntu集群上安装hadoop" class="headerlink" title="ubuntu集群上安装hadoop"></a>ubuntu集群上安装hadoop</h2><h3 id="创建用户并增加管理员权限"><a href="#创建用户并增加管理员权限" class="headerlink" title="创建用户并增加管理员权限"></a>创建用户并增加管理员权限</h3><ol></div><p class="readmore"><a href="/2017/06/20/hadoop集群/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/axis和stack/">numpy之stack、axis</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><h3 id="stack、axis"><a href="#stack、axis" class="headerlink" title="stack、axis"></a>stack、axis</h3><pre><code>test_1 = np.array([[1, 2, 3], [4, 5, 6]])</div><p class="readmore"><a href="/2017/06/20/axis和stack/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><ol>
-<li>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</li></div><p class="readmore"><a href="/2017/06/20/推荐系统学习/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/06/20/hello-world/">Hello World</a></h1><div class="post-meta">2017-06-20</div><div class="post-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p></div><p class="readmore"><a href="/2017/06/20/hello-world/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/numpy/">numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/推荐系统/">推荐系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/最优化算法/">最优化算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/大数据/" style="font-size: 15px;">大数据</a> <a href="/tags/machine-learning/" style="font-size: 15px;">machine learning</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/regression/" style="font-size: 15px;">regression</a> <a href="/tags/集群/" style="font-size: 15px;">集群</a> <a href="/tags/vmware/" style="font-size: 15px;">vmware</a> <a href="/tags/论文/" style="font-size: 15px;">论文</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/粒子群算法/">粒子群算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/Ubuntu命令/">ubuntu常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/ubuntu ssh/">ubuntu配置ssh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tensorflow安装/">Installing TensorFlow with virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/maven的安装配置/">Maven安装配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/map排序/">map排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/LogisticRegression/">LogisticRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/log/">java log的使用</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.skye.work" title="skye's blog" target="_blank">skye's blog</a><ul></ul><a href="http://www.huanqiang.wang" title="huanqiang's blog" target="_blank">huanqiang's blog</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">wiyee's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="wiyee" />
+
+
+    
+    
+
+
+<meta name="description" content="说来惭愧，一点微小的事情都没做。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wiyee&#39;s blog">
+<meta property="og:url" content="yiyu.site/page/2/index.html">
+<meta property="og:site_name" content="wiyee&#39;s blog">
+<meta property="og:description" content="说来惭愧，一点微小的事情都没做。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wiyee&#39;s blog">
+<meta name="twitter:description" content="说来惭愧，一点微小的事情都没做。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="wiyee&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>wiyee&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">wiyee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">learn and live.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:wyygoup@gmail.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://www.weibo.com/heitom" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/wiyee" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=334253922" title="网易云音乐"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regression/">regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集群/">集群</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">wiyee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">wiyee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">learn and live.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:wyygoup@gmail.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://www.weibo.com/heitom" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/wiyee" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=334253922" title="网易云音乐"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-linearRegresiion" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/linearRegresiion/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.972Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/linearRegresiion/">LinearRegression</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>这里使用uci上的开源数据集</p>
+<h3 id="数据介绍："><a href="#数据介绍：" class="headerlink" title="数据介绍："></a>数据介绍：</h3><p>数据集包含从联合循环发电厂6年（2006-2011年）收集的9568个数据点，当发电厂设置为满负荷工作时。特点包括小时平均环境变量温度（T），环境压力（AP），相对湿度（RH）和排气真空（V），以预测工厂的净小时电能输出（EP）。<br>联合循环发电厂（CCPP）由燃气轮机（GT），蒸汽轮机（ST）和热回收蒸汽发生器组成。在CCPP中，电力由燃气和蒸汽轮机产生，这些汽轮机组合在一个循环中，并从一个涡轮机转移到另一个涡轮机。虽然真空从蒸汽涡轮机吸取并对其产生影响，但其他三种环境参数影响GT性能。<br>为了与我们的基线研究进行比较，并允许进行5x2倍的统计测试，我们提供数据洗牌五次。对于每个混洗2倍CV进行，所得到的10个测量用于统计测试。<br>我们以.ods和.xlsx格式提供数据。</p>
+<h3 id="属性信息："><a href="#属性信息：" class="headerlink" title="属性信息："></a>属性信息：</h3><p>特征包括小时平均环境变量</p>
+<ul>
+<li>温度（T）在1.81℃和37.11℃的范围内，</li>
+<li>环境压力（AP）在992.89-1033.30 milibar范围内，</li>
+<li>相对湿度（RH）在25.56％至100.16％之间</li>
+<li>排气真空度（V）范围25.36-81.56厘米汞柱</li>
+<li>净小时电能输出（PE）420.26-495.76兆瓦<br>平均值来自位于工厂周围的各种传感器，每秒记录环境变量。 这些变量在没有标准化的情况下给出。<br><a href="http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant" target="_blank" rel="external">http://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant</a></li>
+</ul>
+<h3 id="数据下载："><a href="#数据下载：" class="headerlink" title="数据下载："></a>数据下载：</h3><p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/00294/" target="_blank" rel="external"> http://archive.ics.uci.edu/ml/machine-learning-databases/00294/</a></p>
+<h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><p>我们的问题是得到一个线性的关系，对应PE是样本输出，而AT/V/AP/RH这4个是样本特征， 机器学习的目的就是得到一个线性回归模型，即:</p>
+<pre><code>PE=θ0+θ1∗AT+θ2∗V+θ3∗AP+θ4∗RH
+</code></pre><p>而需要学习的，就是θ0,θ1,θ2,θ3,θ4这5个参数。</p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>下载完数据后会得到一个压缩文件，解压后可以得到一个后缀为.xlsx的文件，我们使用excel打开这个文件后，将文件另存为csv格式，我们会使用这个csv格式的文件进行线性回归。<br>因为这个csv格式中没有非法数据，我们不需要进行预处理操作。</p>
+<p>######备注：数据的标准化操作会在sklearn中进行，不需要我们另外进行标准化。</p>
+<h2 id="用Pandas读数据"><a href="#用Pandas读数据" class="headerlink" title="用Pandas读数据"></a>用Pandas读数据</h2><h3 id="导入需要的几个python库"><a href="#导入需要的几个python库" class="headerlink" title="导入需要的几个python库"></a>导入需要的几个python库</h3><pre><code># 需要使用的几个库
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn import datasets, linear_model
+</code></pre><h3 id="使用pandas读取数据"><a href="#使用pandas读取数据" class="headerlink" title="使用pandas读取数据"></a>使用pandas读取数据</h3><pre><code>data = pd.read_csv(&apos;CCPP.csv&apos;)
+print data
+# 测试读取数据
+# data.head()读取前5条数据，data.tail()读取最后5条数据
+</code></pre><h2 id="划分数据"><a href="#划分数据" class="headerlink" title="划分数据"></a>划分数据</h2><pre><code># 查看数据的维数
+print data.shape
+X = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
+Y = data[[&apos;PE&apos;]]
+print X.head()
+print Y.head()
+</code></pre><h3 id="我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据"><a href="#我们的目的就是训练出一个模型，给定’AT’-‘V’-‘AP’-‘RH’四种数据后，预测出’PE’的数据" class="headerlink" title="我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据"></a>我们的目的就是训练出一个模型，给定’AT’, ‘V’, ‘AP’, ‘RH’四种数据后，预测出’PE’的数据</h3><h2 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h2><h3 id="在python代码中导入库"><a href="#在python代码中导入库" class="headerlink" title="在python代码中导入库"></a>在python代码中导入库</h3><pre><code>from sklearn.cross_validation import train_test_split
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3,random_state=0)
+# test_size为测试集在数据中所占比重
+# 查看训练集和测试集的唯独
+print X_train.shape
+print X_test.shape
+print Y_train.shape
+print Y_test.shape
+</code></pre><h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><p>sklearn线性回归的损失函数默使用最小二乘法来实现</p>
+<pre><code>from sklearn.linear_model import LinearRegression
+linreg = LinearRegression()
+linreg.fit(X_train, Y_train)
+</code></pre><p>拟合完毕后，我们看看我们的需要的模型系数结果：</p>
+<pre><code># 打印偏置项和各特征权重
+print linreg.intercept_
+print linreg.coef_
+</code></pre><h3 id="输出结果为："><a href="#输出结果为：" class="headerlink" title="输出结果为："></a>输出结果为：</h3><pre><code>[ 448.53067141]
+[[-1.9797936  -0.23300225  0.06812315 -0.15839461]]
+</code></pre><h3 id="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："><a href="#因此我们得到了步骤2中所需的5个参数，可以得到如下关系：" class="headerlink" title="因此我们得到了步骤2中所需的5个参数，可以得到如下关系："></a>因此我们得到了步骤2中所需的5个参数，可以得到如下关系：</h3><pre><code>PE=448.53067141−1.9797936∗AT−0.23300225∗V+0.06812315∗AP-0.15839461∗RHPE　
+</code></pre><h2 id="模型评价"><a href="#模型评价" class="headerlink" title="模型评价"></a>模型评价</h2><p>我们需要评估我们的模型的好坏程度，对于线性回归来说，我们一般用均方差（Mean Squared Error, MSE）或者均方根差(Root Mean Squared Error, RMSE)在测试集上的表现来评价模型的好坏。</p>
+<h3 id="我们看看我们的模型的MSE和RMSE，代码如下："><a href="#我们看看我们的模型的MSE和RMSE，代码如下：" class="headerlink" title="我们看看我们的模型的MSE和RMSE，代码如下："></a>我们看看我们的模型的MSE和RMSE，代码如下：</h3><pre><code># 模型拟合测试集
+from sklearn import metrics
+y_pred = linreg.predict(X_test)
+# 用scikit-learn计算MSE
+print &quot;MSE:&quot;,metrics.mean_squared_error(y_test, y_pred)
+# 用scikit-learn计算RMSE
+print &quot;RMSE:&quot;,np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+</code></pre><h3 id="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"><a href="#一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。" class="headerlink" title="一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。"></a>一种特征选择的方式，去掉某个特征后重复进行一次试验，观察mse和rmse的变化。</h3><p>可以看出，去掉RH后，模型拟合的没有加上RH的好，MSE变大了。说明RH对结果的预测还是有影响的。</p>
+<h2 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>我们可以通过交叉验证来持续优化模型，代码如下，我们采用10折交叉验证，即cross_val_predict中的cv参数为10：</p>
+<pre><code># 交叉验证
+from sklearn.cross_validation import cross_val_predict
+X2 = data[[&apos;AT&apos;, &apos;V&apos;, &apos;AP&apos;, &apos;RH&apos;]]
+Y2 = data[[&apos;PE&apos;]]
+
+predicted = cross_val_predict(linreg, X, Y, cv=10)
+# print predicted
+# 用scikit-learn计算MSE
+print &quot;10折交叉验证的MSE:&quot;,metrics.mean_squared_error(Y, predicted)
+# 用scikit-learn计算RMSE
+print &quot;10折交叉验证的RMSE:&quot;,np.sqrt(metrics.mean_squared_error(Y, predicted))
+</code></pre><h2 id="利用matlibplot画图观察结果"><a href="#利用matlibplot画图观察结果" class="headerlink" title="利用matlibplot画图观察结果"></a>利用matlibplot画图观察结果</h2><p>这里画图真实值和预测值的变化关系，离中间的直线y=x直接越近的点代表预测损失越低。代码如下：</p>
+<pre><code># matplotlib画图
+fig, ax = plt.subplots()
+ax.scatter(Y,predicted)
+ax.plot([Y.min(), Y.max()], [Y.min(), Y.max()], &apos;k--&apos;, lw=4)
+ax.set_xlabel(&apos;Measured&apos;)
+ax.set_ylabel(&apos;Predicted&apos;)
+plt.show()
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regression/">regression</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-k均值" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/k均值/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.964Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是聚类分析"><a href="#什么是聚类分析" class="headerlink" title="什么是聚类分析"></a>什么是聚类分析</h3><p>聚类分析是在数据中发现数据对象之间的关系，将数据进行分组，组内的相似性越大，组间的差别越大，则聚类效果越好。</p>
+<h3 id="基本的聚类分析算法"><a href="#基本的聚类分析算法" class="headerlink" title="基本的聚类分析算法"></a>基本的聚类分析算法</h3><ol>
+<li><p>K均值：基于原型的、划分的距离技术，它试图发现用户指定个数(K)的簇。</p>
+</li>
+<li><p>凝聚的层次距离：思想是开始时，每个点都作为一个单点簇，然后，重复的合并两个最靠近的簇，直到尝试单个、包含所有点的簇。</p>
+</li>
+<li><p>DBSCAN:一种基于密度的划分距离的算法，簇的个数有算法自动的确定，低密度中的点被视为噪声而忽略，因此其不产生完全聚类。 </p>
+</li>
+</ol>
+<h3 id="距离量度"><a href="#距离量度" class="headerlink" title="距离量度"></a>距离量度</h3><p>不同的距离量度会对距离的结果产生影响，常见的距离量度如下所示：</p>
+<h2 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a>K-Means算法</h2><p>下面介绍K均值算法：<br>优点：易于实现<br>缺点：可能收敛于局部最小值，在大规模数据收敛慢<br>算法思想较为简单如下所示：</p>
+<pre><code>选择K个点作为初始质心  
+repeat  
+    将每个点指派到最近的质心，形成K个簇  
+    重新计算每个簇的质心  
+until 簇不发生变化或达到最大迭代次数
+</code></pre><p>这里的重新计算每个簇的质心，如何计算的是根据目标函数得来的，因此在开始时我们要考虑 距离度量和目标函数。</p>
+<p>考虑欧几里得距离的数据，使用 误差平方和（Sum of the Squared Error,SSE） 作为聚类的目标函数，两次运行K均值产生的两个不同的簇集，我们更喜欢SSE最小的那个。 </p>
+<p>下面用Python进行实现</p>
+<pre><code># dataSet样本点,k 簇的个数
+# disMeas距离量度，默认为欧几里得距离
+# createCent,初始点的选取
+def kMeans(dataSet, k, distMeas=distEclud, createCent=randCent):
+    m = shape(dataSet)[0] #样本数
+    clusterAssment = mat(zeros((m,2))) #m*2的矩阵                   
+    centroids = createCent(dataSet, k) #初始化k个中心
+    clusterChanged = True             
+    while clusterChanged:      #当聚类不再变化
+        clusterChanged = False
+        for i in range(m):
+            minDist = inf; minIndex = -1
+            for j in range(k): #找到最近的质心
+                distJI = distMeas(centroids[j,:],dataSet[i,:])
+                if distJI &lt; minDist:
+                    minDist = distJI; minIndex = j
+            if clusterAssment[i,0] != minIndex: clusterChanged = True
+            # 第1列为所属质心，第2列为距离
+            clusterAssment[i,:] = minIndex,minDist**2
+        print centroids
+
+        # 更改质心位置
+        for cent in range(k):
+            ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+            centroids[cent,:] = mean(ptsInClust, axis=0) 
+    return centroids, clusterAssment
+</code></pre><p>重点理解一下：</p>
+<pre><code>for cent in range(k):
+  ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]
+  centroids[cent,:] = mean(ptsInClust, axis=0)
+</code></pre><p>循环每一个质心，找到属于当前质心的所有点，然后根据这些点去更新当前的质心。<br>nonzero()返回的是一个二维的数组，其表示非0的元素位置。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; a=array([[1,0,0],[0,1,2],[2,0,0]])
+&gt;&gt;&gt; a
+array([[1, 0, 0],
+       [0, 1, 2],
+       [2, 0, 0]])
+&gt;&gt;&gt; nonzero(a)
+(array([0, 1, 1, 2]), array([0, 1, 2, 0]))
+</code></pre><p>引入辅助函数：</p>
+<pre><code>def loadDataSet(fileName):      #general function to parse tab -delimited floats
+    dataMat = []                #assume last column is target value
+    fr = open(fileName)
+    for line in fr.readlines():
+        curLine = line.strip().split(&apos;\t&apos;)
+        fltLine = map(float,curLine) #map all elements to float()
+        dataMat.append(fltLine)
+    return dataMat
+
+def distEclud(vecA, vecB):
+    return sqrt(sum(power(vecA - vecB, 2))) #la.norm(vecA-vecB)
+
+def randCent(dataSet, k):
+    n = shape(dataSet)[1]
+    centroids = mat(zeros((k,n)))#create centroid mat
+    for j in range(n):#create random cluster centers, within bounds of each dimension
+        minJ = min(dataSet[:,j]) 
+        rangeJ = float(max(dataSet[:,j]) - minJ)
+        centroids[:,j] = mat(minJ + rangeJ * random.rand(k,1))
+    return centroids
+</code></pre><h3 id="运行和结果"><a href="#运行和结果" class="headerlink" title="运行和结果"></a>运行和结果</h3><p>将上述代码写到kMeans.py中，然后打开python交互端。</p>
+<pre><code>&gt;&gt;&gt; from numpy import *
+&gt;&gt;&gt; import kMeans
+&gt;&gt;&gt; dat=mat(kMeans.loadDataSet(&apos;testSet.txt&apos;)) #读入数据
+&gt;&gt;&gt; center，clust=kMeans.kMeans(dat,4)
+[[ 0.90796996  5.05836784]
+ [-2.88425582  0.01687006]
+ [-3.3447423  -1.01730512]
+ [-0.32810867  0.48063528]]
+[[ 1.90508653  3.530091  ]
+ [-3.00984169  2.66771831]
+ [-3.38237045 -2.9473363 ]
+ [ 2.22463036 -1.37361589]]
+[[ 2.54391447  3.21299611]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.8692781  -2.54779119]]
+[[ 2.6265299   3.10868015]
+ [-2.46154315  2.78737555]
+ [-3.38237045 -2.9473363 ]
+ [ 2.80293085 -2.7315146 ]]
+# 作图
+&gt;&gt;&gt;kMeans(dat,center)
+</code></pre><h3 id="K-Means算法的缺陷"><a href="#K-Means算法的缺陷" class="headerlink" title="K-Means算法的缺陷"></a>K-Means算法的缺陷</h3><p>k均值算法非常简单且使用广泛，但是其有主要的两个缺陷：</p>
+<ol>
+<li><p>K值需要预先给定，属于预先知识，很多情况下K值的估计是非常困难的，对于像计算全部微信用户的交往圈这样的场景就完全的没办法用K-Means进行。对于可以确定K值不会太大但不明确精确的K值的场景，可以进行迭代运算，然后找出Cost Function最小时所对应的K值，这个值往往能较好的描述有多少个簇类。</p>
+</li>
+<li><p>K-Means算法对初始选取的聚类中心点是敏感的，不同的随机种子点得到的聚类结果完全不同</p>
+</li>
+<li><p>K均值算法并不是很所有的数据类型。它不能处理非球形簇、不同尺寸和不同密度的簇，银冠指定足够大的簇的个数是他通常可以发现纯子簇。</p>
+</li>
+<li><p>对离群点的数据进行聚类时，K均值也有问题，这种情况下，离群点检测和删除有很大的帮助。</p>
+</li>
+</ol>
+<h2 id="下面对初始质心的选择进行讨论："><a href="#下面对初始质心的选择进行讨论：" class="headerlink" title="下面对初始质心的选择进行讨论："></a>下面对初始质心的选择进行讨论：</h2><h3 id="拙劣的初始质心"><a href="#拙劣的初始质心" class="headerlink" title="拙劣的初始质心"></a>拙劣的初始质心</h3><p>当初始质心是随机的进行初始化的时候，K均值的每次运行将会产生不同的SSE,而且随机的选择初始质心结果可能很糟糕， 可能只能得到局部的最优解，而无法得到全局的最优解。<br>可以看到程序迭代了4次终止，其得到了局部的最优解，显然我们可以看到其不是全局最优的，我们仍然可以找到一个更小的SSE的聚类。 </p>
+<h3 id="随机初始化的局限"><a href="#随机初始化的局限" class="headerlink" title="随机初始化的局限"></a>随机初始化的局限</h3><p>你可能会想到：多次运行，每次使用一组不同的随机初始质心，然后选择一个具有最小的SSE的簇集。该策略非常的简单，但是效果可能不是很好，这取决于数据集合寻找的簇的个数。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-install vm-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/install vm-tools/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.958Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/install vm-tools/">在VMvare的linux虚拟机上安装vm-tools</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="为什么要安装vm-tools"><a href="#为什么要安装vm-tools" class="headerlink" title="为什么要安装vm-tools"></a>为什么要安装vm-tools</h4><h5 id="1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；"><a href="#1-解决鼠标在windows和linux系统下切换的问题，实现自动切换；" class="headerlink" title="1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；"></a>1.解决鼠标在windows和linux系统下切换的问题，实现自动切换；</h5><h5 id="2-解决windows和linux系统间的共享问题；"><a href="#2-解决windows和linux系统间的共享问题；" class="headerlink" title="2.解决windows和linux系统间的共享问题；"></a>2.解决windows和linux系统间的共享问题；</h5><h5 id="3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。"><a href="#3-解决linux虚拟机界面无法全屏，自定义分辨率的问题。" class="headerlink" title="3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。"></a>3.解决linux虚拟机界面无法全屏，自定义分辨率的问题。</h5><h4 id="VMwareTools的安装"><a href="#VMwareTools的安装" class="headerlink" title="VMwareTools的安装"></a>VMwareTools的安装</h4><pre><code>(1) 虚拟机上启动linux,以根用户权限进入.
+(2) 在VMware的菜单栏选择VM-&gt;install vmware-tools,此时vmware会把安装文件映射到linux的CD-ROM
+(3) 在/mnt目录下创建一个cdrom文件夹，把光驱挂载到cdrom上
+    mkdir /mnt/cdrom
+    mount /dev/cdrom /mnt/cdrom
+(4) 拷贝安装包到/tmp目录下,并解压安装.
+    cp /mnt/cdrom/VMwareTools-7.8.4-126130.tar.gz /tmp/      //拷贝安装包到tmp目录下
+    cd /tmp                                                  //切换到tmp目录下
+    tar xvzf VMwareTools-7.8.4-126130.tar.gz                 //解压安装包
+    cd ./vmware-tools-distrib                                //进入解压后的安装包
+    ./vmware-install.pl                                      //安装vmware-tools
+    一路回车,如果安装过程中遇到如下图所示的错误信息提示,由说明找不到运行的内核的C头文件目录位置.按Ctrl+c退出当前的安装或者重新打开一个新的终端.
+
+      (4.1) 安装编译工具
+            yum -y install gcc gcc-c++ kernel-devel
+            在使用yum安装工具的时候有可能出现出下图所示的问题                         
+            解决的办法是终端里输入:rm -f /var/run/yum.pid
+            然后重新输入命令安装编译工具.
+      (4.2) 更新kernel
+            yum -y update kernel
+      (4.3) 检查更新
+            rpm -qa | grep kernel
+       安装结束后,重新启动系统,使之生效.
+(5) 重新安装vmware-tools
+    重启系统后,打开终端进入/tmp/vmware-tools-distrib目录,运行./vmware-install.pl
+    一路回车，当遇到如下画面的时候，选择你的显示屏相应的分辨率,当然也可以选择安装默认的分辨率,然后继续.
+
+(6) 鼠标错位修正
+    由于在装载xorg-X11-drv-vmmouse驱动时的一个bug，在客户虚拟机的显示中，鼠标位置可能不正确，直到被更新前，在客户机中添加Option NoAutoAddDevices到/etc/X11/xorg.conf文件的SeverFlags节中，如果需要，创建这个节：(如果这一步不放在重启系统前操作,那么系统重启后再来修正鼠标错位就难了,因为那时的鼠标处在错位状态下,很难去操作!)
+
+(7) system-&gt;log out root or system-&gt;shut down
+    这时鼠标就可以在windows与linux之间自由切换了，不再需要借助Ctrl+Alt啦.
+(8) 共享文件夹的配置
+    (8.1) windows下设置共享
+          右击要共享的文件夹--&gt;属性--&gt;共享,按如下方式配置,(这里以share_f9文件夹为例)
+
+    (8.2) VMware下配置共享文件夹
+         (8.2.1) 虚拟机平台上选择Options--&gt;Shared Folders,按图配置
+
+     选择Add,添加要共享的文件夹
+     点击Next,选择Enable this share,保存退出.
+     不出意外的话,这时就可以在linux系统下的/mnt文件夹下看到一个名为hgfs的文件夹,要共享的文件夹就存放于此.
+     (*)如果发现/mnt/hgfs/下无共享的文件夹,那么这时可以在终端里输入命令:
+     vmware-config-tools.pl
+     如果执行过程中,有faile选项出现,重新执行这条命令就OK了. 一路回车,然后就会在/mnt/hgfs目录下发现要共享的文件夹了.  
+     (**)如果发现linux系统下访问共享文件夹时,只能读取不能写入的情况,一般都是SElinux开启造成的,解决办法:
+      (**.1) 打开/etc/selinux/config
+              vi /etc/selinux/config
+      (**.2) 如果有SELINUX=enforcing 这句,就将他更改为SELINUX=disabled,如果没有,就加入这句
+
+      (**.3)保存,然后重启系统,终端里输入reboot.
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/">vmware</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hadoop集群" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/hadoop集群/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.952Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="ubuntu集群上安装hadoop"><a href="#ubuntu集群上安装hadoop" class="headerlink" title="ubuntu集群上安装hadoop"></a>ubuntu集群上安装hadoop</h2><h3 id="创建用户并增加管理员权限"><a href="#创建用户并增加管理员权限" class="headerlink" title="创建用户并增加管理员权限"></a>创建用户并增加管理员权限</h3><ol>
+<li>sudo -s 进入root用户</li>
+<li>adduser hadoop 创建hadoop用户</li>
+<li><p>root@ubuntu:~# sudo vim /etc/sudoers<br> 修改文件如下：</p>
+<pre><code># User privilege specification
+root ALL=(ALL) ALL
+aboutyun ALL=(ALL) ALL
+</code></pre><p> 保存退出，创建的用户就拥有了root权限。</p>
+<h3 id="修改-etc-hostname-和-etc-hosts-所有主机"><a href="#修改-etc-hostname-和-etc-hosts-所有主机" class="headerlink" title="修改/etc/hostname 和/etc/hosts(所有主机)"></a>修改/etc/hostname 和/etc/hosts(所有主机)</h3><p> 192.168.44.132     hadoop/123456        master<br> 192.168.44.133     hadoop/123456        slave1<br> 192.168.44.134     hadoop/123456        slave2<br> 192.168.44.132       hadoop/123456        slave3</p>
+</li>
+</ol>
+<p>上面各列分别为IP、user/passwd、hostname</p>
+<h4 id="下面是master的修改：通过命令"><a href="#下面是master的修改：通过命令" class="headerlink" title="下面是master的修改：通过命令"></a>下面是master的修改：通过命令</h4><p>sudo vim /etc/hosts</p>
+<pre><code>127.0.0.1       localhost
+127.0.1.1       Campusnetwork.localdomain       Campusnetwork
+#127.0.0.1      master
+192.168.44.133  slave1
+192.168.44.134  slave2
+192.168.44.135  slave3
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre><h4 id="下面修改hostname"><a href="#下面修改hostname" class="headerlink" title="下面修改hostname"></a>下面修改hostname</h4><p>sudo vim /etc/hostname</p>
+<pre><code>master
+</code></pre><p>修改主机名重启后生效。<br>上面hosts都一样，只不过hostname有所差别</p>
+<h3 id="打通master到slave节点的SSH无密码登陆"><a href="#打通master到slave节点的SSH无密码登陆" class="headerlink" title="打通master到slave节点的SSH无密码登陆"></a>打通master到slave节点的SSH无密码登陆</h3><h4 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h4><p>一般系统是默认安装了ssh命令的。如果没有，或者版本比较老，则可以重新安装：<br>sudo apt-get install ssh</p>
+<h4 id="生成master的公匙"><a href="#生成master的公匙" class="headerlink" title="生成master的公匙"></a>生成master的公匙</h4><p>首先生成 master 的公匙，在 master 节点终端中执行：<br>    cd ~/.ssh                      # 如果没有该目录，先执行一次ssh localhost<br>    ssh-keygen -t rsa              # 一直按回车就可以，生成的密钥保存为.ssh/id_rsa</p>
+<h4 id="设置无密码登陆"><a href="#设置无密码登陆" class="headerlink" title="设置无密码登陆"></a>设置无密码登陆</h4><p>master 节点需能无密码 ssh 本机，这一步还是在 master 节点上执行：<br>    cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</p>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>完成后可以使用 ssh Master 验证一下。接着将公匙传输到 Slave1 节点：</p>
+<pre><code>scp ~/.ssh/id_rsa.pub aboutyun@slave1:/home/aboutyun/
+</code></pre><p>scp时会要求输入slave1上aboutyun用户的密码，输入完成后会提示传输完毕。</p>
+<h4 id="保存公匙"><a href="#保存公匙" class="headerlink" title="保存公匙"></a>保存公匙</h4><p>接着在 slave1节点 上将ssh公匙保存到相应位置，执行</p>
+<pre><code>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</code></pre><p>如果有其他 slave 节点，也要执行 将公匙传输到 slave 节点、在 slave 节点上加入授权 这两步。</p>
+<p>####</p>
+<p>最后在 master 节点上就可以无密码SSH到slave1节点了。</p>
+<pre><code>ssh Slave1
+</code></pre><h3 id="安装jdk（这里以-tar-gz版本，64位系统为例）"><a href="#安装jdk（这里以-tar-gz版本，64位系统为例）" class="headerlink" title="安装jdk（这里以.tar.gz版本，64位系统为例）"></a>安装jdk（这里以.tar.gz版本，64位系统为例）</h3><h4 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h4><p>这里直接解压到了/usr/java/jdk1.8下面：<br>在/usr下并没有java目录，这需要我们去创建一个java文件夹 </p>
+<pre><code>cd /usr
+sudo mkdir java
+tar -xzf jdk-8u111-linux-x64.tar.gz          解压到了/usr/java/jdk1.8.0_111
+</code></pre><h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><p>环境变量分为用户变量和系统变量。</p>
+<p>用户变量配置文件：~/.bashrc（在当前用户主目录下的隐藏文件，可以通过<code>ls -a</code>查看到）</p>
+<p>系统环境配置文件：/etc/profile</p>
+<p>用户变量和系统变量的配置方法一样，本文以配置用户变量为例。</p>
+<p>编辑配置文件.bashrc：</p>
+<p>vi .bashrc</p>
+<p>在文件末尾追加：</p>
+<pre><code># set java environment
+export JAVA_HOME=/usr/java/jdk1.8.0_111
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+</code></pre><h4 id="使环境变量生效"><a href="#使环境变量生效" class="headerlink" title="使环境变量生效"></a>使环境变量生效</h4><p>source .bashrc</p>
+<h4 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h4><p>验证Java是否安装成功。</p>
+<p>$ java -version<br>java version “1.8.0_111”<br>Java(TM) SE Runtime Environment (build 1.8.0_111-b14)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)</p>
+<h3 id="关闭每台机器的防火墙"><a href="#关闭每台机器的防火墙" class="headerlink" title="关闭每台机器的防火墙"></a>关闭每台机器的防火墙</h3><pre><code>sudo ufw disable (重启生效)
+</code></pre><h3 id="hadoop安装"><a href="#hadoop安装" class="headerlink" title="hadoop安装"></a>hadoop安装</h3><h4 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h4><p>看不到进程大致有两个原因：<br>1.你的配置文件有问题。<br>对于配置文件，主机名，空格之类的这些都不要带上。仔细检查<br>2.Linux的权限不正确。<br>最常出问题的是core-site.xml，与hdfs-site.xml。</p>
+<p>core-site.xml</p>
+<pre><code>&lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;file:/home/aboutyun/tmp&lt;/value&gt;
+         &lt;description&gt;Abase forother temporary directories.&lt;/description&gt;
+&lt;/property&gt;
+</code></pre><p>说一下上面参数的含义，这里是hadoop的临时文件目录，file的含义是使用本地目录。也就是使用的是Linux的目录，一定确保下面目录的权限所属为你创建的用户。</p>
+<pre><code>/home/hadoop/tmp
+</code></pre><h4 id="在usr下创建hadoop文件夹"><a href="#在usr下创建hadoop文件夹" class="headerlink" title="在usr下创建hadoop文件夹"></a>在usr下创建hadoop文件夹</h4><pre><code>cd usr
+mkdir/hadoop
+</code></pre><p>下载hadoop-2.7.2并解压到/usr/hadoop/下，解压命令如下:<br>    tar -zxf hadoop-2.7.2.tar.gz</p>
+<h4 id="配置hadoop"><a href="#配置hadoop" class="headerlink" title="配置hadoop"></a>配置hadoop</h4><h5 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h5><p>修改hadoop-2.7.2/etc/hadoop/hadoop-env.sh，添加JDK支持：</p>
+<pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_111
+</code></pre><p>配置文件2：yarn-env.sh</p>
+<pre><code>修改JAVA_HOME值（export JAVA_HOME=/usr/java/jdk1.7）
+</code></pre><p>如果不知道你的JDK目录，使用命令echo $JAVA_HOME查看。</p>
+<h5 id="修改hadoop-2-7-2-etc-hadoop-core-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-core-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/core-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/core-site.xml</h5><p>注意：必须加在<configuration></configuration>节点内</p>
+<pre><code>&lt;configuration&gt;
+&lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+       &lt;value&gt;/home/hadoop/hadoop-2.7.2/tmp&lt;/value&gt;
+       &lt;description&gt;Abase for other temporary directories.&lt;/description&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+         &lt;name&gt;fs.default.name&lt;/name&gt;
+        &lt;value&gt;hdfs://master:9000&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-hdfs-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-hdfs-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/hdfs-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/hdfs-site.xml</h5><pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.name.dir&lt;/name&gt;
+    &lt;value&gt;/home/hadoop/hadoop-2.7.2/dfs/name&lt;/value&gt;
+    &lt;description&gt;Path on the local filesystem where the NameNode stores the namespace and transactions logs persistently.&lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+    &lt;name&gt;dfs.data.dir&lt;/name&gt;
+    &lt;value&gt;/home/hadoop/hadoop-2.7.2/dfs/data&lt;/value&gt;
+    &lt;description&gt;Comma separated list of paths on the local filesystem of a DataNode where it should store its blocks.&lt;/description&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;
+    &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-mapred-site-xml"><a href="#修改hadoop-2-7-2-etc-hadoop-mapred-site-xml" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/mapred-site.xml"></a>修改hadoop-2.7.2/etc/hadoop/mapred-site.xml</h5><pre><code>&lt;property&gt;
+    &lt;name&gt;mapred.job.tracker&lt;/name&gt;
+    &lt;value&gt;master:9001&lt;/value&gt;
+    &lt;description&gt;Host or IP and port of JobTracker.&lt;/description&gt;
+&lt;/property&gt;
+</code></pre><h5 id="修改hadoop-2-7-2-etc-hadoop-masters"><a href="#修改hadoop-2-7-2-etc-hadoop-masters" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/masters"></a>修改hadoop-2.7.2/etc/hadoop/masters</h5><p>列出所有的master节点：</p>
+<p>master</p>
+<h5 id="修改hadoop-2-7-2-etc-hadoop-slaves"><a href="#修改hadoop-2-7-2-etc-hadoop-slaves" class="headerlink" title="修改hadoop-2.7.2/etc/hadoop/slaves"></a>修改hadoop-2.7.2/etc/hadoop/slaves</h5><p>这个是所有datanode的机器，例如：</p>
+<p>slave1</p>
+<p>slave2</p>
+<p>slave3</p>
+<p>slave4</p>
+<h5 id="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"><a href="#将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上" class="headerlink" title="将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上"></a>将master结点上配置好的hadoop文件夹拷贝到所有的slave结点上</h5><p>以slave1为例：命令如下：</p>
+<pre><code>scp -r  ~/hadoop-2.7.2 hadoop@slave1:~/
+</code></pre><p>安装完成后，我们要格式化HDFS然后启动集群所有节点。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/集群/">集群</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-axis和stack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/axis和stack/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.908Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/axis和stack/">numpy之stack、axis</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="stack、axis"><a href="#stack、axis" class="headerlink" title="stack、axis"></a>stack、axis</h3><pre><code>test_1 = np.array([[1, 2, 3], [4, 5, 6]])
+test_2 = np.array([[11, 12, 13], [14, 15, 16]])
+</code></pre><h4 id="stack针对维度相同的矩阵合并"><a href="#stack针对维度相同的矩阵合并" class="headerlink" title="stack针对维度相同的矩阵合并"></a>stack针对维度相同的矩阵合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># axis=0,1,2分别代表所有，行合并，列合并</div><div class="line">print(np.stack((test_1, test_2), axis=2))</div><div class="line">print(np.stack((test_1, test_2), axis=1))</div><div class="line">print(np.stack((test_1, test_2), axis=0))</div></pre></td></tr></table></figure>
+<p>axis=2,1,0时的结果分别是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=2))</div><div class="line">[[[ 1 11]</div><div class="line">  [ 2 12]</div><div class="line">  [ 3 13]]</div><div class="line"></div><div class="line"> [[ 4 14]</div><div class="line">  [ 5 15]</div><div class="line">  [ 6 16]]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=1))</div><div class="line">[[[ 1  2  3]</div><div class="line">  [11 12 13]]</div><div class="line"></div><div class="line"> [[ 4  5  6]</div><div class="line">  [14 15 16]]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print(np.stack((test_1, test_2), axis=0))</div><div class="line">[[[ 1  2  3]</div><div class="line">  [ 4  5  6]]</div><div class="line"></div><div class="line"> [[11 12 13]</div><div class="line">  [14 15 16]]]</div></pre></td></tr></table></figure>
+<h4 id="hstack和vstack均针对于列向量和矩阵"><a href="#hstack和vstack均针对于列向量和矩阵" class="headerlink" title="hstack和vstack均针对于列向量和矩阵"></a>hstack和vstack均针对于列向量和矩阵</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># reshape在Numpy高级应用中介绍</div><div class="line"># 类似于np.stack(*****, axis=2)</div><div class="line">t = np.arange(1, 3).reshape((-1, 1))</div><div class="line">print(np.hstack((t, test_1 )))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">结果：</div><div class="line">[[1 1 2 3]</div><div class="line"> [2 4 5 6]]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 类似于np.stack(*****, axis=1)</div><div class="line">t = np.arange(1, 4).reshape((1, -1))</div><div class="line">print(np.vstack((t, test_1)))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">结果：</div><div class="line">[[1 2 3]</div><div class="line"> [1 2 3]</div><div class="line"> [4 5 6]]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/numpy/">numpy</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/numpy/">numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-推荐系统学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/推荐系统学习/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.903Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</li>
+<li>利用用户的相似度为一个用户补充属性</li>
+<li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
+</ol>
+<p>Audience扩展是LinkedIn开发的一种技术，旨在简化定位并确定与原始目标受众具有相似属性的新受众群体。我们开发了两种方法来实现受众群体扩展：与广告系列无关的扩展和广告系列感知扩展。在本文中，我们描述这些方法的细节，目前对其交易的深入分析，并展示具有两种方法的综合强度的混合策略。通过大规模的在线实验，我们展示了所提出的方法的有效性，因此，它带给整个市场，包括LinkedIn和广告客户的好处。实现的效益可以表征为：1）简化的定向过程和增加广告客户的覆盖面; 2）更好地利用LinkedIn的广告资源，以及更高效和更有效的市场参与。</p>
+<h3 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h3><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
+<h3 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h3><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">互联网推荐系统比较研究</a></p>
+<p>组合推荐(hybrid recommendation)的一个最重要原则就是通过组合后应能避免或弥补各自推荐技术的弱点。研究和应用最多的是内容推荐和协同过滤推荐的组合。尽管从理论上有很多种推荐组合方法，但不同的组合思路适用于不同的应用场景。我们将研究人员提出的组合思路大致分为如下3类：</p>
+<ul>
+<li>后融合：融合两种或两种以上的推荐方法各自产生的推荐结果。如使用基于内容的方法和协同过滤方法分别得到推荐列表，融合列表的结果决定最后推荐的对象。</li>
+<li>中融合：以一种推荐方法为框架，融合另一种推荐方法。如以基于内容的方法为框架，融合协同过滤的方法，或者以协同过滤的方法为框架，融合基于内容的方法。</li>
+<li>前融合：直接融合各种推荐方法。如将基于内容和协同过滤的方法整合到一个统一的框架模型下。  </li>
+</ul>
+<h4 id="后融合组合推荐"><a href="#后融合组合推荐" class="headerlink" title="后融合组合推荐"></a>后融合组合推荐</h4><p>在后融合组合推荐中，最简单的做法就是分别用基于内容的方法和协同过滤推荐方法去产生一个推荐预测结果，然后用某种方法组合其结果。文献[37]使用了评分结果的线性组合，而文献[38]使用了投票机制来组合这些推荐结果。除此之外，也可以分别考察两个推荐列表，判断使用其中的哪个推荐结果。比如，Daily Learner system[39]计算推荐结果的可信度，然后选择一个列表的结果。这种结果层次上的融合我们称为后融合组合推荐。</p>
+<h4 id="中融合组合推荐"><a href="#中融合组合推荐" class="headerlink" title="中融合组合推荐"></a>中融合组合推荐</h4><p>目前，中融合的组合推荐主要有两种，以基于内容的方法为框架,融合协同过滤的方法和以协同过滤的方法为框架，融合基于内容的方法。前者利用降维技术把基于内容的对象特征进行精简化。例如，文献[40]使用了LSI(latent semantic indexing)算法，在基于内容的框架中使用精化的用户特征向量。后者为了克服协同过滤的稀疏问题（详见第3.3节），把用户当作对象，使用基于内容的特征提取方法把用户本身的特征（如年龄、工作情况等人口统计学特征(demographic features)）使用到相似度计算中，而不是仅仅依赖用户的点击行为。Good等人在文献[41]中引入多种不同的用户描述符来归类用户，挖掘用户的内在联系，从而得到更好的推荐效果。文献[42]使用独立的基于内容的特征来补偿用户提供的简单的rating，也属于此类方法。</p>
+<h4 id="前融合组合推荐"><a href="#前融合组合推荐" class="headerlink" title="前融合组合推荐"></a>前融合组合推荐</h4><p>近年来，这类推荐方法最受学者的关注。在文献[36]中，研究者把用户的年龄和电影的类型放到一个统一的分类器中训练学习。另外一种方法[43]使用了贝叶斯混合效果回归模型,，并通过马尔可夫蒙特卡洛方法得到这个模型的参数。文献[43]将用户和对象的特征都放到一个统计模型下来计算效用函数，研究者使用用户属性z、对象属性w及其交互关系(如选择关系)x来计算效用r。对象j对于用户i的效用值rij计算式可以表示为</p>
+<p>这其中的3种正态分布的变量分别用于描述数据的噪声、用户属性的异质性和对象属性的异质性。式(9)表述效用值是由这几个因素共同决定的。这3种分布的3个参数由马尔可夫蒙特卡洛方法估算得到。</p>
+<p>近年来,一些方法比较的工作[9,42,38]讨论并实验了各种方法与组合策略，得出结论：组合策略能够取得比纯基于内容或协同过滤方法更好的效果。这种在方法层次上融合的方法我们称为前融合组合推荐。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/推荐系统/">推荐系统</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文/">论文</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/hello-world/" class="article-date">
+      <time datetime="2017-06-20T06:44:25.012Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 wiyee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,4 +1,314 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="说来惭愧，一点微小的事情都没做。"><title>java log的使用 | wiyee's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">java log的使用</h1><a id="logo" href="/.">wiyee's blog</a><p class="description">learn and live.</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">java log的使用</h1><div class="post-meta">Jun 20, 2017<span> | </span><span class="category"><a href="/categories/java/">java</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h2 id="Java中给项目程序添加log"><a href="#Java中给项目程序添加log" class="headerlink" title="Java中给项目程序添加log"></a>Java中给项目程序添加log</h2><ol>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="wiyee" />
+
+
+
+<meta name="description" content="Java中给项目程序添加log 使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。 使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。  java.u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java log的使用">
+<meta property="og:url" content="yiyu.site/2017/06/20/log/index.html">
+<meta property="og:site_name" content="wiyee&#39;s blog">
+<meta property="og:description" content="Java中给项目程序添加log 使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。 使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。  java.u">
+<meta property="og:updated_time" content="2017-06-20T13:31:05.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java log的使用">
+<meta name="twitter:description" content="Java中给项目程序添加log 使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。 使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。  java.u">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="wiyee&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>java log的使用 | wiyee&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">wiyee</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">learn and live.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:wyygoup@gmail.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://www.weibo.com/heitom" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/wiyee" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=334253922" title="网易云音乐"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regression/">regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集群/">集群</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">wiyee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">wiyee</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">learn and live.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:wyygoup@gmail.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://www.weibo.com/heitom" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/wiyee" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=334253922" title="网易云音乐"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-log" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/log/" class="article-date">
+      <time datetime="2017-06-20T07:13:33.978Z" itemprop="datePublished">2017-06-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java log的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Java中给项目程序添加log"><a href="#Java中给项目程序添加log" class="headerlink" title="Java中给项目程序添加log"></a>Java中给项目程序添加log</h2><ol>
 <li>使用JDK中的java.util.logging包，Java.util.logging，JDK标准库中的类，是JDK 1.4 版本之后添加的日志记录的功能包。</li>
 <li>使用log4j包，log4j是apache软件基金会的开源项目。log4j，最强大的记录日志的方式。可以通过配置 .properties 或是 .xml 的文件， 配置日志的目的地，格式等等。</li>
 </ol>
@@ -150,4 +460,217 @@ E：info 一般和在粗粒度级别上，强调应用程序的运行全程。
 F：debug 一般用于细粒度级别上，对调试应用程序非常有帮助。
 G：all 最低等级，用于打开所有日志记录。
 </code></pre><p>上面这些级别是定义在org.apache.log4j.Level类中。Log4j只建议使用4个级别，优先级从高到低分别是error,warn,info和debug。通过使用日志级别，可以控制应用程序中相应级别日志信息的输出。例如，如果使用b了info级别，则应用程序中所有低于info级别的日志信息(如debug)将不会被打印出来。</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="yiyu.site/2017/06/20/log/" data-id="cj46olnpa000o0svnhofk0y4m" class="article-share-link">分享</a><div class="tags"></div><div class="post-nav"><a href="/2017/06/20/LogisticRegression/" class="pre">LogisticRegression</a><a href="/2017/06/20/linearRegresiion/" class="next">LinearRegression</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/numpy/">numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/推荐系统/">推荐系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/最优化算法/">最优化算法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/大数据/" style="font-size: 15px;">大数据</a> <a href="/tags/machine-learning/" style="font-size: 15px;">machine learning</a> <a href="/tags/deep-learning/" style="font-size: 15px;">deep learning</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/numpy/" style="font-size: 15px;">numpy</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/regression/" style="font-size: 15px;">regression</a> <a href="/tags/集群/" style="font-size: 15px;">集群</a> <a href="/tags/vmware/" style="font-size: 15px;">vmware</a> <a href="/tags/论文/" style="font-size: 15px;">论文</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/粒子群算法/">粒子群算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/Ubuntu命令/">ubuntu常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/ubuntu ssh/">ubuntu配置ssh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tensorflow安装/">Installing TensorFlow with virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/maven的安装配置/">Maven安装配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/map排序/">map排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/LogisticRegression/">LogisticRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/log/">java log的使用</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.skye.work" title="skye's blog" target="_blank">skye's blog</a><ul></ul><a href="http://www.huanqiang.wang" title="huanqiang's blog" target="_blank">huanqiang's blog</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">wiyee's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/20/log/">java log的使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">wiyee</a></p>
+        <p><span>发布时间:</span>2017-06-20, 15:13:33</p>
+        <p><span>最后更新:</span>2017-06-20, 21:31:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/20/log/" title="java log的使用">yiyu.site/2017/06/20/log/</a>
+            <span class="copy-path" data-clipboard-text="原文: yiyu.site/2017/06/20/log/　　作者: wiyee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/06/20/LogisticRegression/">
+                    LogisticRegression
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/20/linearRegresiion/">
+                    LinearRegression
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中给项目程序添加log"><span class="toc-number">1.</span> <span class="toc-text">Java中给项目程序添加log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-logging"><span class="toc-number">1.1.</span> <span class="toc-text">java.util.logging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log4j"><span class="toc-number">1.2.</span> <span class="toc-text">log4j</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j的基本使用方法"><span class="toc-number">2.</span> <span class="toc-text">log4j的基本使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">定义配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置根Logger，其语法为："><span class="toc-number">2.1.1.</span> <span class="toc-text">配置根Logger，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息输出目的地Appender，其语法为："><span class="toc-number">2.1.2.</span> <span class="toc-text">配置日志信息输出目的地Appender，其语法为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置日志信息的格式（布局），其语法为："><span class="toc-number">2.1.3.</span> <span class="toc-text">配置日志信息的格式（布局），其语法为：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在代码中使用Log4j"><span class="toc-number">2.2.</span> <span class="toc-text">在代码中使用Log4j</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#得到记录器"><span class="toc-number">2.2.1.</span> <span class="toc-text">得到记录器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取配置文件"><span class="toc-number">2.2.2.</span> <span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入记录信息（格式化日志信息）"><span class="toc-number">2.2.3.</span> <span class="toc-text">插入记录信息（格式化日志信息）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志级别"><span class="toc-number">2.3.</span> <span class="toc-text">日志级别</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"java log的使用　| wiyee's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/06/20/LogisticRegression/" title="上一篇: LogisticRegression">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/20/linearRegresiion/" title="下一篇: LinearRegression">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/粒子群算法/">粒子群算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/Ubuntu命令/">ubuntu常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/ubuntu ssh/">ubuntu配置ssh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tensorflow安装/">Installing TensorFlow with virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/maven的安装配置/">Maven安装配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/map排序/">map排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/LogisticRegression/">LogisticRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/log/">java log的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/linearRegresiion/">LinearRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/install vm-tools/">在VMvare的linux虚拟机上安装vm-tools</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/axis和stack/">numpy之stack、axis</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 wiyee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
