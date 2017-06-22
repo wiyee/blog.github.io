@@ -3,6 +3,14 @@
   
     
     <entry>
+      <title><![CDATA[learn and listen]]></title>
+      <url>/2017/06/22/music/</url>
+      <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27646205&auto=1&height=66"></iframe>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[粒子群算法]]></title>
       <url>/2017/06/20/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>微粒群算法，是由J. Kennedy和R. C. Eberhart等于1995年开发的一种演化计算技术，来源于对一个简化社会模型的模拟。其中“群（swarm）”来源于微粒群符合M. M. Millonas在开发应用于人工生命（artificial life）的模型时所提出的群体智能的5个基本原则。“粒子（particle）”是一个折衷的选择，因为既需要将群体中的成员描述为没有质量、没有体积的，同时也需要描述它的速度和加速状态。<br><a id="more"></a></excerpt></p>
@@ -164,9 +172,9 @@ linuxidc ALL=(ALL) ALL
         
         <tags>
             
-            <tag> deep learning </tag>
-            
             <tag> machine learning </tag>
+            
+            <tag> deep learning </tag>
             
         </tags>
         
@@ -207,9 +215,9 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
         
         <tags>
             
-            <tag> deep learning </tag>
-            
             <tag> machine learning </tag>
+            
+            <tag> deep learning </tag>
             
         </tags>
         
