@@ -164,9 +164,9 @@ linuxidc ALL=(ALL) ALL
         
         <tags>
             
-            <tag> machine learning </tag>
-            
             <tag> deep learning </tag>
+            
+            <tag> machine learning </tag>
             
         </tags>
         
@@ -207,9 +207,9 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
         
         <tags>
             
-            <tag> machine learning </tag>
-            
             <tag> deep learning </tag>
+            
+            <tag> machine learning </tag>
             
         </tags>
         

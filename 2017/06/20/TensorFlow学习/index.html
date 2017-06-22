@@ -16,7 +16,7 @@
 
 
 <meta name="description" content="TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。它灵活的架构让你可以在多种平台上展开计算，例如台式计算机中的一个或多个CPU（或GPU），服务器，移动设备等等。TensorFlow 最初由Google大脑小组（隶属于Go">
-<meta name="keywords" content="machine learning,deep learning">
+<meta name="keywords" content="deep learning,machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow学习入门">
 <meta property="og:url" content="yiyu.site/2017/06/20/TensorFlow学习/index.html">
@@ -146,13 +146,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -200,9 +200,9 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a class="main-nav-link switch-friends-link" href="https://skye.work">skye</a>
+                      <a class="main-nav-link switch-friends-link" href="http://skye.work">skye</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="https://huanqiang.wang">huanqiang</a>
+                      <a class="main-nav-link switch-friends-link" href="http://huanqiang.wang">huanqiang</a>
                     
                     </div>
                 </section>
@@ -264,7 +264,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-TensorFlow学习" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -329,17 +329,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">wiyee</a></p>
-        <p><span>发布时间:</span>2017-06-20, 15:13:34</p>
-        <p><span>最后更新:</span>2017-06-21, 22:29:59</p>
+        <p><span>Title:</span><a href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">wiyee</a></p>
+        <p><span>Created:</span>2017-06-20, 15:13:34</p>
+        <p><span>Updated:</span>2017-06-21, 22:29:59</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/20/TensorFlow学习/" title="TensorFlow学习入门">yiyu.site/2017/06/20/TensorFlow学习/</a>
-            <span class="copy-path" data-clipboard-text="原文: yiyu.site/2017/06/20/TensorFlow学习/　　作者: wiyee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/06/20/TensorFlow学习/" title="TensorFlow学习入门">yiyu.site/2017/06/20/TensorFlow学习/</a>
+            <span class="copy-path" data-clipboard-text="From yiyu.site/2017/06/20/TensorFlow学习/　　By wiyee" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -366,7 +366,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是数据流图（Data-Flow-Graph）"><span class="toc-number">1.</span> <span class="toc-text">什么是数据流图（Data Flow Graph）?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TensorFlow的特征"><span class="toc-number">2.</span> <span class="toc-text">TensorFlow的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#高度的灵活性"><span class="toc-number">2.1.</span> <span class="toc-text">高度的灵活性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#真正的可移植性（Portability）"><span class="toc-number">2.2.</span> <span class="toc-text">真正的可移植性（Portability）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将科研和产品联系在一起"><span class="toc-number">2.3.</span> <span class="toc-text">将科研和产品联系在一起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动求微分"><span class="toc-number">2.4.</span> <span class="toc-text">自动求微分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多语言支持"><span class="toc-number">2.5.</span> <span class="toc-text">多语言支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能最优化"><span class="toc-number">2.6.</span> <span class="toc-text">性能最优化</span></a></li></ol></li></ol>
         
@@ -382,10 +382,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -438,15 +438,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/20/ubuntu ssh/" title="上一篇: ubuntu配置ssh">
+            <a href="/2017/06/20/ubuntu ssh/" title="Pre: ubuntu配置ssh">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/20/tensorflow安装/" title="下一篇: Installing TensorFlow with virtualenv">
+            <a href="/2017/06/20/tensorflow安装/" title="Next: Installing TensorFlow with virtualenv">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -469,14 +469,14 @@
                 2016-2017 wiyee
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -485,7 +485,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -518,9 +518,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
