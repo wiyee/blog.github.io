@@ -333,27 +333,6 @@ OS name: &quot;windows 7&quot;, version: &quot;6.1&quot;, arch: &quot;amd64&quot
     </entry>
     
     <entry>
-      <title><![CDATA[map排序]]></title>
-      <url>/2017/06/20/map%E6%8E%92%E5%BA%8F/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>常用代码备忘。<br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<pre><code>List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;String, Integer&gt;&gt;(hotGameMap.entrySet());
-Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {// 降序排序
-public int compare(Entry&lt;String, Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {
-    return o2.getValue().compareTo(o1.getValue());
-    }
-});
-hotGameMap.clear();
-for(Map.Entry&lt;String,Integer&gt; mapping:list){
-hotGameMap.put(mapping.getKey(), mapping.getValue());
-} 
-</code></pre></the>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[LogisticRegression]]></title>
       <url>/2017/06/20/LogisticRegression/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>逻辑回归(Logistic Regression, LR)模型其实仅在线性回归的基础上，套用了一个逻辑函数，但也就由于这个逻辑函数，使得逻辑回归模型成为了机器学习领域一颗耀眼的明星，更是计算广告学的核心。<br><a id="more"></a></excerpt></p>
@@ -1128,23 +1107,6 @@ test_2 = np.array([[11, 12, 13], [14, 15, 16]])
             <tag> 论文 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2017/06/20/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
         
     </entry>
     
