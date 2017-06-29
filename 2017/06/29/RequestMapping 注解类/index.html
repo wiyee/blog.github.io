@@ -15,17 +15,29 @@
 
 
 
-<meta name="description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
-<meta name="keywords" content="论文">
+<meta name="description" content="RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。•RequestMapping注解类的使用方法•RequestMapping注解类的属性•定义Ant风格和带占位符的URL">
+<meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一篇kdd上的推荐系统相关的论文">
-<meta property="og:url" content="yiyu.site/2017/06/20/推荐系统学习/index.html">
+<meta property="og:title" content="RequestMapping 注解类">
+<meta property="og:url" content="yiyu.site/2017/06/29/RequestMapping 注解类/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
-<meta property="og:description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
-<meta property="og:updated_time" content="2017-06-21T14:31:22.465Z">
+<meta property="og:description" content="RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。•RequestMapping注解类的使用方法•RequestMapping注解类的属性•定义Ant风格和带占位符的URL">
+<meta property="og:image" content="/image/requestmapping/1.png">
+<meta property="og:image" content="/image/requestmapping/2.png">
+<meta property="og:image" content="/image/requestmapping/3.png">
+<meta property="og:image" content="/image/requestmapping/4.png">
+<meta property="og:image" content="/image/requestmapping/5.png">
+<meta property="og:image" content="/image/requestmapping/6.png">
+<meta property="og:image" content="/image/requestmapping/7.png">
+<meta property="og:image" content="/image/requestmapping/8.png">
+<meta property="og:image" content="/image/requestmapping/9.png">
+<meta property="og:image" content="/image/requestmapping/10.png">
+<meta property="og:image" content="/image/requestmapping/11.png">
+<meta property="og:updated_time" content="2017-06-29T10:55:48.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一篇kdd上的推荐系统相关的论文">
-<meta name="twitter:description" content="学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。">
+<meta name="twitter:title" content="RequestMapping 注解类">
+<meta name="twitter:description" content="RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。•RequestMapping注解类的使用方法•RequestMapping注解类的属性•定义Ant风格和带占位符的URL">
+<meta name="twitter:image" content="/image/requestmapping/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +69,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>一篇kdd上的推荐系统相关的论文 | wiyee&#39;s blog</title>
+<title>RequestMapping 注解类 | wiyee&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +278,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-推荐系统学习" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-RequestMapping 注解类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/20/推荐系统学习/" class="article-date">
-      <time datetime="2017-06-20T07:13:33.903Z" itemprop="datePublished">2017-06-20</time>
+      <a href="/2017/06/29/RequestMapping 注解类/" class="article-date">
+      <time datetime="2017-06-28T16:00:00.000Z" itemprop="datePublished">2017-06-29</time>
 </a>
 
 
@@ -285,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一篇kdd上的推荐系统相关的论文
+      RequestMapping 注解类
     </h1>
   
 
@@ -294,13 +306,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/推荐系统/">推荐系统</a>
+    <a class="article-category-link" href="/categories/springmvc/">springmvc</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文/">论文</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -310,28 +322,56 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>学习笔记，关于一篇kdd上的推荐系统相关论文《Audience Expansion for Online Social Network Advertising》。<br><a id="more"></a></excerpt></p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。<br>•RequestMapping注解类的使用方法<br>•RequestMapping注解类的属性<br>•定义Ant风格和带占位符的URL<br><a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>Audience Expansion for Online Social Network Advertising<br>加拿大的一个公司（Linkedin），这个公司做了一个投放广告的推荐系统用来给不同的用户推荐广告。比如一个广告商给了他们一个广告让他们投放。广告商会提供两个东西，1. 广告的属性（标签，类别等） 2. 投放群体 (location == “USA”OR location == “Canada”) AND (location != “California”) AND (age == “18-24” OR age == “25-34”) AND (seniority != “unpaid”) AND (seniority != “training”)符合这个条件的群体叫做原始受众。</p>
-<ol>
-<li>利用用户的相似度为一个用户补充属性</li>
-<li>广告商确定投放人群的属性，公司提取用户属性与该广告投放属性相似度分析，广告不直接定位到此用户，而是定位到包含与该用户相似的一个群体。</li>
-</ol>
-<p>Audience扩展是LinkedIn开发的一种技术，旨在简化定位并确定与原始目标受众具有相似属性的新受众群体。我们开发了两种方法来实现受众群体扩展：与广告系列无关的扩展和广告系列感知扩展。在本文中，我们描述这些方法的细节，目前对其交易的深入分析，并展示具有两种方法的综合强度的混合策略。通过大规模的在线实验，我们展示了所提出的方法的有效性，因此，它带给整个市场，包括LinkedIn和广告客户的好处。实现的效益可以表征为：1）简化的定向过程和增加广告客户的覆盖面; 2）更好地利用LinkedIn的广告资源，以及更高效和更有效的市场参与。</p>
-<h3 id="用户模型-用户喜好-用户行为"><a href="#用户模型-用户喜好-用户行为" class="headerlink" title="用户模型 用户喜好 用户行为"></a>用户模型 用户喜好 用户行为</h3><p>推荐研究用户模型（user profile）和用户的喜好，基于社会网络(social network)进行个性化的计算（personalization）；<br>推荐是由系统主导用户的浏览顺序，引导用户发现需要的结果。高质量的推荐系统会使用户对该系统产生依赖。</p>
-<h3 id="组合推荐"><a href="#组合推荐" class="headerlink" title="组合推荐"></a>组合推荐</h3><p><a href="http://blog.csdn.net/beiyouyu/article/details/7221587" target="_blank" rel="external">互联网推荐系统比较研究</a></p>
-<p>组合推荐(hybrid recommendation)的一个最重要原则就是通过组合后应能避免或弥补各自推荐技术的弱点。研究和应用最多的是内容推荐和协同过滤推荐的组合。尽管从理论上有很多种推荐组合方法，但不同的组合思路适用于不同的应用场景。我们将研究人员提出的组合思路大致分为如下3类：</p>
+<p>###RequestMapping注解类的使用方法</p>
 <ul>
-<li>后融合：融合两种或两种以上的推荐方法各自产生的推荐结果。如使用基于内容的方法和协同过滤方法分别得到推荐列表，融合列表的结果决定最后推荐的对象。</li>
-<li>中融合：以一种推荐方法为框架，融合另一种推荐方法。如以基于内容的方法为框架，融合协同过滤的方法，或者以协同过滤的方法为框架，融合基于内容的方法。</li>
-<li>前融合：直接融合各种推荐方法。如将基于内容和协同过滤的方法整合到一个统一的框架模型下。  </li>
+<li>开发Controller控制器类，使用@Controller注解标注，并在配置文件中用<context:component-scan>扫描</context:component-scan></li>
+<li>在Controller控制器类的类定义和方法定义处都可以标注@RequestMapping注解</li>
+<li>DispatcherServlet截获请求后，就可以通过控制器上的@RequestMapping提供的映射信息确定请求所对应的处理方法<br><img src="/image/requestmapping/1.png" width="550" alt="1" align="center"></li>
 </ul>
-<h4 id="后融合组合推荐"><a href="#后融合组合推荐" class="headerlink" title="后融合组合推荐"></a>后融合组合推荐</h4><p>在后融合组合推荐中，最简单的做法就是分别用基于内容的方法和协同过滤推荐方法去产生一个推荐预测结果，然后用某种方法组合其结果。文献[37]使用了评分结果的线性组合，而文献[38]使用了投票机制来组合这些推荐结果。除此之外，也可以分别考察两个推荐列表，判断使用其中的哪个推荐结果。比如，Daily Learner system[39]计算推荐结果的可信度，然后选择一个列表的结果。这种结果层次上的融合我们称为后融合组合推荐。</p>
-<h4 id="中融合组合推荐"><a href="#中融合组合推荐" class="headerlink" title="中融合组合推荐"></a>中融合组合推荐</h4><p>目前，中融合的组合推荐主要有两种，以基于内容的方法为框架,融合协同过滤的方法和以协同过滤的方法为框架，融合基于内容的方法。前者利用降维技术把基于内容的对象特征进行精简化。例如，文献[40]使用了LSI(latent semantic indexing)算法，在基于内容的框架中使用精化的用户特征向量。后者为了克服协同过滤的稀疏问题（详见第3.3节），把用户当作对象，使用基于内容的特征提取方法把用户本身的特征（如年龄、工作情况等人口统计学特征(demographic features)）使用到相似度计算中，而不是仅仅依赖用户的点击行为。Good等人在文献[41]中引入多种不同的用户描述符来归类用户，挖掘用户的内在联系，从而得到更好的推荐效果。文献[42]使用独立的基于内容的特征来补偿用户提供的简单的rating，也属于此类方法。</p>
-<h4 id="前融合组合推荐"><a href="#前融合组合推荐" class="headerlink" title="前融合组合推荐"></a>前融合组合推荐</h4><p>近年来，这类推荐方法最受学者的关注。在文献[36]中，研究者把用户的年龄和电影的类型放到一个统一的分类器中训练学习。另外一种方法[43]使用了贝叶斯混合效果回归模型,，并通过马尔可夫蒙特卡洛方法得到这个模型的参数。文献[43]将用户和对象的特征都放到一个统计模型下来计算效用函数，研究者使用用户属性z、对象属性w及其交互关系(如选择关系)x来计算效用r。对象j对于用户i的效用值rij计算式可以表示为</p>
-<p>这其中的3种正态分布的变量分别用于描述数据的噪声、用户属性的异质性和对象属性的异质性。式(9)表述效用值是由这几个因素共同决定的。这3种分布的3个参数由马尔可夫蒙特卡洛方法估算得到。</p>
-<p>近年来,一些方法比较的工作[9,42,38]讨论并实验了各种方法与组合策略，得出结论：组合策略能够取得比纯基于内容或协同过滤方法更好的效果。这种在方法层次上融合的方法我们称为前融合组合推荐。</p>
+<p>###RequestMapping注解类的属性</p>
+<p>RequestMapping注解类的属性，分别有 value, method, consumes, produces, params, headers</p>
+<p>####value</p>
+<ul>
+<li>代表具体的请求路径，比如上面的 /user， /login 都是value的值</li>
+<li>value可以省略，就像例子中一样，直接用 @RequestMapping(“/login”) 的格式，它等同于@RequestMapping(value = “/login”)<br><img src="/image/requestmapping/2.png" width="550" alt="2" align="center"></li>
+</ul>
+<p>####method</p>
+<ul>
+<li>指定请求的method类型， GET、POST、PUT、DELETE等</li>
+<li>例：@RequestMapping(value = “/login”, method = RequestMethod.POST) 那么只有发送POST请求才会触发这个方法</li>
+<li>例：@RequestMapping(value = “/login”, method = {RequestMethod.POST, RequestMethod.GET})<br><img src="/image/requestmapping/3.png" width="500" alt="3" align="center"><br><img src="/image/requestmapping/4.png" width="550" alt="4" align="center"></li>
+</ul>
+<p>####consumes</p>
+<ul>
+<li>指定请求的提交内容类型（Content-Type），例如application/json, text/html</li>
+<li>它的值既可以是字符串也可以是数组<br><img src="/image/requestmapping/5.png" width="550" alt="5" align="center"><br><img src="/image/requestmapping/6.png" width="550" alt="6" align="center"></li>
+</ul>
+<p>####produces</p>
+<ul>
+<li>指定请求中必须包含某些参数值，才会触发这个处理方法。<br><img src="/image/requestmapping/7.png" width="550" alt="7" align="center"></li>
+</ul>
+<p>####params</p>
+<ul>
+<li>指定请求中必须包含某些参数值，才会触发这个处理方法</li>
+<li>参数中除了使用=等号外，还可以使用!=号，表示在参数的值不等于的情况下触发这个方法</li>
+<li>也可以不指定具体的值，直接使用 “paramName” 的格式，代表请求中必须包含参数名为 paramName 的参数</li>
+<li>直接使用 “!paramName”格式表示请求不能包含名为paramName的请求参数<br><img src="/image/requestmapping/8.png" width="550" alt="8" align="center"><br><img src="/image/requestmapping/9.png" width="550" alt="9" align="center"></li>
+</ul>
+<h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><ul>
+<li>请求头Header中必须包含某些指定的参数值，才能让该方法处理请求<br><img src="/image/requestmapping/10.png" width="550" alt="10" align="center"><br><img src="/image/requestmapping/11.png" width="700" alt="11" align="center"></li>
+</ul>
+<p>###定义Ant风格和带占位符的URL</p>
+<p>@RequestMapping不仅支持标准的URL，还支持Ant风格和带{xxx}占位符的URL，下面的URL都是合法的：</p>
+<ul>
+<li>/user/*/login：匹配/user/aaa/login，/user/任意字符/login 等</li>
+<li>/user/**/login：匹配/user/login， /user/aaa/bbb/login 等</li>
+<li>/user/login??：匹配/user/loginAA, /user/loginbb 等</li>
+<li>/user/{userId}：匹配/user/123， /user/234 等</li>
+<li>/user/**/{userId}：匹配/user/aaa/bbb/123，/user/aaa/234等</li>
+</ul>
 </the>
       
     </div>
@@ -340,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/29/RequestMapping 注解类/">RequestMapping 注解类</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wiyee</a></p>
-        <p><span>发布时间:</span>2017-06-20, 15:13:33</p>
-        <p><span>最后更新:</span>2017-06-21, 22:31:22</p>
+        <p><span>发布时间:</span>2017-06-29, 00:00:00</p>
+        <p><span>最后更新:</span>2017-06-29, 18:55:48</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/20/推荐系统学习/" title="一篇kdd上的推荐系统相关的论文">yiyu.site/2017/06/20/推荐系统学习/</a>
-            <span class="copy-path" data-clipboard-text="原文: yiyu.site/2017/06/20/推荐系统学习/　　作者: wiyee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/29/RequestMapping 注解类/" title="RequestMapping 注解类">yiyu.site/2017/06/29/RequestMapping 注解类/</a>
+            <span class="copy-path" data-clipboard-text="原文: yiyu.site/2017/06/29/RequestMapping 注解类/　　作者: wiyee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -358,16 +398,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/20/axis和stack/">
-                    numpy之stack、axis
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/09/maven的安装配置/">
-                    Maven安装配置
+                <a href="/2017/06/22/music/">
+                    learn and listen
                 </a>
             </div>
         
@@ -379,7 +413,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户模型-用户喜好-用户行为"><span class="toc-number">1.</span> <span class="toc-text">用户模型 用户喜好 用户行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合推荐"><span class="toc-number">2.</span> <span class="toc-text">组合推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#后融合组合推荐"><span class="toc-number">2.1.</span> <span class="toc-text">后融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中融合组合推荐"><span class="toc-number">2.2.</span> <span class="toc-text">中融合组合推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前融合组合推荐"><span class="toc-number">2.3.</span> <span class="toc-text">前融合组合推荐</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#headers"><span class="toc-number">1.</span> <span class="toc-text">headers</span></a></li></ol>
         
     </div>
     <style>
@@ -415,7 +449,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一篇kdd上的推荐系统相关的论文　| wiyee's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"RequestMapping 注解类　| wiyee's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -449,15 +483,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/20/axis和stack/" title="上一篇: numpy之stack、axis">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/09/maven的安装配置/" title="下一篇: Maven安装配置">
+            <a href="/2017/06/22/music/" title="下一篇: learn and listen">
                 <i class="fa fa-angle-right"></i>
             </a>
         
