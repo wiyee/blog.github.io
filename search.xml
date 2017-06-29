@@ -5,39 +5,38 @@
     <entry>
       <title><![CDATA[RequestMapping 注解类]]></title>
       <url>/2017/06/29/RequestMapping%20%E6%B3%A8%E8%A7%A3%E7%B1%BB/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。<br>•RequestMapping注解类的使用方法<br>•RequestMapping注解类的属性<br>•定义Ant风格和带占位符的URL<br><a id="more"></a></excerpt></p>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</excerpt></p>
+<ul>
+<li>RequestMapping注解类的使用方法</li>
+<li>RequestMapping注解类的属性</li>
+<li>定义Ant风格和带占位符的URL<a id="more"></a>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>###RequestMapping注解类的使用方法</p>
-<ul>
+</the></li>
+</ul>
+<h3 id="RequestMapping注解类的使用方法"><a href="#RequestMapping注解类的使用方法" class="headerlink" title="RequestMapping注解类的使用方法"></a>RequestMapping注解类的使用方法</h3><ul>
 <li>开发Controller控制器类，使用@Controller注解标注，并在配置文件中用<context:component-scan>扫描</context:component-scan></li>
 <li>在Controller控制器类的类定义和方法定义处都可以标注@RequestMapping注解</li>
-<li>DispatcherServlet截获请求后，就可以通过控制器上的@RequestMapping提供的映射信息确定请求所对应的处理方法<br><img src="/image/requestmapping/1.png" width="550" alt="1" align="center"></li>
+<li>DispatcherServlet截获请求后，就可以通过控制器上的@RequestMapping提供的映射信息确定请求所对应的处理方法<br><img src="/image/1.png" width="550" alt="1" align="center"></li>
 </ul>
-<p>###RequestMapping注解类的属性</p>
-<p>RequestMapping注解类的属性，分别有 value, method, consumes, produces, params, headers</p>
-<p>####value</p>
-<ul>
+<h3 id="RequestMapping注解类的属性"><a href="#RequestMapping注解类的属性" class="headerlink" title="RequestMapping注解类的属性"></a>RequestMapping注解类的属性</h3><p>RequestMapping注解类的属性，分别有 value, method, consumes, produces, params, headers</p>
+<h4 id="value"><a href="#value" class="headerlink" title="value"></a>value</h4><ul>
 <li>代表具体的请求路径，比如上面的 /user， /login 都是value的值</li>
 <li>value可以省略，就像例子中一样，直接用 @RequestMapping(“/login”) 的格式，它等同于@RequestMapping(value = “/login”)<br><img src="/image/requestmapping/2.png" width="550" alt="2" align="center"></li>
 </ul>
-<p>####method</p>
-<ul>
+<h4 id="method"><a href="#method" class="headerlink" title="method"></a>method</h4><ul>
 <li>指定请求的method类型， GET、POST、PUT、DELETE等</li>
 <li>例：@RequestMapping(value = “/login”, method = RequestMethod.POST) 那么只有发送POST请求才会触发这个方法</li>
 <li>例：@RequestMapping(value = “/login”, method = {RequestMethod.POST, RequestMethod.GET})<br><img src="/image/requestmapping/3.png" width="500" alt="3" align="center"><br><img src="/image/requestmapping/4.png" width="550" alt="4" align="center"></li>
 </ul>
-<p>####consumes</p>
-<ul>
+<h4 id="consumes"><a href="#consumes" class="headerlink" title="consumes"></a>consumes</h4><ul>
 <li>指定请求的提交内容类型（Content-Type），例如application/json, text/html</li>
 <li>它的值既可以是字符串也可以是数组<br><img src="/image/requestmapping/5.png" width="550" alt="5" align="center"><br><img src="/image/requestmapping/6.png" width="550" alt="6" align="center"></li>
 </ul>
-<p>####produces</p>
-<ul>
+<h4 id="produces"><a href="#produces" class="headerlink" title="produces"></a>produces</h4><ul>
 <li>指定请求中必须包含某些参数值，才会触发这个处理方法。<br><img src="/image/requestmapping/7.png" width="550" alt="7" align="center"></li>
 </ul>
-<p>####params</p>
-<ul>
+<h4 id="params"><a href="#params" class="headerlink" title="params"></a>params</h4><ul>
 <li>指定请求中必须包含某些参数值，才会触发这个处理方法</li>
 <li>参数中除了使用=等号外，还可以使用!=号，表示在参数的值不等于的情况下触发这个方法</li>
 <li>也可以不指定具体的值，直接使用 “paramName” 的格式，代表请求中必须包含参数名为 paramName 的参数</li>
@@ -46,8 +45,7 @@
 <h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><ul>
 <li>请求头Header中必须包含某些指定的参数值，才能让该方法处理请求<br><img src="/image/requestmapping/10.png" width="550" alt="10" align="center"><br><img src="/image/requestmapping/11.png" width="700" alt="11" align="center"></li>
 </ul>
-<p>###定义Ant风格和带占位符的URL</p>
-<p>@RequestMapping不仅支持标准的URL，还支持Ant风格和带{xxx}占位符的URL，下面的URL都是合法的：</p>
+<h3 id="定义Ant风格和带占位符的URL"><a href="#定义Ant风格和带占位符的URL" class="headerlink" title="定义Ant风格和带占位符的URL"></a>定义Ant风格和带占位符的URL</h3><p>@RequestMapping不仅支持标准的URL，还支持Ant风格和带{xxx}占位符的URL，下面的URL都是合法的：</p>
 <ul>
 <li>/user/*/login：匹配/user/aaa/login，/user/任意字符/login 等</li>
 <li>/user/**/login：匹配/user/login， /user/aaa/bbb/login 等</li>
@@ -55,7 +53,7 @@
 <li>/user/{userId}：匹配/user/123， /user/234 等</li>
 <li>/user/**/{userId}：匹配/user/aaa/bbb/123，/user/aaa/234等</li>
 </ul>
-</the>]]></content>
+]]></content>
       
         <categories>
             
@@ -242,9 +240,9 @@ linuxidc ALL=(ALL) ALL
         
         <tags>
             
-            <tag> machine learning </tag>
-            
             <tag> deep learning </tag>
+            
+            <tag> machine learning </tag>
             
         </tags>
         
@@ -285,9 +283,9 @@ $ source ~/tensorflow/bin/activate.csh  # csh or tcsh
         
         <tags>
             
-            <tag> machine learning </tag>
-            
             <tag> deep learning </tag>
+            
+            <tag> machine learning </tag>
             
         </tags>
         
