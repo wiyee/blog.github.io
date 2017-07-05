@@ -22,7 +22,7 @@
 <meta property="og:url" content="yiyu.site/2017/06/29/RequestMapping 注解类/index.html">
 <meta property="og:site_name" content="wiyee&#39;s blog">
 <meta property="og:description" content="RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。  RequestMapping注解类的使用方法 RequestMapping注解类的属性 定义Ant风格和带占位符的URL">
-<meta property="og:image" content="/image/requestmapping-1.png">
+<meta property="og:image" content="/image/requestmapping/1.png">
 <meta property="og:image" content="/image/requestmapping/2.png">
 <meta property="og:image" content="/image/requestmapping/3.png">
 <meta property="og:image" content="/image/requestmapping/4.png">
@@ -33,11 +33,11 @@
 <meta property="og:image" content="/image/requestmapping/9.png">
 <meta property="og:image" content="/image/requestmapping/10.png">
 <meta property="og:image" content="/image/requestmapping/11.png">
-<meta property="og:updated_time" content="2017-06-29T11:06:09.475Z">
+<meta property="og:updated_time" content="2017-06-29T11:16:01.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RequestMapping 注解类">
 <meta name="twitter:description" content="RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。  RequestMapping注解类的使用方法 RequestMapping注解类的属性 定义Ant风格和带占位符的URL">
-<meta name="twitter:image" content="/image/requestmapping-1.png">
+<meta name="twitter:image" content="/image/requestmapping/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -203,7 +203,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regression/">regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springmvc/">springmvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集群/">集群</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/numpy/">numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regression/">regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springmvc/">springmvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集群/">集群</a></li></ul>
                     </div>
                 </section>
                 
@@ -334,7 +334,7 @@
 <h2 id="RequestMapping注解类的使用方法"><a href="#RequestMapping注解类的使用方法" class="headerlink" title="RequestMapping注解类的使用方法"></a>RequestMapping注解类的使用方法</h2><ul>
 <li>开发Controller控制器类，使用@Controller注解标注，并在配置文件中用<context:component-scan>扫描</context:component-scan></li>
 <li>在Controller控制器类的类定义和方法定义处都可以标注@RequestMapping注解</li>
-<li>DispatcherServlet截获请求后，就可以通过控制器上的@RequestMapping提供的映射信息确定请求所对应的处理方法<br><img src="/image/requestmapping-1.png" width="550" alt="1" align="center"></li>
+<li>DispatcherServlet截获请求后，就可以通过控制器上的@RequestMapping提供的映射信息确定请求所对应的处理方法<br><img src="/image/requestmapping/1.png" width="550" alt="1" align="center"></li>
 </ul>
 <h2 id="RequestMapping注解类的属性"><a href="#RequestMapping注解类的属性" class="headerlink" title="RequestMapping注解类的属性"></a>RequestMapping注解类的属性</h2><p>RequestMapping注解类的属性，分别有 value, method, consumes, produces, params, headers</p>
 <h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><ul>
@@ -381,7 +381,7 @@
         <p><span>本文标题:</span><a href="/2017/06/29/RequestMapping 注解类/">RequestMapping 注解类</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wiyee</a></p>
         <p><span>发布时间:</span>2017-06-29, 16:59:37</p>
-        <p><span>最后更新:</span>2017-06-29, 19:06:09</p>
+        <p><span>最后更新:</span>2017-06-29, 19:16:01</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/29/RequestMapping 注解类/" title="RequestMapping 注解类">yiyu.site/2017/06/29/RequestMapping 注解类/</a>
             <span class="copy-path" data-clipboard-text="原文: yiyu.site/2017/06/29/RequestMapping 注解类/　　作者: wiyee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -396,10 +396,16 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/07/04/mysql安装配置/">
+                    ubuntu安装和删除mysql
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/22/music/">
-                    learn and listen
+                <a href="/2017/06/20/粒子群算法/">
+                    粒子群算法
                 </a>
             </div>
         
@@ -481,19 +487,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/07/04/mysql安装配置/" title="上一篇: ubuntu安装和删除mysql">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/22/music/" title="下一篇: learn and listen">
+            <a href="/2017/06/20/粒子群算法/" title="下一篇: 粒子群算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/RequestMapping 注解类/">RequestMapping 注解类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/music/">learn and listen</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/粒子群算法/">粒子群算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/Ubuntu命令/">ubuntu常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/ubuntu ssh/">ubuntu配置ssh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tensorflow安装/">Installing TensorFlow with virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/maven的安装配置/">Maven安装配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/LogisticRegression/">LogisticRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/log/">java log的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/linearRegresiion/">LinearRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/install vm-tools/">在VMvare的linux虚拟机上安装vm-tools</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/axis和stack/">numpy之stack、axis</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/maven配置文件详解/">maven配置pom.xml</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/mysql安装配置/">ubuntu安装和删除mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/RequestMapping 注解类/">RequestMapping 注解类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/粒子群算法/">粒子群算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/Ubuntu命令/">ubuntu常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/ubuntu ssh/">ubuntu配置ssh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/TensorFlow学习/">TensorFlow学习入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tensorflow安装/">Installing TensorFlow with virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/sklearn中logistic回归的参数设置/">sklern中logistic回归参数设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/maven的安装配置/">Maven安装配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/LogisticRegression/">LogisticRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/log/">java log的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/linearRegresiion/">LinearRegression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/k均值/">k-均值聚类算法对未标注数据分组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/install vm-tools/">在VMvare的linux虚拟机上安装vm-tools</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/hadoop集群/">hadoop集群安装与配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/axis和stack/">numpy之stack、axis</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/推荐系统学习/">一篇kdd上的推荐系统相关的论文</a></li></ul>
 
 
 
